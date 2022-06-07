@@ -40,7 +40,15 @@ toc::[]
 [subs=attributes+]
 ```
 $ git clone {git_clone_ssh}
+$ cd {git_project}
 ```
+
+```
+$ npm install
+$ ng serve
+```
+
+The application is visible at port 4200: http://localhost:4200.
 
 {back_to_top}
 
