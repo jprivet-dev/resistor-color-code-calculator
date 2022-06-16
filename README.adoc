@@ -1,0 +1,61 @@
+:toc: macro
+:toc-title: Summary
+:toclevels: 3
+:numbered:
+
+ifndef::env-github[:icons: font]
+ifdef::env-github[]
+:status:
+:outfilesuffix: .adoc
+:caution-caption: :fire:
+:important-caption: :exclamation:
+:note-caption: :paperclip:
+:tip-caption: :bulb:
+:warning-caption: :warning:
+endif::[]
+
+:back_to_top_target: top-target
+:back_to_top_label: ⬆ Back to top
+:back_to_top: <<{back_to_top_target},{back_to_top_label}>>
+
+:main_title: Resistor Color Code Calculator
+:git_project: resistor-color-code-calculator
+:git_username: jprivet-dev
+:git_url: https://github.com/{git_username}/{git_project}
+:git_clone_ssh: git@github.com:{git_username}/{git_project}.git
+
+[#{back_to_top_target}]
+= {main_title}
+
+image:https://app.codacy.com/project/badge/Grade/4626dbdd8e7f48afaaa63f60480ff7ef["Codacy code quality", link="https://www.codacy.com/gh/jprivet-dev/resistor-color-code-calculator/dashboard?utm_source=github.com&utm_medium=referral&utm_content=jprivet-dev/resistor-color-code-calculator&utm_campaign=Badge_Grade"]
+
+toc::[]
+
+== Presentation
+
+{back_to_top}
+
+== Installation
+
+[subs=attributes+]
+```
+$ git clone {git_clone_ssh}
+$ cd {git_project}
+```
+
+```
+$ npm install
+$ ng serve
+```
+
+The application is visible at port 4200: http://localhost:4200.
+
+{back_to_top}
+
+== License
+
+{main_title} is released under the {git_url}/blob/main/LICENSE[*MIT License*]
+
+---
+
+{back_to_top}
