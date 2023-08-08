@@ -2,11 +2,14 @@
   <nav class="container-fluid" aria-label="Main navigation">
     <a class="navbar-brand" routerLink="/">Resistor Color Code Calculator</a>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navigation" aria-controls="main-navigation" aria-expanded="false" aria-label="Toggle navigation">
+    <button
+      class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navigation" aria-controls="main-navigation" aria-expanded="false" aria-label="Toggle navigation"
+      (click)="isMenuCollapsed = !isMenuCollapsed"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="main-navigation">
+    <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse" id="main-navigation">
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" routerLink="/">Resistor</a>
@@ -17,11 +20,11 @@
         <li class="nav-item">
           <a class="nav-link" href="https://github.com/jprivet-dev/resistor-color-code-calculator" target="_blank">GitHub</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Language</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">English</a></li>
-            <li><a class="dropdown-item" href="#">Français</a></li>
+        <li ngbDropdown class="nav-item dropdown">
+          <button ngbDropdownToggle class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Language</button>
+          <ul ngbDropdownMenu class="dropdown-menu">
+            <li><button ngbDropdownItem class="dropdown-item">English</button></li>
+            <li><button ngbDropdownItem class="dropdown-item">Français</button></li>
           </ul>
         </li>
       </ul>
