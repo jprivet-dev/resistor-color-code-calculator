@@ -3,8 +3,8 @@
     <a class="navbar-brand" routerLink="/">Resistor Color Code Calculator</a>
 
     <button
-      class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navigation" aria-controls="main-navigation" aria-expanded="false" aria-label="Toggle navigation"
       (click)="isMenuCollapsed = !isMenuCollapsed"
+      class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navigation" aria-controls="main-navigation" aria-expanded="false" aria-label="Toggle navigation"
     >
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -12,10 +12,10 @@
     <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse" id="main-navigation">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="/">Resistor</a>
+          <a routerLink="/resistor" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">Resistor</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/about">About</a>
+          <a routerLink="/about" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link" >About</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="https://github.com/jprivet-dev/resistor-color-code-calculator" target="_blank">GitHub</a>
