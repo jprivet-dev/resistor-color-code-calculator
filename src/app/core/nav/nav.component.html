@@ -35,8 +35,20 @@
             {{ t("language") | titlecase }}
           </button>
           <ul ngbDropdownMenu class="dropdown-menu">
-            <li *ngFor="let l of langConfig">
-              <button ngbDropdownItem (click)="setLang(l.lang)" class="dropdown-item">{{ l.label }}</button>
+            <li *ngFor="let conf of langConfig">
+              <button ngbDropdownItem (click)="setLang(conf.lang)" class="dropdown-item">{{ conf.label }}</button>
+            </li>
+          </ul>
+        </li>
+        <li ngbDropdown class="nav-item dropdown">
+          <button ngbDropdownToggle class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            {{ t("theme") | titlecase }}
+          </button>
+          <ul ngbDropdownMenu class="dropdown-menu">
+            <li *ngFor="let conf of themeConfig">
+              <button ngbDropdownItem (click)="setTheme(conf.theme)" class="dropdown-item">
+                {{ t(conf.key) | titlecase }}
+              </button>
             </li>
           </ul>
         </li>

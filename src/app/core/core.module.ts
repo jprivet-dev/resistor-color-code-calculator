@@ -3,6 +3,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { LangInterceptor } from './lang/lang.interceptor';
 import { NavModule } from './nav/nav.module';
+import { ThemeInterceptor } from './theme/theme.interceptor';
 
 @NgModule({
   declarations: [],
@@ -10,6 +11,7 @@ import { NavModule } from './nav/nav.module';
   exports: [NavModule],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LangInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ThemeInterceptor, multi: true },
   ],
 })
 export class CoreModule {

@@ -1,6 +1,9 @@
 {
   "about": "à propos",
+  "dark": "sombre",
   "github": "GitHub",
   "language": "langage",
-  "resistor": "resistance"
+  "light": "clair",
+  "resistor": "resistance",
+  "theme": "thème"
 }

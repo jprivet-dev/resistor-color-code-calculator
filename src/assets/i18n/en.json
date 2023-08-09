@@ -1,6 +1,9 @@
 {
   "about": "about",
+  "dark": "dark",
   "github": "GitHub",
   "language": "language",
-  "resistor": "resistor"
+  "light": "light",
+  "resistor": "resistor",
+  "theme": "theme"
 }

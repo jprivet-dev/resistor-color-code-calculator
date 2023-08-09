@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { langConfig, LangService } from '../lang/lang.service';
+import { themeConfig, ThemeService } from '../theme/theme.service';
 
 @Component({
   selector: 'app-nav',
@@ -9,9 +10,17 @@ import { langConfig, LangService } from '../lang/lang.service';
 export class NavComponent {
   private langService = inject(LangService);
   readonly langConfig = langConfig;
+
+  private themeService = inject(ThemeService);
+  readonly themeConfig = themeConfig;
+
   isMenuCollapsed = true;
 
   setLang(lang: string): void {
     this.langService.setLang(lang);
+  }
+
+  setTheme(theme: string): void {
+    this.themeService.setTheme(theme);
   }
 }
