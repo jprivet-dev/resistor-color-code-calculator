@@ -1,4 +1,4 @@
-<header class="navbar navbar-expand-lg navbar-dark bg-dark">
+<header class="navbar navbar-expand-lg navbar-dark bg-dark" *transloco="let t">
   <nav class="container-fluid" aria-label="Main navigation">
     <a class="navbar-brand" routerLink="/">Resistor Color Code Calculator</a>
 
@@ -12,22 +12,29 @@
     <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse" id="main-navigation">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a routerLink="/resistor" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">Resistor</a>
+          <a routerLink="/resistor" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">
+            {{ t("resistor") }}
+          </a>
         </li>
         <li class="nav-item">
-          <a routerLink="/about" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link" >About</a>
+          <a routerLink="/about" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link" >
+            {{ t("about") }}
+          </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="https://github.com/jprivet-dev/resistor-color-code-calculator" target="_blank">
-            GitHub
+            {{ t("github") }}
             <i class="bi bi-box-arrow-up-right"></i>
           </a>
         </li>
         <li ngbDropdown class="nav-item dropdown">
-          <button ngbDropdownToggle class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Language</button>
+          <button ngbDropdownToggle class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            {{ t("language") }}
+          </button>
           <ul ngbDropdownMenu class="dropdown-menu">
-            <li><button ngbDropdownItem class="dropdown-item">English</button></li>
-            <li><button ngbDropdownItem class="dropdown-item">Français</button></li>
+            <li *ngFor="let l of langs">
+              <button ngbDropdownItem (click)="changeLang(l.lang)" class="dropdown-item">{{ l.label }}</button>
+            </li>
           </ul>
         </li>
       </ul>
