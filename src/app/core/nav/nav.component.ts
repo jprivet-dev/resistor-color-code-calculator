@@ -17,6 +17,7 @@ export class NavComponent {
   isMenuCollapsed = true;
 
   changeLang(lang: string): void {
+    localStorage.setItem('lang', lang);
     this.transloco.setActiveLang(lang);
   }
 }
