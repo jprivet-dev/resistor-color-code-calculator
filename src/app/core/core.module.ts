@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
-import { NavModule } from './nav/nav.module';
+import { NavModule } from '@core/nav/nav.module';
 
 @NgModule({
   declarations: [],
