@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { TranslocoService } from '@ngneat/transloco';
+import { langConfig, LangService } from '../lang/lang.service';
 
 @Component({
   selector: 'app-nav',
@@ -7,17 +7,11 @@ import { TranslocoService } from '@ngneat/transloco';
   styleUrls: ['./nav.component.scss'],
 })
 export class NavComponent {
-  private transloco = inject(TranslocoService);
-
-  langs: { lang: string; label: string }[] = [
-    { lang: 'en', label: 'English' },
-    { lang: 'fr', label: 'Français' },
-  ];
-
+  private langService = inject(LangService);
+  readonly langConfig = langConfig;
   isMenuCollapsed = true;
 
-  changeLang(lang: string): void {
-    localStorage.setItem('lang', lang);
-    this.transloco.setActiveLang(lang);
+  setLang(lang: string): void {
+    this.langService.setLang(lang);
   }
 }

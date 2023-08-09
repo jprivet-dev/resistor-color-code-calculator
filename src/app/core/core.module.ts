@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
-import { LangInterceptor } from './lang.interceptor';
+import { LangInterceptor } from './lang/lang.interceptor';
 import { NavModule } from './nav/nav.module';
 
 @NgModule({

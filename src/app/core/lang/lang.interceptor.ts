@@ -5,21 +5,18 @@ import {
   HttpRequest,
 } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { TranslocoService } from '@ngneat/transloco';
 import { Observable } from 'rxjs';
+import { LangService } from './lang.service';
 
 @Injectable()
 export class LangInterceptor implements HttpInterceptor {
-  private transloco = inject(TranslocoService);
+  private langService = inject(LangService);
 
   intercept(
     request: HttpRequest<unknown>,
     next: HttpHandler,
   ): Observable<HttpEvent<unknown>> {
-    const lang = localStorage.getItem('lang');
-    if (lang) {
-      this.transloco.setActiveLang(lang);
-    }
+    this.langService.setLang(this.langService.retrieveLang());
     return next.handle(request);
   }
 }

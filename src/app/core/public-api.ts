@@ -1,2 +1,2 @@
 export * from './core.module';
-export * from './lang.interceptor';
+export * from './lang/lang.interceptor';
