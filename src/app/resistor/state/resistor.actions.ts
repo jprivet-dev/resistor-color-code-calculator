@@ -10,6 +10,7 @@ export const ResistorActions = createActionGroup({
     'Band multiplier': props<{ color: string }>(),
     'Band tolerance': props<{ color: string }>(),
     'Band thermal coefficient': props<{ color: string }>(),
+    'Bands count': props<{ bandsCount: number }>(),
   },
 });
 

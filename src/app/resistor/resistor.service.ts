@@ -8,12 +8,13 @@ import { Resistor } from './resistor.model';
 export class ResistorService {
   getResistor(): Observable<Resistor> {
     return of({
-      bandDigit1: { color: 'red' },
-      bandDigit2: { color: 'red' },
-      bandDigit3: { color: 'red' },
-      bandMultiplier: { color: 'red' },
-      bandTolerance: { color: 'red' },
-      bandThermalCoefficient: { color: 'red' },
+      digit1: { color: 'brown', active: true },
+      digit2: { color: 'green', active: true },
+      digit3: { color: 'red', active: true },
+      multiplier: { color: 'black', active: true },
+      tolerance: { color: 'violet', active: false },
+      thermalCoefficient: { color: 'red', active: false },
+      bandsCount: 4,
     });
   }
 }

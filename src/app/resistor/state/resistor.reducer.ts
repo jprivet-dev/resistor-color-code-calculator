@@ -1,17 +1,22 @@
 import { createReducer, on } from '@ngrx/store';
 import { Resistor } from '../resistor.model';
-import { ResistorApiActions } from './resistor.actions';
+import { ResistorActions, ResistorApiActions } from './resistor.actions';
 
 export const initialState: Readonly<Resistor> = {
-  bandDigit1: { color: 'white' },
-  bandDigit2: { color: 'white' },
-  bandDigit3: { color: 'white' },
-  bandMultiplier: { color: 'white' },
-  bandTolerance: { color: 'white' },
-  bandThermalCoefficient: { color: 'white' },
+  digit1: { color: 'white' },
+  digit2: { color: 'white' },
+  digit3: { color: 'white' },
+  multiplier: { color: 'white' },
+  tolerance: { color: 'white' },
+  thermalCoefficient: { color: 'white' },
+  bandsCount: 0,
 };
 
 export const resistorReducer = createReducer(
   initialState,
   on(ResistorApiActions.retrievedResistor, (state, { resistor }) => resistor),
+  on(ResistorActions.bandsCount, (state, { bandsCount }) => ({
+    ...state,
+    bandsCount,
+  })),
 );

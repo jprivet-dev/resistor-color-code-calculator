@@ -1,9 +1,34 @@
 {
   "about": "about",
+  "bands": "{{ bandsCount }} bands",
+  "colorName": {
+    "black": "black",
+    "blue": "blue",
+    "brown": "brown",
+    "gold": "gold",
+    "green": "green",
+    "grey": "grey",
+    "none": "none",
+    "orange": "orange",
+    "red": "red",
+    "silver": "silver",
+    "violet": "violet",
+    "white": "white",
+    "yellow": "yellow"
+  },
   "dark": "dark",
+  "digit1": "1st band",
+  "digit2": "2nd band",
+  "digit3": "3rd band",
   "github": "GitHub",
   "language": "language",
   "light": "light",
+  "multiplier": "multiplier",
+  "punctuation": {
+    "colon": ": "
+  },
   "resistor": "resistor",
-  "theme": "theme"
+  "theme": "theme",
+  "thermalCoefficient": "thermal coefficient",
+  "tolerance": "tolerance"
 }

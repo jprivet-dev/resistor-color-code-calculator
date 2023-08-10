@@ -1,0 +1,19 @@
+.resistor-object {
+  background-color: #E2AE79;
+  width: 280px;
+  height: 80px;
+  padding: 0 10px;
+
+  .band {
+    width: 20px;
+    margin: 0 10px;
+  }
+}
+
+.bands-count-4,
+.bands-count-5,
+.bands-count-6 {
+  .band-multiplier {
+    margin-right: auto;
+  }
+}
