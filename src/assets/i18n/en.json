@@ -1,6 +1,7 @@
 {
   "about": "about",
   "bands": "{{ bandsCount }} bands",
+  "color": "color",
   "colorName": {
     "black": "black",
     "blue": "blue",

@@ -15,6 +15,7 @@
             </ng-container>
           </div>
         </div>
+
         <div class="d-flex justify-content-center py-3">
           <div class="resistor-object rounded-2 {{ 'bands-count-' + resistor.bandsCount }} d-flex align-self-stretch">
             <div
@@ -24,10 +25,32 @@
             ></div>
           </div>
         </div>
-        <div class="d-flex justify-content-center py-3">
-            <span *ngFor="let bandName of getBandsNameListByBandsCount(resistor.bandsCount)" class="badge bg-secondary" >
-              {{ t(bandName) | titlecase }}{{ t('punctuation.colon') }}{{ t('colorName.' + resistor[bandName].color) }}
-            </span>
+
+        <div class="d-flex justify-content-center py-3" *ngIf="getBandsNameListByBandsCount(resistor.bandsCount) as bandsName">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">{{ t('color') | titlecase }}</th>
+                <th scope="col">{{ t('digit1') | titlecase }}</th>
+                <th scope="col">{{ t('digit2') | titlecase }}</th>
+                <th scope="col" *ngIf="bandsName.includes('digit3')">{{ t('digit3') | titlecase }}</th>
+                <th scope="col" *ngIf="bandsName.includes('multiplier')">{{ t('multiplier') | titlecase }}</th>
+                <th>{{ t('tolerance') | titlecase }}</th>
+                <th scope="col" *ngIf="bandsName.includes('thermalCoefficient')">{{ t('thermalCoefficient') | titlecase }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let color of bandColorList">
+                <th scope="row">{{ t('colorName.' + color) | titlecase }}</th>
+                <td>{{ bandsValuesConfig.digit1[color] }}</td>
+                <td>{{ bandsValuesConfig.digit2[color] }}</td>
+                <td *ngIf="bandsName.includes('digit3')">{{ bandsValuesConfig.digit3[color] }}</td>
+                <td *ngIf="bandsName.includes('multiplier')">{{ bandsValuesConfig.multiplier[color] | format: 'multiplier' }}</td>
+                <td>{{ bandsValuesConfig.tolerance[color] | format: 'tolerance' }}</td>
+                <td *ngIf="bandsName.includes('thermalCoefficient')">{{ bandsValuesConfig.thermalCoefficient[color] | format: 'thermal_coefficient' }}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
       <div class="col-md bg-body-secondary">

@@ -1,6 +1,7 @@
 {
   "about": "à propos",
   "bands": "{{ bandsCount }} bandes",
+  "color": "couleur",
   "colorName": {
     "black": "noir",
     "blue": "bleu",
@@ -27,7 +28,7 @@
   "punctuation": {
     "colon": " : "
   },
-  "resistor": "resistance",
+  "resistor": "résistance",
   "theme": "thème",
   "thermalCoefficient": "coefficient de température",
   "tolerance": "tolérance"

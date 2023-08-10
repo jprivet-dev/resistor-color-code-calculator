@@ -1,6 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { BandName, getBandsNameListByBandsCount } from './resistor.model';
+import {
+  bandColorList,
+  BandName,
+  bandsValuesConfig,
+  getBandsNameListByBandsCount,
+} from './resistor.model';
 import { ResistorService } from './resistor.service';
 import { ResistorActions, ResistorApiActions } from './state/resistor.actions';
 import { selectResistor } from './state/resistor.selectors';
@@ -15,6 +20,8 @@ export class ResistorComponent implements OnInit {
   private resistorService = inject(ResistorService);
 
   resistorBandsCountList = [3, 4, 5, 6];
+  bandColorList = bandColorList;
+  bandsValuesConfig = bandsValuesConfig;
 
   resistor$ = this.store.select(selectResistor);
 
