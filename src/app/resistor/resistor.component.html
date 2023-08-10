@@ -1,7 +1,7 @@
 <ng-container *transloco="let t">
   <div *ngIf="(resistor$ | async) as resistor">
-    <div class="row">
-      <div class="col-md">
+    <div class="row row-cols-1 row-cols-lg-1 row-cols-xl-2">
+      <div class="col col-12 col-xxl-5 col-5">
         <div class="d-flex justify-content-center pt-5 pb-3">
           <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
             <ng-container *ngFor="let bandsCount of resistorBandsCountList">
@@ -53,8 +53,117 @@
           </table>
         </div>
       </div>
-      <div class="col-md bg-body-secondary">
-        Column
+      <div class="col col-12 col-xxl-7 pt-5">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-2 row-cols-xxl-3 mb-4 g-4 text-center">
+          <div class="col">
+            <div class="card h-100 rounded-3 shadow-sm border-primary">
+              <div class="card-header py-3 text-bg-primary border-primary">
+                <h4 class="my-0 fw-normal">
+                  {{ t('resistance') | titlecase }}
+                </h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title">
+                  {{ 560 | format: 'resistance' }}
+                </h1>
+                <ul class="list-unstyled mt-3">
+                  <li>{{ 588 | format: 'resistance_max' }}</li>
+                  <li>{{ 532 | format: 'resistance_min' }}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100 rounded-3 shadow-sm">
+              <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">
+                  {{ t('tolerance') | titlecase }}
+                </h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title">
+                  {{ 5 | format: 'tolerance' }}
+                </h1>
+                <ul class="list-unstyled mt-3">
+                  <li>{{ 28 | format: 'tolerance_ohm' }}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100 rounded-3 shadow-sm">
+              <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">
+                  {{ t('power_rating') | titlecase }}
+                </h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title">
+                  {{ 0.25 | format: 'power' }}
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-1 row-cols-xxl-2 mb-4 g-4 text-center">
+          <div class="col">
+            <div class="card h-100 rounded-3 shadow-sm">
+              <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">
+                  {{ t('characteristics') | titlecase }}
+                </h4>
+              </div>
+              <div class="card-body">
+                <table class="table table-striped">
+                  <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100 rounded-3 shadow-sm">
+              <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">
+                  {{ t('ohm_s_law') | titlecase }} - {{ t('charts') | titlecase }}
+                </h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title">
+                  {{ 5 | format: 'tolerance' }}
+                </h1>
+                <ul class="list-unstyled mt-3">
+                  <li>{{ 28 | format: 'tolerance_ohm' }}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 

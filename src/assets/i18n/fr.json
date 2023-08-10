@@ -25,11 +25,16 @@
   "language": "langage",
   "light": "clair",
   "multiplier": "multiplieur",
+  "power_rating": "charge admissible",
   "punctuation": {
     "colon": " : "
   },
+  "resistance": "résistance",
   "resistor": "résistance",
   "theme": "thème",
   "thermalCoefficient": "coefficient de température",
-  "tolerance": "tolérance"
+  "tolerance": "tolérance",
+  "characteristics": "caractéristiques",
+  "charts": "graphiques",
+  "ohm_s_law": "la loi d'Ohm"
 }

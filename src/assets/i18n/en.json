@@ -25,11 +25,16 @@
   "language": "language",
   "light": "light",
   "multiplier": "multiplier",
+  "power_rating": "power rating",
   "punctuation": {
     "colon": ": "
   },
+  "resistance": "resistance",
   "resistor": "resistor",
   "theme": "theme",
   "thermalCoefficient": "thermal coefficient",
-  "tolerance": "tolerance"
+  "tolerance": "tolerance",
+  "characteristics": "characteristics",
+  "charts": "charts",
+  "ohm_s_law": "ohm's law"
 }
