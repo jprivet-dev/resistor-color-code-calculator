@@ -1,1 +1,3 @@
-<p>resistor works!</p>
+<div *ngIf="(resistor$ | async) as resistor">
+  {{ resistor | json }}
+</div>

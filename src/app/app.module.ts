@@ -3,8 +3,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CoreModule } from '@core/core.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { StoreModule } from '@ngrx/store';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { resistorReducer } from './resistor/state/resistor.reducer';
 import { TranslocoRootModule } from './transloco-root.module';
 
 @NgModule({
@@ -16,6 +18,7 @@ import { TranslocoRootModule } from './transloco-root.module';
     NgbModule,
     HttpClientModule,
     TranslocoRootModule,
+    StoreModule.forRoot({ resistor: resistorReducer }),
   ],
   providers: [],
   bootstrap: [AppComponent],
