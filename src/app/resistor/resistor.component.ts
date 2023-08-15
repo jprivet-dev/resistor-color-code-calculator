@@ -52,4 +52,28 @@ export class ResistorComponent implements OnInit {
   getResistorColorText(color: string): string {
     return 'var(--resistor-' + color + '-text)';
   }
+
+  setBandDigit1Color(color: string): void {
+    this.store.dispatch(ResistorActions.bandDigit1({ color }));
+  }
+
+  setBandDigit2Color(color: string): void {
+    this.store.dispatch(ResistorActions.bandDigit2({ color }));
+  }
+
+  setBandDigit3Color(color: string): void {
+    this.store.dispatch(ResistorActions.bandDigit3({ color }));
+  }
+
+  setBandMultiplierColor(color: string): void {
+    this.store.dispatch(ResistorActions.bandMultiplier({ color }));
+  }
+
+  setBandToleranceColor(color: string): void {
+    this.store.dispatch(ResistorActions.bandTolerance({ color }));
+  }
+
+  setBandThermalCoefficientColor(color: string): void {
+    this.store.dispatch(ResistorActions.bandThermalCoefficient({ color }));
+  }
 }

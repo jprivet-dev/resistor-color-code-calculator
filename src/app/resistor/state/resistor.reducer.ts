@@ -19,4 +19,28 @@ export const resistorReducer = createReducer(
     ...state,
     bandsCount,
   })),
+  on(ResistorActions.bandDigit1, (state, { color }) => ({
+    ...state,
+    digit1: { ...state.digit1, color },
+  })),
+  on(ResistorActions.bandDigit2, (state, { color }) => ({
+    ...state,
+    digit2: { ...state.digit2, color },
+  })),
+  on(ResistorActions.bandDigit3, (state, { color }) => ({
+    ...state,
+    digit3: { ...state.digit3, color },
+  })),
+  on(ResistorActions.bandMultiplier, (state, { color }) => ({
+    ...state,
+    multiplier: { ...state.multiplier, color },
+  })),
+  on(ResistorActions.bandTolerance, (state, { color }) => ({
+    ...state,
+    tolerance: { ...state.tolerance, color },
+  })),
+  on(ResistorActions.bandThermalCoefficient, (state, { color }) => ({
+    ...state,
+    thermalCoefficient: { ...state.thermalCoefficient, color },
+  })),
 );
