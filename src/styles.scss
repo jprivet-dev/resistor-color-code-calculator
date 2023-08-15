@@ -3,3 +3,71 @@
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons.css';
+
+$resistor-colors-bg: (
+  "black":  #000000,
+  "brown":  #762B16,
+  "red":    #C6101B,
+  "orange": #E86838,
+  "yellow": #F9D141,
+  "green":  #389C57,
+  "blue":   #0061AF,
+  "violet": #B86BA9,
+  "grey":   #8F908F,
+  "white":  #FFFFFF,
+  "gold":   #CCA43D,
+  "silver": #A5A5A5,
+  "none":   "none",
+);
+
+:root {
+  @each $color, $value in $resistor-colors-bg {
+    --resistor-#{$color}-bg: #{$value};
+  }
+}
+
+$resistor-colors-text: (
+  "black":  #FFFFFF,
+  "brown":  #FFFFFF,
+  "red":    #FFFFFF,
+  "orange": #FFFFFF,
+  "yellow": #000000,
+  "green":  #FFFFFF,
+  "blue":   #FFFFFF,
+  "violet": #FFFFFF,
+  "grey":   #FFFFFF,
+  "white":  #000000,
+  "gold":   #000000,
+  "silver": #000000,
+  "none":   #000000,
+);
+
+:root {
+  @each $color, $value in $resistor-colors-text {
+    --resistor-#{$color}-text: #{$value};
+  }
+}
+
+$resistor-colors-border: (
+        "black":  #000000,
+        "brown":  #762B16,
+        "red":    #C6101B,
+        "orange": #E86838,
+        "yellow": #F9D141,
+        "green":  #389C57,
+        "blue":   #0061AF,
+        "violet": #B86BA9,
+        "grey":   #8F908F,
+        "white":  #D7D7D7,
+        "gold":   #CCA43D,
+        "silver": #A5A5A5,
+        "none":   #D7D7D7,
+);
+
+:root {
+  @each $color, $value in $resistor-colors-border {
+    --resistor-#{$color}-border: #{$value};
+  }
+}
+
+

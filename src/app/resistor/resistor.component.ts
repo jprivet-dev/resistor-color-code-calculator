@@ -40,4 +40,16 @@ export class ResistorComponent implements OnInit {
   getBandsNameListByBandsCount(bandsCount: number): BandName[] {
     return getBandsNameListByBandsCount(bandsCount);
   }
+
+  getResistorColorBg(color: string): string {
+    return 'var(--resistor-' + color + '-bg)';
+  }
+
+  getResistorColorBorder(color: string): string {
+    return 'var(--resistor-' + color + '-border)';
+  }
+
+  getResistorColorText(color: string): string {
+    return 'var(--resistor-' + color + '-text)';
+  }
 }

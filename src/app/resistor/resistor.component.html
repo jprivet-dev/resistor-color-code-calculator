@@ -20,7 +20,7 @@
           <div class="resistor-object rounded-2 {{ 'bands-count-' + resistor.bandsCount }} d-flex align-self-stretch">
             <div
               *ngFor="let bandName of getBandsNameListByBandsCount(resistor.bandsCount)"
-              [style.background-color]="resistor[bandName].color"
+              [style.background-color]="getResistorColorBg(resistor[bandName].color)"
               class="band band-{{ bandName }}"
             ></div>
           </div>
@@ -41,7 +41,17 @@
             </thead>
             <tbody>
               <tr *ngFor="let color of bandColorList">
-                <th scope="row">{{ t('colorName.' + color) | titlecase }}</th>
+                <th scope="row">
+                  <div
+                      class="rounded-pill px-2 py-1"
+                      style="border: 1px solid #000000"
+                      [style.background-color]="getResistorColorBg(color)"
+                      [style.border-color]="getResistorColorBorder(color)"
+                      [style.color]="getResistorColorText(color)"
+                  >
+                    {{ t('colorName.' + color) | titlecase }}
+                  </div>
+                </th>
                 <td>{{ bandsValuesConfig.digit1[color] }}</td>
                 <td>{{ bandsValuesConfig.digit2[color] }}</td>
                 <td *ngIf="bandsName.includes('digit3')">{{ bandsValuesConfig.digit3[color] }}</td>
