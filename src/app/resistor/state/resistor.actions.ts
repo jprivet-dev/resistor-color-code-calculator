@@ -17,6 +17,6 @@ export const ResistorActions = createActionGroup({
 export const ResistorApiActions = createActionGroup({
   source: 'Resistor API',
   events: {
-    'Retrieved resistor': props<{ resistor: Readonly<Resistor> }>(),
+    'Retrieve resistor': props<{ resistor: Readonly<Resistor> }>(),
   },
 });

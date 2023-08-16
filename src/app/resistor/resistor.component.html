@@ -4,13 +4,13 @@
       <div class="col col-12 col-xxl-5 col-5">
         <div class="d-flex justify-content-center pt-5 pb-3">
           <div class="btn-group" role="group">
-            <ng-container *ngFor="let bandsCount of resistorBandsCountList">
+            <ng-container *ngFor="let count of bandsCounts">
               <input
-                (click)="setBandsCount(bandsCount)" [checked]="resistor.bandsCount === bandsCount"
-                type="radio" class="btn-check" name="bands-count" id="{{ 'bands-count-radio-' + bandsCount }}" autocomplete="off"
+                (click)="setBandsCount(count)" [checked]="resistor.bandsCount === count"
+                type="radio" class="btn-check" name="bands-count" id="{{ 'bands-count-radio-' + count }}" autocomplete="off"
               >
-              <label class="btn btn-outline-primary" for="{{ 'bands-count-radio-' + bandsCount }}">
-                {{ t('bands', { bandsCount }) }}
+              <label class="btn btn-outline-primary" for="{{ 'bands-count-radio-' + count }}">
+                {{ t('bands', { bandsCount: count }) }}
               </label>
             </ng-container>
           </div>
@@ -19,14 +19,14 @@
         <div class="d-flex justify-content-center py-3">
           <div class="resistor-object rounded-2 {{ 'bands-count-' + resistor.bandsCount }} d-flex align-self-stretch">
             <div
-              *ngFor="let bandName of getBandsNameListByBandsCount(resistor.bandsCount)"
+              *ngFor="let bandName of setBandsNameListByBandsCount(resistor.bandsCount)"
               [appResistorColor]="resistor[bandName].color"
               class="band band-{{ bandName }} border-0"
             ></div>
           </div>
         </div>
 
-        <div class="d-flex justify-content-center py-3" *ngIf="getBandsNameListByBandsCount(resistor.bandsCount) as bandsName">
+        <div class="d-flex justify-content-center py-3" *ngIf="setBandsNameListByBandsCount(resistor.bandsCount) as bandsName">
           <table class="table table-striped">
             <thead>
               <tr>
@@ -60,7 +60,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let color of bandColorList">
+              <tr *ngFor="let color of bandsColors">
                 <!-- colors -->
                 <th scope="row">
                   <div class="rounded-pill px-2 py-1" [appResistorColor]="color">
@@ -69,60 +69,60 @@
                 </th>
                 <!-- digit1 -->
                 <td>
-                  <div *ngIf="bandsValuesConfig.digit1[color]" class="form-check">
+                  <div *ngIf="resistorConfig.digit1[color]" class="form-check">
                     <label class="form-check-label py-1" for="band-digit1-{{ color }}">
-                      <input (click)="setBandDigit1Color(color)" class="form-check-input" type="radio" name="band-digit1" id="band-digit1-{{ color }}">
-                      {{ bandsValuesConfig.digit1[color] }}
+                      <input (click)="setBandDigit1(color)" class="form-check-input" type="radio" name="band-digit1" id="band-digit1-{{ color }}">
+                      {{ resistorConfig.digit1[color] }}
                     </label>
                   </div>
                 </td>
                 <!-- digit2 -->
                 <td>
-                  <div *ngIf="bandsValuesConfig.digit2[color]" class="form-check">
+                  <div *ngIf="resistorConfig.digit2[color]" class="form-check">
                     <label class="form-check-label py-1" for="band-digit2-{{ color }}">
-                      <input (click)="setBandDigit2Color(color)" class="form-check-input" type="radio" name="band-digit2" id="band-digit2-{{ color }}">
-                      {{ bandsValuesConfig.digit2[color] }}
+                      <input (click)="setBandDigit2(color)" class="form-check-input" type="radio" name="band-digit2" id="band-digit2-{{ color }}">
+                      {{ resistorConfig.digit2[color] }}
                     </label>
                   </div>
                 </td>
                 <!-- digit3 -->
                 <td *ngIf="bandsName.includes('digit3')">
-                  <div *ngIf="bandsValuesConfig.digit3[color]" class="form-check">
+                  <div *ngIf="resistorConfig.digit3[color]" class="form-check">
                     <label class="form-check-label py-1" for="band-digit3-{{ color }}">
-                      <input (click)="setBandDigit3Color(color)" class="form-check-input" type="radio" name="band-digit3" id="band-digit3-{{ color }}">
-                      {{ bandsValuesConfig.digit3[color] }}
+                      <input (click)="setBandDigit3(color)" class="form-check-input" type="radio" name="band-digit3" id="band-digit3-{{ color }}">
+                      {{ resistorConfig.digit3[color] }}
                     </label>
                   </div>
                 </td>
                 <!-- multiplier -->
                 <td *ngIf="bandsName.includes('multiplier')">
-                  <div *ngIf="bandsValuesConfig.multiplier[color]" class="form-check">
+                  <div *ngIf="resistorConfig.multiplier[color]" class="form-check">
                     <label class="form-check-label py-1" for="band-multiplier-{{ color }}">
-                      <input (click)="setBandMultiplierColor(color)" class="form-check-input" type="radio" name="band-multiplier" id="band-multiplier-{{ color }}">
-                      {{ bandsValuesConfig.multiplier[color] | format: 'multiplier' }}
+                      <input (click)="setBandMultiplier(color)" class="form-check-input" type="radio" name="band-multiplier" id="band-multiplier-{{ color }}">
+                      {{ resistorConfig.multiplier[color] | format: 'multiplier' }}
                     </label>
                   </div>
                 </td>
                 <!-- tolerance -->
                 <td>
-                  <div *ngIf="bandsValuesConfig.tolerance[color]" class="form-check">
+                  <div *ngIf="resistorConfig.tolerance[color]" class="form-check">
                     <label class="form-check-label py-1" for="band-tolerance-{{ color }}">
                       <input
                           [disabled]="resistor.bandsCount === 3"
                           [checked]="resistor.bandsCount === 3 && color === 'none'"
-                          (click)="setBandToleranceColor(color)"
+                          (click)="setBandTolerance(color)"
                           class="form-check-input" type="radio" name="band-tolerance" id="band-tolerance-{{ color }}"
                       >
-                      {{ bandsValuesConfig.tolerance[color] | format: 'tolerance' }}
+                      {{ resistorConfig.tolerance[color] | format: 'tolerance' }}
                     </label>
                   </div>
                 </td>
                 <!-- thermalCoefficient -->
                 <td *ngIf="bandsName.includes('thermalCoefficient')">
-                  <div *ngIf="bandsValuesConfig.thermalCoefficient[color]" class="form-check">
+                  <div *ngIf="resistorConfig.thermalCoefficient[color]" class="form-check">
                     <label class="form-check-label py-1" for="band-thermalCoefficient-{{ color }}">
-                      <input (click)="setBandThermalCoefficientColor(color)" class="form-check-input" type="radio" name="band-thermalCoefficient" id="band-thermalCoefficient-{{ color }}">
-                      {{ bandsValuesConfig.thermalCoefficient[color] | format: 'thermalCoefficient' }}
+                      <input (click)="setBandThermalCoefficient(color)" class="form-check-input" type="radio" name="band-thermalCoefficient" id="band-thermalCoefficient-{{ color }}">
+                      {{ resistorConfig.thermalCoefficient[color] | format: 'thermalCoefficient' }}
                     </label>
                   </div>
                 </td>

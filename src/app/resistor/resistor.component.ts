@@ -1,14 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import {
-  bandColorList,
-  BandName,
-  bandsValuesConfig,
-  getBandsNameListByBandsCount,
-} from './resistor.model';
-import { ResistorService } from './resistor.service';
-import { ResistorActions, ResistorApiActions } from './state/resistor.actions';
-import { selectResistor } from './state/resistor.selectors';
+import { BandName } from './resistor.model';
+import { ResistorFacade } from './resistor.facade';
 
 @Component({
   selector: 'app-resistor',
@@ -16,64 +8,47 @@ import { selectResistor } from './state/resistor.selectors';
   styleUrls: ['./resistor.component.scss'],
 })
 export class ResistorComponent implements OnInit {
-  private store = inject(Store);
-  private resistorService = inject(ResistorService);
+  private facade = inject(ResistorFacade);
 
-  resistorBandsCountList = [3, 4, 5, 6];
-  bandColorList = bandColorList;
-  bandsValuesConfig = bandsValuesConfig;
+  bandsCounts = this.facade.bandsCounts;
+  bandsColors = this.facade.bandsColors;
+  resistorConfig = this.facade.resistorConfig;
 
-  resistor$ = this.store.select(selectResistor);
+  resistor$ = this.facade.resistor$;
 
   ngOnInit() {
-    this.resistorService
-      .getResistor()
-      .subscribe((resistor) =>
-        this.store.dispatch(ResistorApiActions.retrievedResistor({ resistor })),
-      );
+    this.facade.retrieveResistor();
   }
 
   setBandsCount(bandsCount: number): void {
-    this.store.dispatch(ResistorActions.bandsCount({ bandsCount }));
+    this.facade.setBandsCount(bandsCount);
   }
 
-  getBandsNameListByBandsCount(bandsCount: number): BandName[] {
-    return getBandsNameListByBandsCount(bandsCount);
+  setBandsNameListByBandsCount(bandsCount: number): BandName[] {
+    return this.facade.bandsNameListByBandsCount(bandsCount);
   }
 
-  getResistorColorBg(color: string): string {
-    return 'var(--resistor-' + color + '-bg)';
+  setBandDigit1(color: string): void {
+    this.facade.setBandDigit1(color);
   }
 
-  getResistorColorBorder(color: string): string {
-    return 'var(--resistor-' + color + '-border)';
+  setBandDigit2(color: string): void {
+    this.facade.setBandDigit2(color);
   }
 
-  getResistorColorText(color: string): string {
-    return 'var(--resistor-' + color + '-text)';
+  setBandDigit3(color: string): void {
+    this.facade.setBandDigit3(color);
   }
 
-  setBandDigit1Color(color: string): void {
-    this.store.dispatch(ResistorActions.bandDigit1({ color }));
+  setBandMultiplier(color: string): void {
+    this.facade.setBandMultiplier(color);
   }
 
-  setBandDigit2Color(color: string): void {
-    this.store.dispatch(ResistorActions.bandDigit2({ color }));
+  setBandTolerance(color: string): void {
+    this.facade.setBandTolerance(color);
   }
 
-  setBandDigit3Color(color: string): void {
-    this.store.dispatch(ResistorActions.bandDigit3({ color }));
-  }
-
-  setBandMultiplierColor(color: string): void {
-    this.store.dispatch(ResistorActions.bandMultiplier({ color }));
-  }
-
-  setBandToleranceColor(color: string): void {
-    this.store.dispatch(ResistorActions.bandTolerance({ color }));
-  }
-
-  setBandThermalCoefficientColor(color: string): void {
-    this.store.dispatch(ResistorActions.bandThermalCoefficient({ color }));
+  setBandThermalCoefficient(color: string): void {
+    this.facade.setBandThermalCoefficient(color);
   }
 }

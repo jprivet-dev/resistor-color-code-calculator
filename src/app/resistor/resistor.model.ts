@@ -17,7 +17,7 @@ const defaultActivatedBandsByCount: BandName[] = [
   'multiplier',
 ];
 
-export const activatedBandsByCountConf: ActivatedBandsByCount[] = [
+export const activatedBandsByCountConfig: ActivatedBandsByCount[] = [
   { bandsCount: 3, bandsNameList: defaultActivatedBandsByCount },
   {
     bandsCount: 4,
@@ -40,24 +40,24 @@ export const activatedBandsByCountConf: ActivatedBandsByCount[] = [
   },
 ];
 
-export interface ResistorBand {
+export interface Band {
   color: string;
 }
 
 export interface Resistor {
-  digit1: ResistorBand;
-  digit2: ResistorBand;
-  digit3: ResistorBand;
-  multiplier: ResistorBand;
-  tolerance: ResistorBand;
-  thermalCoefficient: ResistorBand;
+  digit1: Band;
+  digit2: Band;
+  digit3: Band;
+  multiplier: Band;
+  tolerance: Band;
+  thermalCoefficient: Band;
   bandsCount: number;
 }
 
 export const getBandsNameListByBandsCount = (
   bandsCount: number,
 ): BandName[] => {
-  const activatedBands = activatedBandsByCountConf.find(
+  const activatedBands = activatedBandsByCountConfig.find(
     (activatedBandsName) => activatedBandsName.bandsCount === bandsCount,
   );
   return activatedBands !== undefined
@@ -82,7 +82,7 @@ export interface BandValuesByColors {
 }
 
 export type BandColor = keyof BandValuesByColors;
-export const bandColorList: BandColor[] = [
+export const bandsColors: BandColor[] = [
   'none',
   'black',
   'brown',
@@ -98,15 +98,14 @@ export const bandColorList: BandColor[] = [
   'silver',
 ];
 
-interface BandsValues {
+export const ResistorConfig: {
   digit1: BandValuesByColors;
   digit2: BandValuesByColors;
   digit3: BandValuesByColors;
   multiplier: BandValuesByColors;
   tolerance: BandValuesByColors;
   thermalCoefficient: BandValuesByColors;
-}
-export const bandsValuesConfig: BandsValues = {
+} = {
   digit1: {
     none: null,
     black: 0,
