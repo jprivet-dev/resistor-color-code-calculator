@@ -17,6 +17,7 @@
             <div class="resistor-object rounded-2 {{ 'bands-' + resistor.bandsCount }} d-flex align-self-stretch">
                 <div *ngFor="let bandName of setBandsNameListByBandsCount(resistor.bandsCount)"
                      [appResistorColor]="resistor[bandName].color"
+                     ngbTooltip="{{ t(bandName) | titlecase }}" placement="bottom"
                      class="band band-{{ bandName }} border-0"></div>
             </div>
         </div>

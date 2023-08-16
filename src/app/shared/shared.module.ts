@@ -3,10 +3,11 @@ import { NgModule } from '@angular/core';
 import { FormatPipe } from './format.pipe';
 import { ResistorColorDirective } from './resistor-color.directive';
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [FormatPipe, ResistorColorDirective],
   imports: [CommonModule],
-  exports: [FormatPipe, ResistorColorDirective, NgbNavModule],
+  exports: [FormatPipe, ResistorColorDirective, NgbNavModule, NgbTooltipModule],
 })
 export class SharedModule {}
