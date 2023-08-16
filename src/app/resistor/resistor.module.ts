@@ -4,10 +4,10 @@ import { TranslocoModule } from '@ngneat/transloco';
 import { SharedModule } from '@shared/shared.module';
 
 import { ResistorRoutingModule } from './resistor-routing.module';
-import { ResistorComponent } from './resistor.component';
+import { ResistorPage } from './resistor.page';
 
 @NgModule({
-  declarations: [ResistorComponent],
+  declarations: [ResistorPage],
   imports: [CommonModule, SharedModule, ResistorRoutingModule, TranslocoModule],
 })
 export class ResistorModule {}
