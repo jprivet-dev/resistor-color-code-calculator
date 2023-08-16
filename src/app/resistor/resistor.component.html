@@ -3,11 +3,11 @@
     <div class="row row-cols-1 row-cols-lg-1 row-cols-xl-2">
       <div class="col col-12 col-xxl-5 col-5">
         <div class="d-flex justify-content-center pt-5 pb-3">
-          <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+          <div class="btn-group" role="group">
             <ng-container *ngFor="let bandsCount of resistorBandsCountList">
               <input
                 (click)="setBandsCount(bandsCount)" [checked]="resistor.bandsCount === bandsCount"
-                type="radio" class="btn-check" name="btnradio" id="{{ 'bands-count-radio-' + bandsCount }}" autocomplete="off"
+                type="radio" class="btn-check" name="bands-count" id="{{ 'bands-count-radio-' + bandsCount }}" autocomplete="off"
               >
               <label class="btn btn-outline-primary" for="{{ 'bands-count-radio-' + bandsCount }}">
                 {{ t('bands', { bandsCount }) }}
@@ -20,8 +20,8 @@
           <div class="resistor-object rounded-2 {{ 'bands-count-' + resistor.bandsCount }} d-flex align-self-stretch">
             <div
               *ngFor="let bandName of getBandsNameListByBandsCount(resistor.bandsCount)"
-              [style.background-color]="getResistorColorBg(resistor[bandName].color)"
-              class="band band-{{ bandName }}"
+              [appResistorColor]="resistor[bandName].color"
+              class="band band-{{ bandName }} border-0"
             ></div>
           </div>
         </div>
@@ -35,27 +35,27 @@
                 </th>
                 <th scope="col" class="pb-0">
                   {{ t('digit1') | titlecase }}
-                  <div [style.background-color]="getResistorColorBg(resistor['digit1'].color)" class="p-1"></div>
+                  <div [appResistorColor]="resistor['digit1'].color" class="p-1"></div>
                 </th>
                 <th scope="col" class="pb-0">
                   {{ t('digit1') | titlecase }}
-                  <div [style.background-color]="getResistorColorBg(resistor['digit2'].color)" class="p-1"></div>
+                  <div [appResistorColor]="resistor['digit2'].color" class="p-1"></div>
                 </th>
                 <th scope="col" class="pb-0" *ngIf="bandsName.includes('digit3')">
                   {{ t('digit3') | titlecase }}
-                  <div [style.background-color]="getResistorColorBg(resistor['digit3'].color)" class="p-1"></div>
+                  <div [appResistorColor]="resistor['digit3'].color" class="p-1"></div>
                 </th>
                 <th scope="col" class="pb-0" *ngIf="bandsName.includes('multiplier')">
                   {{ t('multiplier') | titlecase }}
-                  <div [style.background-color]="getResistorColorBg(resistor['multiplier'].color)" class="p-1"></div>
+                  <div [appResistorColor]="resistor['multiplier'].color" class="p-1"></div>
                 </th>
                 <th scope="col" class="pb-0">
                   {{ t('tolerance') | titlecase }}
-                  <div [style.background-color]="getResistorColorBg(resistor['tolerance'].color)" class="p-1"></div>
+                  <div [appResistorColor]="resistor['tolerance'].color" class="p-1"></div>
                 </th>
-                <th scope="col" class="pb-0"*ngIf="bandsName.includes('thermalCoefficient')">
+                <th scope="col" class="pb-0" *ngIf="bandsName.includes('thermalCoefficient')">
                   {{ t('thermalCoefficient') | titlecase }}
-                  <div [style.background-color]="getResistorColorBg(resistor['thermalCoefficient'].color)" class="p-1"></div>
+                  <div [appResistorColor]="resistor['thermalCoefficient'].color" class="p-1"></div>
                 </th>
               </tr>
             </thead>
@@ -63,13 +63,7 @@
               <tr *ngFor="let color of bandColorList">
                 <!-- colors -->
                 <th scope="row">
-                  <div
-                      class="rounded-pill px-2 py-1"
-                      style="border: 1px solid #000000"
-                      [style.background-color]="getResistorColorBg(color)"
-                      [style.border-color]="getResistorColorBorder(color)"
-                      [style.color]="getResistorColorText(color)"
-                  >
+                  <div class="rounded-pill px-2 py-1" [appResistorColor]="color">
                     {{ t('colorName.' + color) | titlecase }}
                   </div>
                 </th>

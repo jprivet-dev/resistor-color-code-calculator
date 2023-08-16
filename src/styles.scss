@@ -4,28 +4,6 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 
-$resistor-colors-bg: (
-  "black":  #000000,
-  "brown":  #762B16,
-  "red":    #C6101B,
-  "orange": #E86838,
-  "yellow": #F9D141,
-  "green":  #389C57,
-  "blue":   #0061AF,
-  "violet": #B86BA9,
-  "grey":   #8F908F,
-  "white":  #FFFFFF,
-  "gold":   #CCA43D,
-  "silver": #A5A5A5,
-  "none":   "none",
-);
-
-:root {
-  @each $color, $value in $resistor-colors-bg {
-    --resistor-#{$color}-bg: #{$value};
-  }
-}
-
 $resistor-colors-text: (
   "black":  #FFFFFF,
   "brown":  #FFFFFF,
@@ -42,32 +20,63 @@ $resistor-colors-text: (
   "none":   #000000,
 );
 
+$resistor-colors-bg: (
+  "black":  #000000,
+  "brown":  #762B16,
+  "red":    #C6101B,
+  "orange": #E86838,
+  "yellow": #F9D141,
+  "green":  #389C57,
+  "blue":   #0061AF,
+  "violet": #B86BA9,
+  "grey":   #8F908F,
+  "white":  #FFFFFF,
+  "gold":   #CCA43D,
+  "silver": #A5A5A5,
+  "none":   "none",
+);
+
+$resistor-colors-border: (
+  "black":  #000000,
+  "brown":  #762B16,
+  "red":    #C6101B,
+  "orange": #E86838,
+  "yellow": #F9D141,
+  "green":  #389C57,
+  "blue":   #0061AF,
+  "violet": #B86BA9,
+  "grey":   #8F908F,
+  "white":  #D7D7D7,
+  "gold":   #CCA43D,
+  "silver": #A5A5A5,
+  "none":   #D7D7D7,
+);
+
 :root {
   @each $color, $value in $resistor-colors-text {
     --resistor-#{$color}-text: #{$value};
   }
-}
-
-$resistor-colors-border: (
-        "black":  #000000,
-        "brown":  #762B16,
-        "red":    #C6101B,
-        "orange": #E86838,
-        "yellow": #F9D141,
-        "green":  #389C57,
-        "blue":   #0061AF,
-        "violet": #B86BA9,
-        "grey":   #8F908F,
-        "white":  #D7D7D7,
-        "gold":   #CCA43D,
-        "silver": #A5A5A5,
-        "none":   #D7D7D7,
-);
-
-:root {
   @each $color, $value in $resistor-colors-border {
     --resistor-#{$color}-border: #{$value};
   }
+  @each $color, $value in $resistor-colors-bg {
+    --resistor-#{$color}-bg: #{$value};
+  }
 }
+
+@each $color, $value in $resistor-colors-bg {
+  .resistor-#{$color} {
+    color: var(--resistor-#{$color}-text);
+    border: 1px solid var(--resistor-#{$color}-border);
+    background-color: var(--resistor-#{$color}-bg);
+  }
+}
+
+[data-bs-theme=dark] {
+  .resistor-none {
+    color: #FFFFFF;
+  }
+}
+
 
 
