@@ -1,10 +1,10 @@
 <ng-container *transloco="let t">
   <ng-container *ngIf="(resistor$ | async) as resistor">
     <div class="row row-cols-1 row-cols-lg-1 row-cols-xl-2">
-      <div class="col col-12 col-xxl-5 col-5">
+      <div class="col">
         <app-resistor></app-resistor>
       </div>
-      <div class="col col-12 col-xxl-7 pt-5">
+      <div class="col pt-5">
         <app-resistor-data></app-resistor-data>
       </div>
     </div>
