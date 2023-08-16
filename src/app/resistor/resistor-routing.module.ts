@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ResistorPage } from './resistor.page';
+import { ResistorPageComponent } from './resistor.page';
 
-const routes: Routes = [{ path: '', component: ResistorPage }];
+const routes: Routes = [{ path: '', component: ResistorPageComponent }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

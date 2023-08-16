@@ -14,12 +14,12 @@ export class ResistorService {
 
   getResistor(): Observable<Resistor> {
     return of({
-      digit1: { color: 'brown', active: true },
-      digit2: { color: 'green', active: true },
-      digit3: { color: 'red', active: true },
-      multiplier: { color: 'black', active: true },
-      tolerance: { color: 'violet', active: false },
-      thermalCoefficient: { color: 'red', active: false },
+      digit1: { color: 'brown' },
+      digit2: { color: 'green' },
+      digit3: { color: 'red' },
+      multiplier: { color: 'black' },
+      tolerance: { color: 'violet' },
+      thermalCoefficient: { color: 'red' },
       bandsCount: 4,
     });
   }

@@ -6,30 +6,26 @@ export type BandName =
   | 'tolerance'
   | 'thermalCoefficient';
 
-export interface ActivatedBandsByCount {
+export interface ActivatedBands {
   bandsCount: number;
-  bandsNameList: BandName[];
+  bandsNames: BandName[];
 }
 
-const defaultActivatedBandsByCount: BandName[] = [
-  'digit1',
-  'digit2',
-  'multiplier',
-];
+const defaultActivatedBands: BandName[] = ['digit1', 'digit2', 'multiplier'];
 
-export const activatedBandsByCountConfig: ActivatedBandsByCount[] = [
-  { bandsCount: 3, bandsNameList: defaultActivatedBandsByCount },
+export const activatedBandsConfig: ActivatedBands[] = [
+  { bandsCount: 3, bandsNames: defaultActivatedBands },
   {
     bandsCount: 4,
-    bandsNameList: ['digit1', 'digit2', 'multiplier', 'tolerance'],
+    bandsNames: ['digit1', 'digit2', 'multiplier', 'tolerance'],
   },
   {
     bandsCount: 5,
-    bandsNameList: ['digit1', 'digit2', 'digit3', 'multiplier', 'tolerance'],
+    bandsNames: ['digit1', 'digit2', 'digit3', 'multiplier', 'tolerance'],
   },
   {
     bandsCount: 6,
-    bandsNameList: [
+    bandsNames: [
       'digit1',
       'digit2',
       'digit3',
@@ -57,15 +53,15 @@ export interface Resistor {
 export const getBandsNameListByBandsCount = (
   bandsCount: number,
 ): BandName[] => {
-  const activatedBands = activatedBandsByCountConfig.find(
+  const activatedBands = activatedBandsConfig.find(
     (activatedBandsName) => activatedBandsName.bandsCount === bandsCount,
   );
   return activatedBands !== undefined
-    ? activatedBands.bandsNameList
-    : defaultActivatedBandsByCount;
+    ? activatedBands.bandsNames
+    : defaultActivatedBands;
 };
 
-export interface BandValuesByColors {
+export interface BandColorsValues {
   none: number | null;
   black: number | null;
   brown: number | null;
@@ -81,7 +77,7 @@ export interface BandValuesByColors {
   silver: number | null;
 }
 
-export type BandColor = keyof BandValuesByColors;
+export type BandColor = keyof BandColorsValues;
 export const bandsColors: BandColor[] = [
   'none',
   'black',
@@ -99,12 +95,12 @@ export const bandsColors: BandColor[] = [
 ];
 
 export const ResistorConfig: {
-  digit1: BandValuesByColors;
-  digit2: BandValuesByColors;
-  digit3: BandValuesByColors;
-  multiplier: BandValuesByColors;
-  tolerance: BandValuesByColors;
-  thermalCoefficient: BandValuesByColors;
+  digit1: BandColorsValues;
+  digit2: BandColorsValues;
+  digit3: BandColorsValues;
+  multiplier: BandColorsValues;
+  tolerance: BandColorsValues;
+  thermalCoefficient: BandColorsValues;
 } = {
   digit1: {
     none: null,

@@ -3,11 +3,11 @@ import { BandName } from './resistor.model';
 import { ResistorFacade } from './resistor.facade';
 
 @Component({
-  selector: 'app-resistor',
+  selector: 'app-resistor-page',
   templateUrl: './resistor.page.html',
   styleUrls: ['./resistor.page.scss'],
 })
-export class ResistorPage implements OnInit {
+export class ResistorPageComponent implements OnInit {
   private facade = inject(ResistorFacade);
 
   bandsCounts = this.facade.bandsCounts;

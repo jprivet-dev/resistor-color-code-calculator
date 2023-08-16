@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ResistorPage } from './resistor.page';
+import { ResistorPageComponent } from './resistor.page';
 
 describe('ResistorComponent', () => {
-  let component: ResistorPage;
-  let fixture: ComponentFixture<ResistorPage>;
+  let component: ResistorPageComponent;
+  let fixture: ComponentFixture<ResistorPageComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ResistorPage],
+      declarations: [ResistorPageComponent],
     });
-    fixture = TestBed.createComponent(ResistorPage);
+    fixture = TestBed.createComponent(ResistorPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
