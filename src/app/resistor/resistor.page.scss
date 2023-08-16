@@ -3,16 +3,16 @@
   width: 300px;
   height: 80px;
   padding: 0 10px;
-
-  .band {
-    width: 20px;
-    margin: 0 10px;
-  }
 }
 
-.bands-count-4,
-.bands-count-5,
-.bands-count-6 {
+.band {
+  width: 20px;
+  margin: 0 10px;
+}
+
+.bands-4,
+.bands-5,
+.bands-6 {
   .band-multiplier {
     margin-right: auto;
   }
