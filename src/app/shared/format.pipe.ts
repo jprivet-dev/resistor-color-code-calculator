@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { MetricSuffixUtil } from './metric-suffix.util';
+import { UnitUtil } from './unit.util';
 
 export type FormatType =
   | 'ampere'
@@ -7,11 +7,11 @@ export type FormatType =
   | 'multiplier'
   | 'power'
   | 'resistance'
-  | 'resistance_max'
-  | 'resistance_min'
-  | 'thermal_coefficient'
+  | 'resistanceMax'
+  | 'resistanceMin'
+  | 'thermalCoefficient'
   | 'tolerance'
-  | 'tolerance_ohm'
+  | 'toleranceOhm'
   | 'volt';
 
 @Pipe({
@@ -27,42 +27,42 @@ export class FormatPipe implements PipeTransform {
       case 'multiplier':
         return (
           'x ' +
-          MetricSuffixUtil.convert({ value, fractionDigits: 2, unit: 'Ω' })
-            .valueWithMetricSuffix
+          UnitUtil.convert({ value, fractionDigits: 2, unit: 'Ω' })
+            .valueWithUnit
         );
         break;
       case 'tolerance':
         return `±${value} %`;
         break;
-      case 'tolerance_ohm':
+      case 'toleranceOhm':
         return (
           '± ' +
-          MetricSuffixUtil.convert({ value, fractionDigits: 2, unit: 'Ω' })
-            .valueWithMetricSuffix
+          UnitUtil.convert({ value, fractionDigits: 2, unit: 'Ω' })
+            .valueWithUnit
         );
         break;
-      case 'thermal_coefficient':
+      case 'thermalCoefficient':
         return `${value} ppm/K`;
         break;
       case 'resistance':
-        return MetricSuffixUtil.convert({ value, fractionDigits: 2, unit: 'Ω' })
-          .valueWithMetricSuffix;
+        return UnitUtil.convert({ value, fractionDigits: 2, unit: 'Ω' })
+          .valueWithUnit;
         break;
-      case 'resistance_max':
+      case 'resistanceMax':
         return (
-          MetricSuffixUtil.convert({ value, fractionDigits: 2, unit: 'Ω' })
-            .valueWithMetricSuffix + ' max'
+          UnitUtil.convert({ value, fractionDigits: 2, unit: 'Ω' })
+            .valueWithUnit + ' max'
         );
         break;
-      case 'resistance_min':
+      case 'resistanceMin':
         return (
-          MetricSuffixUtil.convert({ value, fractionDigits: 2, unit: 'Ω' })
-            .valueWithMetricSuffix + ' min'
+          UnitUtil.convert({ value, fractionDigits: 2, unit: 'Ω' })
+            .valueWithUnit + ' min'
         );
         break;
       case 'power':
-        return MetricSuffixUtil.convert({ value, fractionDigits: 2, unit: 'W' })
-          .valueWithMetricSuffix;
+        return UnitUtil.convert({ value, fractionDigits: 2, unit: 'W' })
+          .valueWithUnit;
         break;
     }
     return value;

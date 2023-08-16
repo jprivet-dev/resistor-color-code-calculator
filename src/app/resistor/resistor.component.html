@@ -122,7 +122,7 @@
                   <div *ngIf="bandsValuesConfig.thermalCoefficient[color]" class="form-check">
                     <label class="form-check-label py-1" for="band-thermalCoefficient-{{ color }}">
                       <input (click)="setBandThermalCoefficientColor(color)" class="form-check-input" type="radio" name="band-thermalCoefficient" id="band-thermalCoefficient-{{ color }}">
-                      {{ bandsValuesConfig.thermalCoefficient[color] | format: 'thermal_coefficient' }}
+                      {{ bandsValuesConfig.thermalCoefficient[color] | format: 'thermalCoefficient' }}
                     </label>
                   </div>
                 </td>
@@ -145,8 +145,8 @@
                   {{ 560 | format: 'resistance' }}
                 </h1>
                 <ul class="list-unstyled mt-3">
-                  <li>{{ 588 | format: 'resistance_max' }}</li>
-                  <li>{{ 532 | format: 'resistance_min' }}</li>
+                  <li>{{ 588 | format: 'resistanceMax' }}</li>
+                  <li>{{ 532 | format: 'resistanceMin' }}</li>
                 </ul>
               </div>
             </div>
@@ -163,7 +163,7 @@
                   {{ 5 | format: 'tolerance' }}
                 </h1>
                 <ul class="list-unstyled mt-3">
-                  <li>{{ 28 | format: 'tolerance_ohm' }}</li>
+                  <li>{{ 28 | format: 'toleranceOhm' }}</li>
                 </ul>
               </div>
             </div>
@@ -236,7 +236,7 @@
                   {{ 5 | format: 'tolerance' }}
                 </h1>
                 <ul class="list-unstyled mt-3">
-                  <li>{{ 28 | format: 'tolerance_ohm' }}</li>
+                  <li>{{ 28 | format: 'toleranceOhm' }}</li>
                 </ul>
               </div>
             </div>

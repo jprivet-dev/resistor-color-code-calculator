@@ -1,7 +1,7 @@
-import { MetricSuffixServiceArgumentsModel } from './metric-suffix.model';
-import { MetricSuffixUtil } from './metric-suffix.util';
+import { UnitServiceArgumentsModel } from './unit.model';
+import { UnitUtil } from './unit.util';
 
-describe('MetricSuffixUtil', () => {
+describe('UnitUtil', () => {
   const base10Data = [
     { value: 1e26, expected: 24 },
     { value: 1e25, expected: 24 },
@@ -55,7 +55,7 @@ describe('MetricSuffixUtil', () => {
 
   base10Data.forEach((data) => {
     it(`Extract base10 "${data.expected}" for "${data.value}" value`, () => {
-      expect(MetricSuffixUtil.base10(data.value)).toBe(data.expected);
+      expect(UnitUtil.base10(data.value)).toBe(data.expected);
     });
   });
 
@@ -74,10 +74,7 @@ describe('MetricSuffixUtil', () => {
   doNotFixData.forEach((data) => {
     it(`keep "${data.value}" into "${data.expected} even if ${data.fractionDigits} digits`, () => {
       expect(
-        MetricSuffixUtil.toFixedOnlyIfNecessary(
-          data.value,
-          data.fractionDigits,
-        ),
+        UnitUtil.toFixedOnlyIfNecessary(data.value, data.fractionDigits),
       ).toBe(data.expected);
     });
   });
@@ -108,10 +105,7 @@ describe('MetricSuffixUtil', () => {
   toFixedOnlyIfNecessaryData.forEach((data) => {
     it(`transform "${data.value}" into "${data.expected}" (fix on ${data.fractionDigits} digits)`, () => {
       expect(
-        MetricSuffixUtil.toFixedOnlyIfNecessary(
-          data.value,
-          data.fractionDigits,
-        ),
+        UnitUtil.toFixedOnlyIfNecessary(data.value, data.fractionDigits),
       ).toBe(data.expected);
     });
   });
@@ -229,15 +223,15 @@ describe('MetricSuffixUtil', () => {
   convertData.forEach((data) => {
     const expected: string = data.expected.trim();
 
-    const args: MetricSuffixServiceArgumentsModel = {
+    const args: UnitServiceArgumentsModel = {
       value: data.value,
       fractionDigits: 2,
       unit: '',
     };
 
     it(`transform "${args.value}" to "${expected}"`, () => {
-      const result = MetricSuffixUtil.convert(args);
-      expect(result.valueWithMetricSuffix).toBe(expected);
+      const result = UnitUtil.convert(args);
+      expect(result.valueWithUnit).toBe(expected);
     });
   });
 
@@ -249,15 +243,15 @@ describe('MetricSuffixUtil', () => {
 
     const expected: string = '-' + data.expected.trim();
 
-    const args: MetricSuffixServiceArgumentsModel = {
+    const args: UnitServiceArgumentsModel = {
       value: data.value * -1,
       fractionDigits: 2,
       unit: '',
     };
 
     it(`transform "${args.value}" to "${expected}"`, () => {
-      const result = MetricSuffixUtil.convert(args);
-      expect(result.valueWithMetricSuffix).toBe(expected);
+      const result = UnitUtil.convert(args);
+      expect(result.valueWithUnit).toBe(expected);
     });
   });
 
@@ -265,15 +259,15 @@ describe('MetricSuffixUtil', () => {
   convertData.forEach((data) => {
     const expected: string = data.expected + 'Ω';
 
-    const args: MetricSuffixServiceArgumentsModel = {
+    const args: UnitServiceArgumentsModel = {
       value: data.value,
       fractionDigits: 2,
       unit: 'Ω',
     };
 
     it(`transform "${args.value} ${args.unit}" to "${expected}"`, () => {
-      const result = MetricSuffixUtil.convert(args);
-      expect(result.valueWithMetricSuffix).toBe(expected);
+      const result = UnitUtil.convert(args);
+      expect(result.valueWithUnit).toBe(expected);
     });
   });
 });

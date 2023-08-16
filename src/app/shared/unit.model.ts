@@ -1,10 +1,10 @@
-export interface MetricSuffixModel {
+export interface UnitModel {
   base10: number;
   name: string;
   symbol: string;
 }
 
-export const MetricSuffixList: MetricSuffixModel[] = [
+export const UnitList: UnitModel[] = [
   { base10: 24, name: 'yotta', symbol: 'Y' },
   { base10: 21, name: 'zetta', symbol: 'Z' },
   { base10: 18, name: 'exa', symbol: 'E' },
@@ -26,14 +26,13 @@ export const MetricSuffixList: MetricSuffixModel[] = [
   // {base10: -24, name: 'yocto', symbol: 'y'},
 ];
 
-export interface MetricSuffixServiceArgumentsModel {
+export interface UnitServiceArgumentsModel {
   value: number;
   unit: string;
   fractionDigits: number;
 }
 
-export interface MetricSuffixServiceResultModel
-  extends MetricSuffixServiceArgumentsModel {
-  valueWithoutMetricSuffix: string;
-  valueWithMetricSuffix: string;
+export interface UnitServiceResultModel extends UnitServiceArgumentsModel {
+  valueWithoutUnit: string;
+  valueWithUnit: string;
 }
