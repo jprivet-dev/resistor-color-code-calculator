@@ -18,31 +18,31 @@ export const resistorReducer = createReducer(
     ResistorApiActions.retrieveResistorSuccess,
     (state, { resistor }) => resistor,
   ),
-  on(ResistorActions.bandsCount, (state, { bandsCount }) => ({
+  on(ResistorActions.updateBandsCount, (state, { bandsCount }) => ({
     ...state,
     bandsCount,
   })),
-  on(ResistorActions.bandDigit1, (state, { color }) => ({
+  on(ResistorActions.updateDigit1, (state, { color }) => ({
     ...state,
     digit1: { ...state.digit1, color },
   })),
-  on(ResistorActions.bandDigit2, (state, { color }) => ({
+  on(ResistorActions.updateDigit2, (state, { color }) => ({
     ...state,
     digit2: { ...state.digit2, color },
   })),
-  on(ResistorActions.bandDigit3, (state, { color }) => ({
+  on(ResistorActions.updateDigit3, (state, { color }) => ({
     ...state,
     digit3: { ...state.digit3, color },
   })),
-  on(ResistorActions.bandMultiplier, (state, { color }) => ({
+  on(ResistorActions.updateMultiplier, (state, { color }) => ({
     ...state,
     multiplier: { ...state.multiplier, color },
   })),
-  on(ResistorActions.bandTolerance, (state, { color }) => ({
+  on(ResistorActions.updateTolerance, (state, { color }) => ({
     ...state,
     tolerance: { ...state.tolerance, color },
   })),
-  on(ResistorActions.bandThermalCoefficient, (state, { color }) => ({
+  on(ResistorActions.updateThermalCoefficient, (state, { color }) => ({
     ...state,
     thermalCoefficient: { ...state.thermalCoefficient, color },
   })),

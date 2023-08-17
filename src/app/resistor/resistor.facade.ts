@@ -25,7 +25,7 @@ export class ResistorFacade {
   }
 
   setBandsCount(bandsCount: number): void {
-    this.store.dispatch(ResistorActions.bandsCount({ bandsCount }));
+    this.store.dispatch(ResistorActions.updateBandsCount({ bandsCount }));
   }
 
   bandsNameListByBandsCount(bandsCount: number): BandName[] {
@@ -33,26 +33,26 @@ export class ResistorFacade {
   }
 
   setBandDigit1(color: string): void {
-    this.store.dispatch(ResistorActions.bandDigit1({ color }));
+    this.store.dispatch(ResistorActions.updateDigit1({ color }));
   }
 
   setBandDigit2(color: string): void {
-    this.store.dispatch(ResistorActions.bandDigit2({ color }));
+    this.store.dispatch(ResistorActions.updateDigit2({ color }));
   }
 
   setBandDigit3(color: string): void {
-    this.store.dispatch(ResistorActions.bandDigit3({ color }));
+    this.store.dispatch(ResistorActions.updateDigit3({ color }));
   }
 
   setBandMultiplier(color: string): void {
-    this.store.dispatch(ResistorActions.bandMultiplier({ color }));
+    this.store.dispatch(ResistorActions.updateMultiplier({ color }));
   }
 
   setBandTolerance(color: string): void {
-    this.store.dispatch(ResistorActions.bandTolerance({ color }));
+    this.store.dispatch(ResistorActions.updateTolerance({ color }));
   }
 
   setBandThermalCoefficient(color: string): void {
-    this.store.dispatch(ResistorActions.bandThermalCoefficient({ color }));
+    this.store.dispatch(ResistorActions.updateThermalCoefficient({ color }));
   }
 }
