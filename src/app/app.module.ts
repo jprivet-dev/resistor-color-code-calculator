@@ -8,6 +8,7 @@ import { SharedModule } from '@shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { resistorReducer } from './resistor/state/resistor.reducer';
+import { characteristicsReducer } from './resistor/state/resistor.reducer';
 import { TranslocoRootModule } from './transloco-root.module';
 import { EffectsModule } from '@ngrx/effects';
 import { ResistorEffects } from './resistor/state/resistor.effects';
@@ -22,7 +23,10 @@ import { ResistorEffects } from './resistor/state/resistor.effects';
     NgbModule,
     HttpClientModule,
     TranslocoRootModule,
-    StoreModule.forRoot({ resistor: resistorReducer }),
+    StoreModule.forRoot({
+      resistor: resistorReducer,
+      characteristics: characteristicsReducer,
+    }),
     EffectsModule.forRoot([ResistorEffects]),
   ],
   providers: [],

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { inject } from '@angular/core';
+import { ResistorFacade } from './resistor.facade';
 
 @Component({
   selector: 'app-resistor-data',
@@ -6,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./resistor-data.component.scss'],
 })
 export class ResistorDataComponent {
+  private facade = inject(ResistorFacade);
+  readonly resistance$ = this.facade.resistance$;
+
   activeTabId = 1;
 }

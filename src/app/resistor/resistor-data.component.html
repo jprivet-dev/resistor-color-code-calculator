@@ -9,7 +9,7 @@
                 </div>
                 <div class="card-body">
                     <h1 class="card-title pricing-card-title">
-                        {{ 560 | format: 'resistance' }}
+                        {{ resistance$ | async | format: 'resistance' }}
                     </h1>
                     <ul class="list-unstyled mt-3">
                         <li>{{ 588 | format: 'resistanceMax' }}</li>

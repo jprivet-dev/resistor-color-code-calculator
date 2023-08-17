@@ -8,7 +8,7 @@ import { resistorConfig } from '../resistor/resistor.model';
 export class CharacteristicsService {
   private resistorConfig = resistorConfig;
 
-  calculateResistance(resistor: Resistor): number {
+  calculateResistance(resistor: Readonly<Resistor>): number {
     const digit1Color = resistor.digit1.color;
     const digit1: number = this.resistorConfig.digit1[digit1Color] ?? 0;
 

@@ -37,7 +37,7 @@ export const activatedBandsConfig: ActivatedBands[] = [
 ];
 
 export interface Band {
-  color: string;
+  color: BandColor;
 }
 
 export interface Resistor {
@@ -48,6 +48,10 @@ export interface Resistor {
   tolerance: Band;
   thermalCoefficient: Band;
   bandsCount: number;
+}
+
+export interface Characteristics {
+  resistance: number;
 }
 
 export const getBandsNameListByBandsCount = (

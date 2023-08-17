@@ -3,6 +3,7 @@ import { OnInit } from '@angular/core';
 import { inject } from '@angular/core';
 import { ResistorFacade } from './resistor.facade';
 import { BandName } from './resistor.model';
+import { BandColor } from './resistor.model';
 
 @Component({
   selector: 'app-resistor',
@@ -11,11 +12,9 @@ import { BandName } from './resistor.model';
 })
 export class ResistorComponent implements OnInit {
   private facade = inject(ResistorFacade);
-
   bandsCounts = this.facade.bandsCounts;
   bandsColors = this.facade.bandsColors;
   resistorConfig = this.facade.resistorConfig;
-
   resistor$ = this.facade.resistor$;
 
   ngOnInit() {
@@ -30,27 +29,27 @@ export class ResistorComponent implements OnInit {
     return this.facade.bandsNameListByBandsCount(bandsCount);
   }
 
-  setBandDigit1(color: string): void {
+  setBandDigit1(color: BandColor): void {
     this.facade.setBandDigit1(color);
   }
 
-  setBandDigit2(color: string): void {
+  setBandDigit2(color: BandColor): void {
     this.facade.setBandDigit2(color);
   }
 
-  setBandDigit3(color: string): void {
+  setBandDigit3(color: BandColor): void {
     this.facade.setBandDigit3(color);
   }
 
-  setBandMultiplier(color: string): void {
+  setBandMultiplier(color: BandColor): void {
     this.facade.setBandMultiplier(color);
   }
 
-  setBandTolerance(color: string): void {
+  setBandTolerance(color: BandColor): void {
     this.facade.setBandTolerance(color);
   }
 
-  setBandThermalCoefficient(color: string): void {
+  setBandThermalCoefficient(color: BandColor): void {
     this.facade.setBandThermalCoefficient(color);
   }
 }

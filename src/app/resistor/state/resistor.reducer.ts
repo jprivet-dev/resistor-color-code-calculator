@@ -1,8 +1,10 @@
 import { createReducer, on } from '@ngrx/store';
 import { Resistor } from '../resistor.model';
-import { ResistorActions, ResistorApiActions } from './resistor.actions';
+import { Characteristics } from '../resistor.model';
+import { resistorActions, resistorApiActions } from './resistor.actions';
+import { characteristicsActions } from './resistor.actions';
 
-export const initialState: Readonly<Resistor> = {
+export const resistorInitialState: Readonly<Resistor> = {
   digit1: { color: 'white' },
   digit2: { color: 'white' },
   digit3: { color: 'white' },
@@ -13,37 +15,49 @@ export const initialState: Readonly<Resistor> = {
 };
 
 export const resistorReducer = createReducer(
-  initialState,
+  resistorInitialState,
   on(
-    ResistorApiActions.retrieveResistorSuccess,
+    resistorApiActions.retrieveResistorSuccess,
     (state, { resistor }) => resistor,
   ),
-  on(ResistorActions.updateBandsCount, (state, { bandsCount }) => ({
+  on(resistorActions.updateBandsCount, (state, { bandsCount }) => ({
     ...state,
     bandsCount,
   })),
-  on(ResistorActions.updateDigit1, (state, { color }) => ({
+  on(resistorActions.updateDigit1, (state, { color }) => ({
     ...state,
     digit1: { ...state.digit1, color },
   })),
-  on(ResistorActions.updateDigit2, (state, { color }) => ({
+  on(resistorActions.updateDigit2, (state, { color }) => ({
     ...state,
     digit2: { ...state.digit2, color },
   })),
-  on(ResistorActions.updateDigit3, (state, { color }) => ({
+  on(resistorActions.updateDigit3, (state, { color }) => ({
     ...state,
     digit3: { ...state.digit3, color },
   })),
-  on(ResistorActions.updateMultiplier, (state, { color }) => ({
+  on(resistorActions.updateMultiplier, (state, { color }) => ({
     ...state,
     multiplier: { ...state.multiplier, color },
   })),
-  on(ResistorActions.updateTolerance, (state, { color }) => ({
+  on(resistorActions.updateTolerance, (state, { color }) => ({
     ...state,
     tolerance: { ...state.tolerance, color },
   })),
-  on(ResistorActions.updateThermalCoefficient, (state, { color }) => ({
+  on(resistorActions.updateThermalCoefficient, (state, { color }) => ({
     ...state,
     thermalCoefficient: { ...state.thermalCoefficient, color },
+  })),
+);
+
+export const characteristicsInitialState: Readonly<Characteristics> = {
+  resistance: 0,
+};
+
+export const characteristicsReducer = createReducer(
+  characteristicsInitialState,
+  on(characteristicsActions.updateResistance, (state, { resistance }) => ({
+    ...state,
+    resistance,
   })),
 );
