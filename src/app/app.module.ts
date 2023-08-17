@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { resistorReducer } from './resistor/state/resistor.reducer';
 import { TranslocoRootModule } from './transloco-root.module';
 import { EffectsModule } from '@ngrx/effects';
+import { ResistorEffects } from './resistor/state/resistor.effects';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +23,7 @@ import { EffectsModule } from '@ngrx/effects';
     HttpClientModule,
     TranslocoRootModule,
     StoreModule.forRoot({ resistor: resistorReducer }),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([ResistorEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent],

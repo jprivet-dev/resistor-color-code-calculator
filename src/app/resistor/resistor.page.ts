@@ -17,7 +17,7 @@ export class ResistorPageComponent implements OnInit {
   resistor$ = this.facade.resistor$;
 
   ngOnInit() {
-    this.facade.retrieveResistor();
+    // this.facade.retrieveResistor();
   }
 
   setBandsCount(bandsCount: number): void {

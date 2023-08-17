@@ -14,7 +14,10 @@ export const initialState: Readonly<Resistor> = {
 
 export const resistorReducer = createReducer(
   initialState,
-  on(ResistorApiActions.retrieveResistor, (state, { resistor }) => resistor),
+  on(
+    ResistorApiActions.retrieveResistorSuccess,
+    (state, { resistor }) => resistor,
+  ),
   on(ResistorActions.bandsCount, (state, { bandsCount }) => ({
     ...state,
     bandsCount,

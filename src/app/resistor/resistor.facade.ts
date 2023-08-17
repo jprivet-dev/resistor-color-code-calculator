@@ -21,12 +21,9 @@ export class ResistorFacade {
   readonly resistorConfig = this.service.resistorConfig;
 
   retrieveResistor() {
-    this.service
-      .getResistor()
-      .subscribe((resistor) =>
-        this.store.dispatch(ResistorApiActions.retrieveResistor({ resistor })),
-      );
+    this.store.dispatch(ResistorApiActions.retrieveResistor());
   }
+
   setBandsCount(bandsCount: number): void {
     this.store.dispatch(ResistorActions.bandsCount({ bandsCount }));
   }
