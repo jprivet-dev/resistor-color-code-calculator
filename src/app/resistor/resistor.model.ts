@@ -94,7 +94,7 @@ export const bandsColors: BandColor[] = [
   'silver',
 ];
 
-export const ResistorConfig: {
+export const resistorConfig: {
   digit1: BandColorsValues;
   digit2: BandColorsValues;
   digit3: BandColorsValues;

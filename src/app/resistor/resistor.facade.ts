@@ -14,8 +14,8 @@ import { selectResistor } from './state/resistor.selectors';
 export class ResistorFacade {
   private store = inject(Store);
   private service = inject(ResistorService);
-  readonly resistor$ = this.store.select(selectResistor);
 
+  readonly resistor$ = this.store.select(selectResistor);
   readonly bandsCounts = this.service.bandsCounts;
   readonly bandsColors = this.service.bandsColors;
   readonly resistorConfig = this.service.resistorConfig;
