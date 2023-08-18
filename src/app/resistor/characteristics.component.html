@@ -47,7 +47,7 @@
         <!--            <div class="card h-100 rounded-3 shadow-sm">-->
         <!--                <div class="card-header py-3">-->
         <!--                    <h4 class="my-0 fw-normal">-->
-        <!--                        {{ t('power_rating') | titlecase }}-->
+        <!--                        {{ t('powerRating') | titlecase }}-->
         <!--                    </h4>-->
         <!--                </div>-->
         <!--                <div class="card-body">-->
@@ -80,11 +80,11 @@
                                 <td>{{ resistance$ | async | format: 'resistance' }}</td>
                             </tr>
                             <tr>
-                                <th scope="row">{{ t('resistance_max') | titlecase }}</th>
+                                <th scope="row">{{ t('resistanceMax') | titlecase }}</th>
                                 <td>{{ resistanceMax$ | async | format: 'resistanceMax' }}</td>
                             </tr>
                             <tr>
-                                <th scope="row">{{ t('resistance_min') | titlecase }}</th>
+                                <th scope="row">{{ t('resistanceMin') | titlecase }}</th>
                                 <td>{{ resistanceMin$ | async | format: 'resistanceMin' }}</td>
                             </tr>
                             </tbody>
@@ -104,11 +104,11 @@
                                 <td>{{ tolerance$ | async | format: 'tolerance' }}</td>
                             </tr>
                             <tr>
-                                <th scope="row">{{ t('tolerance_ohm') | titlecase }}</th>
+                                <th scope="row">{{ t('toleranceOhm') | titlecase }}</th>
                                 <td>{{ toleranceOhm$ | async | format: 'toleranceOhm' }}</td>
                             </tr>
                             <tr *ngIf="(thermalCoefficient$ | async) as thermalCoefficient">
-                                <th scope="row">{{ t('thermal_coefficient') | titlecase }}</th>
+                                <th scope="row">{{ t('thermalCoefficient') | titlecase }}</th>
                                 <td>{{ thermalCoefficient | format: 'thermalCoefficient' }}</td>
                             </tr>
                             </tbody>
@@ -120,7 +120,7 @@
         <!--        TODO: to activate later-->
         <!--        <li [ngbNavItem]="2">-->
         <!--            <button ngbNavLink>-->
-        <!--                <h4 class="mb-0">{{ t('ohm_s_law') | titlecase }} - {{ t('charts') | titlecase }}</h4>-->
+        <!--                <h4 class="mb-0">{{ t('ohmLaw') | titlecase }} - {{ t('charts') | titlecase }}</h4>-->
         <!--            </button>-->
         <!--            <ng-template ngbNavContent>-->
         <!--                <h1 class="card-title pricing-card-title">-->

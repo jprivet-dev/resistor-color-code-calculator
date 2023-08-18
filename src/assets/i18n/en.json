@@ -28,18 +28,18 @@
   "language": "language",
   "light": "light",
   "multiplier": "multiplier",
-  "ohm_s_law": "ohm's law",
-  "power_rating": "power rating",
+  "ohmLaw": "ohm's law",
+  "powerRating": "power rating",
   "punctuation": {
     "colon": ": "
   },
   "resistance": "resistance",
-  "resistance_max": "resistance max",
-  "resistance_min": "resistance min",
+  "resistanceMax": "resistance max",
+  "resistanceMin": "resistance min",
   "resistor": "resistor",
   "theme": "theme",
-  "thermal_coefficient": "thermal coefficient",
+  "thermalCoefficient": "thermal coefficient",
   "tolerance": "tolerance",
-  "tolerance_ohm": "tolerance (Ohm)",
+  "toleranceOhm": "tolerance (Ohm)",
   "value": "value"
 }

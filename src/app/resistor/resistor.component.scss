@@ -1,19 +1,67 @@
 .resistor-object {
-  background-color: #E2AE79;
-  width: 300px;
-  height: 80px;
-  padding: 0 10px;
-}
+  position: relative;
+  width: 340px;
+  height: 100px;
 
-.band {
-  width: 20px;
-  margin: 0 10px;
-}
+  .leads {
+    position: absolute;
+    top: 36px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-style: solid;
+    border-color: #9D9D9D;
+    border-width: 10px 10px 0 10px;
+  }
 
-.bands-4,
-.bands-5,
-.bands-6 {
-  .band-multiplier {
-    margin-right: auto;
+  .body {
+    position: absolute;
+    top: 0;
+    bottom: 20px;
+    left: 50px;
+    right: 50px;
+
+    padding: 0 10px;
+    background-color: #DEB96F;
+
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 33%;
+      border-bottom-right-radius: var(--bs-border-radius-lg) !important;
+      border-bottom-left-radius: var(--bs-border-radius-lg) !important;
+      background-color: rgba(0, 0, 0, 0.07);
+    }
+  }
+
+  .band {
+    position: relative;
+    width: 20px;
+    margin: 0 10px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 33%;
+      background-color: rgba(0, 0, 0, 0.10);
+    }
+  }
+
+  &.bands-4,
+  &.bands-5,
+  &.bands-6 {
+    .band-multiplier {
+      margin-right: auto;
+    }
+  }
+
+  &.bands-6 {
+    width: 380px;
   }
 }

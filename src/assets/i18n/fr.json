@@ -28,18 +28,18 @@
   "language": "langage",
   "light": "clair",
   "multiplier": "multiplieur",
-  "ohm_s_law": "la loi d'Ohm",
-  "power_rating": "charge admissible",
+  "ohmLaw": "la loi d'Ohm",
+  "powerRating": "charge admissible",
   "punctuation": {
     "colon": " : "
   },
   "resistance": "résistance",
-  "resistance_max": "résistance max",
-  "resistance_min": "résistance min",
+  "resistanceMax": "résistance max",
+  "resistanceMin": "résistance min",
   "resistor": "résistance",
   "theme": "thème",
-  "thermal_coefficient": "coefficient de température",
+  "thermalCoefficient": "coefficient de température",
   "tolerance": "tolérance",
-  "tolerance_ohm": "tolérance (Ohm)",
+  "toleranceOhm": "tolérance (Ohm)",
   "value": "valeur"
 }
