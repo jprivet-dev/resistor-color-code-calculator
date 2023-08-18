@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Resistor } from '../resistor/resistor.model';
-import { resistorConfig } from '../resistor/resistor.model';
-import { Characteristics } from '../resistor/resistor.model';
+import { Resistor } from './resistor.model';
+import { resistorConfig } from './resistor.model';
+import { Characteristics } from './resistor.model';
 
 @Injectable({
   providedIn: 'root',

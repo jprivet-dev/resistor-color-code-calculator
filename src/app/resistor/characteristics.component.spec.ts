@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ResistorDataComponent } from './resistor-data.component';
+import { CharacteristicsComponent } from './characteristics.component';
 
 describe('ResistorDataComponent', () => {
-  let component: ResistorDataComponent;
-  let fixture: ComponentFixture<ResistorDataComponent>;
+  let component: CharacteristicsComponent;
+  let fixture: ComponentFixture<CharacteristicsComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ResistorDataComponent]
+      declarations: [CharacteristicsComponent],
     });
-    fixture = TestBed.createComponent(ResistorDataComponent);
+    fixture = TestBed.createComponent(CharacteristicsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -6,7 +6,7 @@ import { ResistorService } from '../resistor.service';
 import { exhaustMap, map } from 'rxjs/operators';
 import { catchError } from 'rxjs/operators';
 import { EMPTY } from 'rxjs';
-import { CharacteristicsService } from '../../shared/characteristics.service';
+import { CharacteristicsService } from '../characteristics.service';
 import { ResistorFacade } from '../resistor.facade';
 import { Store } from '@ngrx/store';
 import { selectResistor } from './resistor.selectors';

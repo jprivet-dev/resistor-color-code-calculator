@@ -3,11 +3,11 @@ import { inject } from '@angular/core';
 import { ResistorFacade } from './resistor.facade';
 
 @Component({
-  selector: 'app-resistor-data',
-  templateUrl: './resistor-data.component.html',
-  styleUrls: ['./resistor-data.component.scss'],
+  selector: 'app-characteristics',
+  templateUrl: './characteristics.component.html',
+  styleUrls: ['./characteristics.component.scss'],
 })
-export class ResistorDataComponent {
+export class CharacteristicsComponent {
   private facade = inject(ResistorFacade);
   readonly resistance$ = this.facade.resistance$;
   readonly resistanceMin$ = this.facade.resistanceMin$;
