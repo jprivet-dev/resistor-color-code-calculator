@@ -40,17 +40,12 @@ export class ResistorEffects {
       ofType(resistorApiActions.retrieveResistorSuccess),
       exhaustMap(() =>
         this.store.select(selectResistor).pipe(
-          map((resistor) => {
-            console.log('coucou', resistor);
-            return characteristicsActions.updateCharacteristics({
-              characteristics: {
-                resistance:
-                  this.characteristicsService.calculateResistance(resistor),
-                tolerance:
-                  this.characteristicsService.calculateTolerance(resistor),
-              },
-            });
-          }),
+          map((resistor) =>
+            characteristicsActions.updateCharacteristics({
+              characteristics:
+                this.characteristicsService.calculateAll(resistor),
+            }),
+          ),
           catchError(() => EMPTY),
         ),
       ),

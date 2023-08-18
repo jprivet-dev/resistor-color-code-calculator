@@ -61,7 +61,7 @@ export const characteristicsReducer = createReducer(
     characteristicsActions.updateCharacteristics,
     (state, { characteristics }) => ({
       ...state,
-      characteristics,
+      ...characteristics,
     }),
   ),
 );

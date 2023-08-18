@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Resistor } from '../resistor/resistor.model';
 import { resistorConfig } from '../resistor/resistor.model';
+import { Characteristics } from '../resistor/resistor.model';
 
 @Injectable({
   providedIn: 'root',
@@ -29,5 +30,12 @@ export class CharacteristicsService {
 
   calculateTolerance(resistor: Readonly<Resistor>): number {
     return this.resistorConfig.tolerance[resistor.tolerance.color] ?? 0;
+  }
+
+  calculateAll(resistor: Readonly<Resistor>): Characteristics {
+    return {
+      resistance: this.calculateResistance(resistor),
+      tolerance: this.calculateTolerance(resistor),
+    };
   }
 }
