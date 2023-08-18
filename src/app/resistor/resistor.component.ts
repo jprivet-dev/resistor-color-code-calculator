@@ -4,6 +4,7 @@ import { inject } from '@angular/core';
 import { ResistorFacade } from './resistor.facade';
 import { BandName } from './resistor.model';
 import { BandColor } from './resistor.model';
+import { Resistor } from './resistor.model';
 
 @Component({
   selector: 'app-resistor',
@@ -21,6 +22,8 @@ export class ResistorComponent implements OnInit {
   readonly resistance$ = this.facade.resistance$;
   readonly tolerance$ = this.facade.tolerance$;
   readonly thermalCoefficient$ = this.facade.thermalCoefficient$;
+  readonly forceToleranceToTwentyPercent$ =
+    this.facade.forceToleranceToTwentyPercent$;
 
   ngOnInit() {
     this.facade.retrieveResistor();
@@ -56,5 +59,25 @@ export class ResistorComponent implements OnInit {
 
   setBandThermalCoefficient(color: BandColor): void {
     this.facade.setBandThermalCoefficient(color);
+  }
+
+  toleranceIsActive(resistor: Resistor, color: BandColor): boolean {
+    if (resistor.bandsCount === 3) {
+      return color === 'none';
+    }
+
+    return resistor.tolerance.color === color;
+  }
+
+  toleranceIsDisabled(resistor: Resistor, color: BandColor): string | null {
+    if (resistor.bandsCount === 3) {
+      return color === 'none' ? null : '';
+    }
+
+    if (color === 'none') {
+      return '';
+    }
+
+    return null;
   }
 }

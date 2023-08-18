@@ -14,6 +14,8 @@ import { selectResistanceMin } from './state/resistor.selectors';
 import { selectResistanceMax } from './state/resistor.selectors';
 import { selectToleranceOhm } from './state/resistor.selectors';
 import { selectThermalCoefficient } from './state/resistor.selectors';
+import { selectBandsCount } from './state/resistor.selectors';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -33,6 +35,11 @@ export class ResistorFacade {
   readonly tolerance$ = this.store.select(selectTolerance);
   readonly toleranceOhm$ = this.store.select(selectToleranceOhm);
   readonly thermalCoefficient$ = this.store.select(selectThermalCoefficient);
+
+  readonly bandsCount$ = this.store.select(selectBandsCount);
+  readonly forceToleranceToTwentyPercent$ = this.bandsCount$.pipe(
+    map((bandsCount) => bandsCount === 3),
+  );
 
   retrieveResistor() {
     this.store.dispatch(resistorApiActions.retrieveResistor());

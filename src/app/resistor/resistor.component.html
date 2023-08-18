@@ -123,7 +123,6 @@
                                 {{ resistorConfig.digit3[color] }}
                             </button>
                         </div>
-
                     </td>
                     <!-- multiplier -->
                     <td *ngIf="bandsName.includes('multiplier')">
@@ -142,7 +141,8 @@
                         <div class="d-grid">
                             <button *ngIf="resistorConfig.tolerance[color]"
                                     (click)="setBandTolerance(color)"
-                                    [class.active]="resistor.tolerance.color === color"
+                                    [class.active]="toleranceIsActive(resistor, color)"
+                                    [attr.disabled]="toleranceIsDisabled(resistor, color)"
                                     class="btn btn-color text-start rounded-pill" type="button">
                                 <span [appResistorColor]="color" class="circle-color"></span>
                                 {{ resistorConfig.tolerance[color] | format: 'tolerance' }}

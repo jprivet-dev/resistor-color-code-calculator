@@ -22,6 +22,10 @@
 }
 
 .btn-color {
+  &:disabled {
+    border-color: transparent;
+  }
+  &.active,
   &:hover {
     border-color: var(--bs-btn-active-border-color);
   }
