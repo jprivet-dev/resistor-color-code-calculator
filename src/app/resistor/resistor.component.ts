@@ -18,6 +18,10 @@ export class ResistorComponent implements OnInit {
   readonly resistorConfig = this.facade.resistorConfig;
   readonly resistor$ = this.facade.resistor$;
 
+  readonly resistance$ = this.facade.resistance$;
+  readonly tolerance$ = this.facade.tolerance$;
+  readonly thermalCoefficient$ = this.facade.thermalCoefficient$;
+
   ngOnInit() {
     this.facade.retrieveResistor();
   }

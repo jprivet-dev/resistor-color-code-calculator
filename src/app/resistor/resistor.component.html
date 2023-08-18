@@ -1,34 +1,54 @@
 <ng-container *transloco="let t">
     <ng-container *ngIf="(resistor$ | async) as resistor">
-        <div class="d-flex justify-content-center pt-4 pb-3">
-            <div>
-                <ng-container *ngFor="let count of bandsCounts">
-                    <input (click)="setBandsCount(count)" [checked]="resistor.bandsCount === count"
-                           type="radio" class="btn-check" name="bands-count" id="{{ 'bands-count-radio-' + count }}"
-                           autocomplete="off">
-                    <label class="btn btn-outline-primary rounded-pill mx-1" for="{{ 'bands-count-radio-' + count }}">
-                        {{ t('bands', {bandsCount: count}) }}
-                    </label>
-                </ng-container>
-            </div>
-        </div>
+        <div class="row">
+            <div class="col">
+                <div class="d-flex justify-content-center pt-4 pb-3">
+                    <div>
+                        <ng-container *ngFor="let count of bandsCounts">
+                            <input (click)="setBandsCount(count)" [checked]="resistor.bandsCount === count"
+                                   type="radio" class="btn-check" name="bands-count"
+                                   id="{{ 'bands-count-radio-' + count }}"
+                                   autocomplete="off">
+                            <label class="btn btn-outline-primary rounded-pill mx-1"
+                                   for="{{ 'bands-count-radio-' + count }}">
+                                {{ t('bands', {bandsCount: count}) }}
+                            </label>
+                        </ng-container>
+                    </div>
+                </div>
 
-        <div class="d-flex justify-content-center py-3">
-            <div class="resistor-object {{ 'bands-' + resistor.bandsCount }}">
-                <div class="leads rounded-top-4"></div>
-                <div class="body rounded-3 d-flex align-self-stretch">
-                    <div *ngFor="let bandName of setBandsNameListByBandsCount(resistor.bandsCount)"
-                         [appResistorColor]="resistor[bandName].color"
-                         ngbTooltip="{{ t(bandName) | titlecase }}" placement="bottom"
-                         class="band band-{{ bandName }} border-0"
-                    ></div>
+                <div class="d-flex justify-content-center py-3">
+                    <div class="resistor-object {{ 'bands-' + resistor.bandsCount }}">
+                        <div class="leads rounded-top-4"></div>
+                        <div class="body rounded-3 d-flex align-self-stretch">
+                            <div *ngFor="let bandName of setBandsNameListByBandsCount(resistor.bandsCount)"
+                                 [appResistorColor]="resistor[bandName].color"
+                                 ngbTooltip="{{ t(bandName) | titlecase }}" placement="bottom"
+                                 class="band band-{{ bandName }} border-0"
+                            ></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="d-flex h-100 justify-content-center align-items-center">
+                    <div class="characteristics">
+                        <h1>
+                            {{ resistance$ | async | format: 'resistance' }}
+                        </h1>
+                        <h2>
+                            {{ tolerance$ | async | format: 'tolerance' }}
+                        </h2>
+                        <h2 *ngIf="(thermalCoefficient$ | async) as thermalCoefficient">
+                            {{ thermalCoefficient | format: 'thermalCoefficient' }}
+                        </h2>
+                    </div>
                 </div>
             </div>
         </div>
-
         <div class="d-flex justify-content-center py-3"
              *ngIf="setBandsNameListByBandsCount(resistor.bandsCount) as bandsName">
-            <table class="table table-striped">
+            <table class="table table-sm table-striped">
                 <thead>
                 <tr>
                     <th scope="col">
