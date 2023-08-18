@@ -10,6 +10,10 @@ import { ResistorService } from './resistor.service';
 import { selectResistor } from './state/resistor.selectors';
 import { selectResistance } from './state/resistor.selectors';
 import { selectTolerance } from './state/resistor.selectors';
+import { selectResistanceMin } from './state/resistor.selectors';
+import { selectResistanceMax } from './state/resistor.selectors';
+import { selectToleranceOhm } from './state/resistor.selectors';
+import { selectThermalCoefficient } from './state/resistor.selectors';
 
 @Injectable({
   providedIn: 'root',
@@ -24,7 +28,11 @@ export class ResistorFacade {
   readonly resistorConfig = this.service.resistorConfig;
 
   readonly resistance$ = this.store.select(selectResistance);
+  readonly resistanceMin$ = this.store.select(selectResistanceMin);
+  readonly resistanceMax$ = this.store.select(selectResistanceMax);
   readonly tolerance$ = this.store.select(selectTolerance);
+  readonly toleranceOhm$ = this.store.select(selectToleranceOhm);
+  readonly thermalCoefficient$ = this.store.select(selectThermalCoefficient);
 
   retrieveResistor() {
     this.store.dispatch(resistorApiActions.retrieveResistor());

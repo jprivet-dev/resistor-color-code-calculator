@@ -28,14 +28,41 @@ export class CharacteristicsService {
       : (digit1 * 100 + digit2 * 10 + digit3) * multiplier;
   }
 
+  calculateResistanceMax(resistance: number, tolerance: number): number {
+    return (resistance / 100) * (100 + tolerance);
+  }
+
+  calculateResistanceMin(resistance: number, tolerance: number): number {
+    return (resistance / 100) * (100 - tolerance);
+  }
+
   calculateTolerance(resistor: Readonly<Resistor>): number {
     return this.resistorConfig.tolerance[resistor.tolerance.color] ?? 0;
   }
 
+  calculateToleranceOhm(resistance: number, tolerance: number): number {
+    return (tolerance / 100) * resistance;
+  }
+
+  calculateThermalCoefficient(resistor: Resistor): number {
+    const thermalCoefficient =
+      this.resistorConfig.thermalCoefficient[
+        resistor.thermalCoefficient.color
+      ] ?? 0;
+    return resistor.bandsCount === 6 ? thermalCoefficient : 0;
+  }
+
   calculateAll(resistor: Readonly<Resistor>): Characteristics {
+    const resistance: number = this.calculateResistance(resistor);
+    const tolerance: number = this.calculateTolerance(resistor);
+
     return {
-      resistance: this.calculateResistance(resistor),
-      tolerance: this.calculateTolerance(resistor),
+      resistance,
+      resistanceMax: this.calculateResistanceMax(resistance, tolerance),
+      resistanceMin: this.calculateResistanceMin(resistance, tolerance),
+      tolerance,
+      toleranceOhm: this.calculateToleranceOhm(resistance, tolerance),
+      thermalCoefficient: this.calculateThermalCoefficient(resistor),
     };
   }
 }

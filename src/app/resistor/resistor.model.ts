@@ -52,7 +52,11 @@ export interface Resistor {
 
 export interface Characteristics {
   resistance: number;
+  resistanceMax: number;
+  resistanceMin: number;
   tolerance: number;
+  toleranceOhm: number;
+  thermalCoefficient: number;
 }
 
 export const getBandsNameListByBandsCount = (

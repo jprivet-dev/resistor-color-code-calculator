@@ -14,7 +14,27 @@ export const selectResistance = createSelector(
   (state) => state.resistance,
 );
 
+export const selectResistanceMin = createSelector(
+  selectCharacteristics,
+  (state) => state.resistanceMin,
+);
+
+export const selectResistanceMax = createSelector(
+  selectCharacteristics,
+  (state) => state.resistanceMax,
+);
+
 export const selectTolerance = createSelector(
   selectCharacteristics,
   (state) => state.tolerance,
+);
+
+export const selectToleranceOhm = createSelector(
+  selectCharacteristics,
+  (state) => state.toleranceOhm,
+);
+
+export const selectThermalCoefficient = createSelector(
+  selectCharacteristics,
+  (state) => state.thermalCoefficient,
 );

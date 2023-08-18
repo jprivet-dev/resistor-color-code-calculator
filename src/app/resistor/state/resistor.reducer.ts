@@ -52,7 +52,11 @@ export const resistorReducer = createReducer(
 
 export const characteristicsInitialState: Readonly<Characteristics> = {
   resistance: 0,
+  resistanceMax: 0,
+  resistanceMin: 0,
   tolerance: 0,
+  toleranceOhm: 0,
+  thermalCoefficient: 0,
 };
 
 export const characteristicsReducer = createReducer(

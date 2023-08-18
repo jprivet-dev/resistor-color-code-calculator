@@ -1,5 +1,5 @@
 <ng-container *transloco="let t">
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-2 row-cols-xxl-3 mb-4 g-4 text-center">
+    <div class="row mb-4 g-4 text-center">
         <div class="col">
             <div class="card h-100 rounded-3 shadow-sm border-primary">
                 <div class="card-header py-3 text-bg-primary border-primary">
@@ -12,8 +12,8 @@
                         {{ resistance$ | async | format: 'resistance' }}
                     </h1>
                     <ul class="list-unstyled mt-3">
-                        <li>{{ 588 | format: 'resistanceMax' }}</li>
-                        <li>{{ 532 | format: 'resistanceMin' }}</li>
+                        <li>{{ resistanceMax$ | async | format: 'resistanceMax' }}</li>
+                        <li>{{ resistanceMin$ | async | format: 'resistanceMin' }}</li>
                     </ul>
                 </div>
             </div>
@@ -30,25 +30,26 @@
                         {{ tolerance$ | async | format: 'tolerance' }}
                     </h1>
                     <ul class="list-unstyled mt-3">
-                        <li>{{ 28 | format: 'toleranceOhm' }}</li>
+                        <li>{{ toleranceOhm$ | async | format: 'toleranceOhm' }}</li>
                     </ul>
                 </div>
             </div>
         </div>
-        <div class="col">
-            <div class="card h-100 rounded-3 shadow-sm">
-                <div class="card-header py-3">
-                    <h4 class="my-0 fw-normal">
-                        {{ t('power_rating') | titlecase }}
-                    </h4>
-                </div>
-                <div class="card-body">
-                    <h1 class="card-title pricing-card-title">
-                        {{ 0.25 | format: 'power' }}
-                    </h1>
-                </div>
-            </div>
-        </div>
+<!--        TODO: to activate later-->
+<!--        <div class="col">-->
+<!--            <div class="card h-100 rounded-3 shadow-sm">-->
+<!--                <div class="card-header py-3">-->
+<!--                    <h4 class="my-0 fw-normal">-->
+<!--                        {{ t('power_rating') | titlecase }}-->
+<!--                    </h4>-->
+<!--                </div>-->
+<!--                <div class="card-body">-->
+<!--                    <h1 class="card-title pricing-card-title">-->
+<!--                        {{ 0.25 | format: 'power' }}-->
+<!--                    </h1>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
     </div>
 
     <ul ngbNav #nav="ngbNav" [(activeId)]="activeTabId" class="nav-tabs nav-fill">
@@ -57,50 +58,72 @@
                 <h4 class="mb-0">{{ t('characteristics') | titlecase }}</h4>
             </button>
             <ng-template ngbNavContent>
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                    </tbody>
-                </table>
+                <div class="row">
+                    <div class="col">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th scope="col">{{ t('label') | titlecase }}</th>
+                                <th scope="col">{{ t('value') | titlecase }}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">{{ t('resistance') | titlecase }}</th>
+                                <td>{{ resistance$ | async | format: 'resistance' }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{{ t('resistance_max') | titlecase }}</th>
+                                <td>{{ resistanceMax$ | async | format: 'resistanceMax' }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{{ t('resistance_min') | titlecase }}</th>
+                                <td>{{ resistanceMin$ | async | format: 'resistanceMin' }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th scope="col">{{ t('label') | titlecase }}</th>
+                                <th scope="col">{{ t('value') | titlecase }}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">{{ t('tolerance') | titlecase }}</th>
+                                <td>{{ tolerance$ | async | format: 'tolerance' }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{{ t('tolerance_ohm') | titlecase }}</th>
+                                <td>{{ toleranceOhm$ | async | format: 'toleranceOhm' }}</td>
+                            </tr>
+                            <tr *ngIf="(thermalCoefficient$ | async) as thermalCoefficient">
+                                <th scope="row">{{ t('thermal_coefficient') | titlecase }}</th>
+                                <td>{{ thermalCoefficient | format: 'thermalCoefficient' }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </ng-template>
         </li>
-        <li [ngbNavItem]="2">
-            <button ngbNavLink>
-                <h4 class="mb-0">{{ t('ohm_s_law') | titlecase }} - {{ t('charts') | titlecase }}</h4>
-            </button>
-            <ng-template ngbNavContent>
-                <h1 class="card-title pricing-card-title">
-                    {{ 5 | format: 'tolerance' }}
-                </h1>
-                <ul class="list-unstyled mt-3">
-                    <li>{{ 28 | format: 'toleranceOhm' }}</li>
-                </ul>
-            </ng-template>
-        </li>
+<!--        TODO: to activate later-->
+<!--        <li [ngbNavItem]="2">-->
+<!--            <button ngbNavLink>-->
+<!--                <h4 class="mb-0">{{ t('ohm_s_law') | titlecase }} - {{ t('charts') | titlecase }}</h4>-->
+<!--            </button>-->
+<!--            <ng-template ngbNavContent>-->
+<!--                <h1 class="card-title pricing-card-title">-->
+<!--                    {{ 5 | format: 'tolerance' }}-->
+<!--                </h1>-->
+<!--                <ul class="list-unstyled mt-3">-->
+<!--                    <li>{{ 28 | format: 'toleranceOhm' }}</li>-->
+<!--                </ul>-->
+<!--            </ng-template>-->
+<!--        </li>-->
     </ul>
 
     <div [ngbNavOutlet]="nav" class="mt-2"></div>

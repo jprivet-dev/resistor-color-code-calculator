@@ -1,6 +1,8 @@
 {
   "about": "à propos",
   "bands": "{{ bandsCount }} bandes",
+  "characteristics": "caractéristiques",
+  "charts": "graphiques",
   "color": "couleur",
   "colorName": {
     "black": "noir",
@@ -22,19 +24,22 @@
   "digit2": "2ème bande",
   "digit3": "3ème bande",
   "github": "GitHub",
+  "label": "label",
   "language": "langage",
   "light": "clair",
   "multiplier": "multiplieur",
+  "ohm_s_law": "la loi d'Ohm",
   "power_rating": "charge admissible",
   "punctuation": {
     "colon": " : "
   },
   "resistance": "résistance",
+  "resistance_max": "résistance max",
+  "resistance_min": "résistance min",
   "resistor": "résistance",
   "theme": "thème",
-  "thermalCoefficient": "coefficient de température",
+  "thermal_coefficient": "coefficient de température",
   "tolerance": "tolérance",
-  "characteristics": "caractéristiques",
-  "charts": "graphiques",
-  "ohm_s_law": "la loi d'Ohm"
+  "tolerance_ohm": "tolérance (Ohm)",
+  "value": "valeur"
 }
