@@ -52,6 +52,7 @@ export interface Resistor {
 
 export interface Characteristics {
   resistance: number;
+  tolerance: number;
 }
 
 export const getBandsNameListByBandsCount = (

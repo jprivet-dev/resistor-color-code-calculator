@@ -52,12 +52,16 @@ export const resistorReducer = createReducer(
 
 export const characteristicsInitialState: Readonly<Characteristics> = {
   resistance: 0,
+  tolerance: 0,
 };
 
 export const characteristicsReducer = createReducer(
   characteristicsInitialState,
-  on(characteristicsActions.updateResistance, (state, { resistance }) => ({
-    ...state,
-    resistance,
-  })),
+  on(
+    characteristicsActions.updateCharacteristics,
+    (state, { characteristics }) => ({
+      ...state,
+      characteristics,
+    }),
+  ),
 );

@@ -13,3 +13,8 @@ export const selectResistance = createSelector(
   selectCharacteristics,
   (state) => state.resistance,
 );
+
+export const selectTolerance = createSelector(
+  selectCharacteristics,
+  (state) => state.tolerance,
+);

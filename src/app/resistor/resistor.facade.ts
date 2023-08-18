@@ -9,6 +9,7 @@ import { Store } from '@ngrx/store';
 import { ResistorService } from './resistor.service';
 import { selectResistor } from './state/resistor.selectors';
 import { selectResistance } from './state/resistor.selectors';
+import { selectTolerance } from './state/resistor.selectors';
 
 @Injectable({
   providedIn: 'root',
@@ -23,6 +24,7 @@ export class ResistorFacade {
   readonly resistorConfig = this.service.resistorConfig;
 
   readonly resistance$ = this.store.select(selectResistance);
+  readonly tolerance$ = this.store.select(selectTolerance);
 
   retrieveResistor() {
     this.store.dispatch(resistorApiActions.retrieveResistor());

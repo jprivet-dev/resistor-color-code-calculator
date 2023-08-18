@@ -26,4 +26,8 @@ export class CharacteristicsService {
       ? (digit1 * 10 + digit2) * multiplier
       : (digit1 * 100 + digit2 * 10 + digit3) * multiplier;
   }
+
+  calculateTolerance(resistor: Readonly<Resistor>): number {
+    return this.resistorConfig.tolerance[resistor.tolerance.color] ?? 0;
+  }
 }

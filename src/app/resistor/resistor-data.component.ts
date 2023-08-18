@@ -10,6 +10,7 @@ import { ResistorFacade } from './resistor.facade';
 export class ResistorDataComponent {
   private facade = inject(ResistorFacade);
   readonly resistance$ = this.facade.resistance$;
+  readonly tolerance$ = this.facade.tolerance$;
 
   activeTabId = 1;
 }
