@@ -23,6 +23,7 @@
     "@ngneat/transloco": "^5.0.6",
     "@ngrx/effects": "^16.2.0",
     "@ngrx/store": "^16.2.0",
+    "@ngrx/store-devtools": "^16.2.0",
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.5",
