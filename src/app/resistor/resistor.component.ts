@@ -12,10 +12,11 @@ import { BandColor } from './resistor.model';
 })
 export class ResistorComponent implements OnInit {
   private facade = inject(ResistorFacade);
-  bandsCounts = this.facade.bandsCounts;
-  bandsColors = this.facade.bandsColors;
-  resistorConfig = this.facade.resistorConfig;
-  resistor$ = this.facade.resistor$;
+
+  readonly bandsCounts = this.facade.bandsCounts;
+  readonly bandsColors = this.facade.bandsColors;
+  readonly resistorConfig = this.facade.resistorConfig;
+  readonly resistor$ = this.facade.resistor$;
 
   ngOnInit() {
     this.facade.retrieveResistor();
