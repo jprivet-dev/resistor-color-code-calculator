@@ -16,7 +16,6 @@
                         </ng-container>
                     </div>
                 </div>
-
                 <div class="d-flex justify-content-center py-3">
                     <div class="resistor-object {{ 'bands-' + resistor.bandsCount }}">
                         <div class="leads rounded-top-4"></div>
@@ -56,27 +55,28 @@
                     </th>
                     <th scope="col" class="pb-0">
                         {{ t('digit1') | titlecase }}
-                        <div [appResistorColor]="resistor['digit1'].color" class="p-1"></div>
+                        <div [appResistorColor]="resistor['digit1'].color" class="p-1 rounded-pill"></div>
                     </th>
                     <th scope="col" class="pb-0">
                         {{ t('digit2') | titlecase }}
-                        <div [appResistorColor]="resistor['digit2'].color" class="p-1"></div>
+                        <div [appResistorColor]="resistor['digit2'].color" class="p-1 rounded-pill"></div>
                     </th>
                     <th scope="col" class="pb-0" *ngIf="bandsName.includes('digit3')">
                         {{ t('digit3') | titlecase }}
-                        <div [appResistorColor]="resistor['digit3'].color" class="p-1"></div>
+                        <div [appResistorColor]="resistor['digit3'].color" class="p-1 rounded-pill"></div>
                     </th>
                     <th scope="col" class="pb-0" *ngIf="bandsName.includes('multiplier')">
                         {{ t('multiplier') | titlecase }}
-                        <div [appResistorColor]="resistor['multiplier'].color" class="p-1"></div>
+                        <div [appResistorColor]="resistor['multiplier'].color" class="p-1 rounded-pill"></div>
                     </th>
                     <th scope="col" class="pb-0">
                         {{ t('tolerance') | titlecase }}
-                        <div [appResistorColor]="resistor['tolerance'].color" class="p-1"></div>
+                        <div [appResistorColor]="resistor['tolerance'].color" class="p-1 rounded-pill"></div>
                     </th>
                     <th scope="col" class="pb-0" *ngIf="bandsName.includes('thermalCoefficient')">
                         {{ t('thermalCoefficient') | titlecase }}
-                        <div [appResistorColor]="resistor['thermalCoefficient'].color" class="p-1"></div>
+                        <div [appResistorColor]="resistor['thermalCoefficient'].color"
+                             class="p-1 rounded-pill"></div>
                     </th>
                 </tr>
                 </thead>
@@ -84,81 +84,81 @@
                 <tr *ngFor="let color of bandsColors">
                     <!-- colors -->
                     <th scope="row">
-                        <div class="rounded-pill px-2 py-1" [appResistorColor]="color">
+                        <div [appResistorColor]="color" class="color-name text-start rounded-pill">
                             {{ t('colorName.' + color) | titlecase }}
                         </div>
                     </th>
                     <!-- digit1 -->
                     <td>
-                        <div *ngIf="resistorConfig.digit1[color]" class="form-check">
-                            <label class="form-check-label py-1" for="band-digit1-{{ color }}">
-                                <input (click)="setBandDigit1(color)"
-                                       [checked]="resistor.digit1.color === color"
-                                       class="form-check-input" type="radio" name="band-digit1"
-                                       id="band-digit1-{{ color }}">
+                        <div class="d-grid">
+                            <button *ngIf="resistorConfig.digit1[color]"
+                                    (click)="setBandDigit1(color)"
+                                    [class.active]="resistor.digit1.color === color"
+                                    class="btn btn-color text-start rounded-pill" type="button">
+                                <span [appResistorColor]="color" class="circle-color"></span>
                                 {{ resistorConfig.digit1[color] }}
-                            </label>
+                            </button>
                         </div>
                     </td>
                     <!-- digit2 -->
                     <td>
-                        <div *ngIf="resistorConfig.digit2[color]" class="form-check">
-                            <label class="form-check-label py-1" for="band-digit2-{{ color }}">
-                                <input (click)="setBandDigit2(color)"
-                                       [checked]="resistor.digit2.color === color"
-                                       class="form-check-input" type="radio"
-                                       name="band-digit2" id="band-digit2-{{ color }}">
+                        <div class="d-grid">
+                            <button *ngIf="resistorConfig.digit2[color]"
+                                    (click)="setBandDigit2(color)"
+                                    [class.active]="resistor.digit2.color === color"
+                                    class="btn btn-color text-start rounded-pill" type="button">
+                                <span [appResistorColor]="color" class="circle-color"></span>
                                 {{ resistorConfig.digit2[color] }}
-                            </label>
+                            </button>
                         </div>
                     </td>
                     <!-- digit3 -->
                     <td *ngIf="bandsName.includes('digit3')">
-                        <div *ngIf="resistorConfig.digit3[color]" class="form-check">
-                            <label class="form-check-label py-1" for="band-digit3-{{ color }}">
-                                <input (click)="setBandDigit3(color)"
-                                       [checked]="resistor.digit3.color === color"
-                                       class="form-check-input" type="radio"
-                                       name="band-digit3" id="band-digit3-{{ color }}">
+                        <div class="d-grid">
+                            <button *ngIf="resistorConfig.digit3[color]"
+                                    (click)="setBandDigit3(color)"
+                                    [class.active]="resistor.digit3.color === color"
+                                    class="btn btn-color text-start rounded-pill" type="button">
+                                <span [appResistorColor]="color" class="circle-color"></span>
                                 {{ resistorConfig.digit3[color] }}
-                            </label>
+                            </button>
                         </div>
+
                     </td>
                     <!-- multiplier -->
                     <td *ngIf="bandsName.includes('multiplier')">
-                        <div *ngIf="resistorConfig.multiplier[color]" class="form-check">
-                            <label class="form-check-label py-1" for="band-multiplier-{{ color }}">
-                                <input (click)="setBandMultiplier(color)"
-                                       [checked]="resistor.multiplier.color === color"
-                                       class="form-check-input" type="radio"
-                                       name="band-multiplier" id="band-multiplier-{{ color }}">
+                        <div class="d-grid">
+                            <button *ngIf="resistorConfig.multiplier[color]"
+                                    (click)="setBandMultiplier(color)"
+                                    [class.active]="resistor.multiplier.color === color"
+                                    class="btn btn-color text-start rounded-pill" type="button">
+                                <span [appResistorColor]="color" class="circle-color"></span>
                                 {{ resistorConfig.multiplier[color] | format: 'multiplier' }}
-                            </label>
+                            </button>
                         </div>
                     </td>
                     <!-- tolerance -->
                     <td>
-                        <div *ngIf="resistorConfig.tolerance[color]" class="form-check">
-                            <label class="form-check-label py-1" for="band-tolerance-{{ color }}">
-                                <input [disabled]="resistor.bandsCount === 3"
-                                       [checked]="(resistor.bandsCount === 3 && color === 'none') || resistor.tolerance.color === color"
-                                       (click)="setBandTolerance(color)"
-                                       class="form-check-input" type="radio" name="band-tolerance"
-                                       id="band-tolerance-{{ color }}">
+                        <div class="d-grid">
+                            <button *ngIf="resistorConfig.tolerance[color]"
+                                    (click)="setBandTolerance(color)"
+                                    [class.active]="resistor.tolerance.color === color"
+                                    class="btn btn-color text-start rounded-pill" type="button">
+                                <span [appResistorColor]="color" class="circle-color"></span>
                                 {{ resistorConfig.tolerance[color] | format: 'tolerance' }}
-                            </label>
+                            </button>
                         </div>
                     </td>
                     <!-- thermalCoefficient -->
                     <td *ngIf="bandsName.includes('thermalCoefficient')">
-                        <div *ngIf="resistorConfig.thermalCoefficient[color]" class="form-check">
-                            <label class="form-check-label py-1" for="band-thermalCoefficient-{{ color }}">
-                                <input (click)="setBandThermalCoefficient(color)"
-                                       [checked]="resistor.thermalCoefficient.color === color"
-                                       class="form-check-input" type="radio"
-                                       name="band-thermalCoefficient" id="band-thermalCoefficient-{{ color }}">
+                        <div class="d-grid">
+                            <button *ngIf="resistorConfig.thermalCoefficient[color]"
+                                    (click)="setBandThermalCoefficient(color)"
+                                    [class.active]="resistor.thermalCoefficient.color === color"
+                                    class="btn btn-color text-start rounded-pill" type="button">
+                                <span [appResistorColor]="color" class="circle-color"></span>
                                 {{ resistorConfig.thermalCoefficient[color] | format: 'thermalCoefficient' }}
-                            </label>
+                            </button>
                         </div>
                     </td>
                 </tr>
