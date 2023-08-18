@@ -1,34 +1,45 @@
 import { DOCUMENT } from '@angular/common';
 import { inject, Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+
+export type ThemeNames = 'light' | 'dark';
 
 export interface ThemeConfig {
-  theme: string;
-  key: string;
+  name: ThemeNames;
+  key: ThemeNames;
+  icon: string;
 }
-
-export const themeConfig: ThemeConfig[] = [
-  { theme: 'light', key: 'light' },
-  { theme: 'dark', key: 'dark' },
-];
 
 @Injectable({
   providedIn: 'root',
 })
 export class ThemeService {
   private document: Document = inject(DOCUMENT);
+  private themeNameSubject = new BehaviorSubject<ThemeNames>('light');
+  readonly themeName$ = this.themeNameSubject.asObservable();
 
-  setTheme(theme: string): void {
-    this.setThemeInStorage(theme);
-    this.document.documentElement.setAttribute('data-bs-theme', theme);
+  readonly themeConfig: ThemeConfig[] = [
+    { name: 'light', key: 'light', icon: 'bi-brightness-high-fill' },
+    { name: 'dark', key: 'dark', icon: 'bi-moon-stars-fill' },
+  ];
+
+  setTheme(themeName: ThemeNames): void {
+    this.setThemeInStorage(themeName);
+    this.document.documentElement.setAttribute('data-bs-theme', themeName);
+    this.themeNameSubject.next(themeName);
   }
 
-  retrieveTheme(): string {
+  retrieveTheme(): ThemeNames {
     const theme = this.getThemeFromStorage();
-    return theme === null ? 'light' : theme;
+    return theme === null ? 'light' : (theme as ThemeNames);
   }
 
-  setThemeInStorage(theme: string): void {
-    localStorage.setItem('theme', theme);
+  findTheme(themeName: ThemeNames): ThemeConfig | undefined {
+    return this.themeConfig.find((theme) => theme.name === themeName);
+  }
+
+  setThemeInStorage(themeName: string): void {
+    localStorage.setItem('theme', themeName);
   }
 
   getThemeFromStorage(): string | null {

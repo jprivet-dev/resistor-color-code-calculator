@@ -30,9 +30,12 @@
       </ul>
 
       <ul class="navbar-nav">
-        <li ngbDropdown class="nav-item dropdown">
-          <button ngbDropdownToggle class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            {{ t("language") | titlecase }}
+        <li ngbDropdown display="dynamic" placement="bottom-end" class="nav-item dropdown">
+          <button ngbDropdownToggle
+                  *ngIf="langLabel$ | async as lang"
+                  title="{{ t('language') | titlecase }}"
+                  class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            {{ findLangLabel(lang) }}
           </button>
           <ul ngbDropdownMenu class="dropdown-menu">
             <li *ngFor="let conf of langConfig">
@@ -40,14 +43,18 @@
             </li>
           </ul>
         </li>
-        <li ngbDropdown class="nav-item dropdown">
-          <button ngbDropdownToggle class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            {{ t("theme") | titlecase }}
+        <li ngbDropdown display="dynamic" placement="bottom-end" class="nav-item dropdown">
+          <button ngbDropdownToggle
+                  *ngIf="themeName$ | async as themeName"
+                  class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
+                  title="{{ t('theme') | titlecase }}">
+            <i class="bi {{ findTheme(themeName)?.icon }}"></i>
           </button>
           <ul ngbDropdownMenu class="dropdown-menu">
-            <li *ngFor="let conf of themeConfig">
-              <button ngbDropdownItem (click)="setTheme(conf.theme)" class="dropdown-item">
-                {{ t(conf.key) | titlecase }}
+            <li *ngFor="let theme of themeConfig">
+              <button ngbDropdownItem (click)="setTheme(theme.name)" class="dropdown-item">
+                <i class="bi {{ theme.icon }}"></i>
+                {{ t(theme.key) | titlecase }}
               </button>
             </li>
           </ul>
