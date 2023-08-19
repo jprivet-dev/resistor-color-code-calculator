@@ -1,6 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import { Resistor } from '../resistor.model';
 import { Characteristics } from '../resistor.model';
+import { Decode } from '../resistor.model';
 import { resistorActions, resistorApiActions } from './resistor.actions';
 import { characteristicsActions } from './resistor.actions';
 
@@ -49,6 +50,23 @@ export const resistorReducer = createReducer(
     thermalCoefficient: { ...state.thermalCoefficient, color },
   })),
 );
+
+export const resistorDecodeInitialState: Readonly<Decode> = {
+  digit1: { color: 'white', value: 0 },
+  digit2: { color: 'white', value: 0 },
+  digit3: { color: 'white', value: 0, active: false },
+  multiplier: { color: 'white', value: 0 },
+  tolerance: {
+    color: 'white',
+    value: 0,
+    lastColorWithoutNone: 'white',
+    active: false,
+  },
+  thermalCoefficient: { color: 'white', value: 0, active: false },
+  bandsCount: 0,
+};
+
+export const resistorReducerDecode = createReducer(resistorDecodeInitialState);
 
 export const characteristicsInitialState: Readonly<Characteristics> = {
   resistance: 0,

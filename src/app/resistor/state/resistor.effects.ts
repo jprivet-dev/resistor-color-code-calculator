@@ -2,13 +2,11 @@ import { Injectable, inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { resistorApiActions } from './resistor.actions';
 import { characteristicsActions } from './resistor.actions';
-import { resistorActions } from './resistor.actions';
 import { ResistorService } from '../resistor.service';
 import { exhaustMap, map } from 'rxjs/operators';
 import { catchError } from 'rxjs/operators';
 import { EMPTY } from 'rxjs';
 import { CharacteristicsService } from '../characteristics.service';
-import { ResistorFacade } from '../resistor.facade';
 import { Store } from '@ngrx/store';
 import { selectResistor } from './resistor.selectors';
 
@@ -17,10 +15,7 @@ export class ResistorEffects {
   private actions$ = inject(Actions);
   private store = inject(Store);
   private resistorService = inject(ResistorService);
-  private resistorFacade = inject(ResistorFacade);
   private characteristicsService = inject(CharacteristicsService);
-
-  private resistor$ = this.resistorFacade.resistor$;
 
   retrieveResistor$ = createEffect(() => {
     return this.actions$.pipe(
@@ -32,17 +27,6 @@ export class ResistorEffects {
           ),
           catchError(() => EMPTY),
         ),
-      ),
-    );
-  });
-
-  forceToleranceToTwentyPercent$ = createEffect(() => {
-    return this.actions$.pipe(
-      ofType(resistorActions.updateBandsCount),
-      map((state) =>
-        resistorActions.updateTolerance({
-          color: state.bandsCount === 3 ? 'none' : 'gold',
-        }),
       ),
     );
   });

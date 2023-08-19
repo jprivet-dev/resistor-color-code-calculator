@@ -36,17 +36,28 @@ export const activatedBandsConfig: ActivatedBands[] = [
   },
 ];
 
-export interface Band {
-  color: BandColor;
+export interface Resistor {
+  digit1: { color: BandColor };
+  digit2: { color: BandColor };
+  digit3: { color: BandColor };
+  multiplier: { color: BandColor };
+  tolerance: { color: BandColor };
+  thermalCoefficient: { color: BandColor };
+  bandsCount: number;
 }
 
-export interface Resistor {
-  digit1: Band;
-  digit2: Band;
-  digit3: Band;
-  multiplier: Band;
-  tolerance: Band;
-  thermalCoefficient: Band;
+export interface Decode {
+  digit1: { color: BandColor; value: number };
+  digit2: { color: BandColor; value: number };
+  digit3: { color: BandColor; value: number; active: boolean };
+  multiplier: { color: BandColor; value: number };
+  tolerance: {
+    color: BandColor;
+    value: number;
+    active: boolean;
+    lastColorWithoutNone: BandColor;
+  };
+  thermalCoefficient: { color: BandColor; value: number; active: boolean };
   bandsCount: number;
 }
 

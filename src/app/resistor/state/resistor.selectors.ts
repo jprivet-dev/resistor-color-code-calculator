@@ -6,10 +6,8 @@ import { Characteristics } from '../resistor.model';
 export const selectResistor =
   createFeatureSelector<Readonly<Resistor>>('resistor');
 
-export const selectBandsCount = createSelector(
-  selectResistor,
-  (state) => state.bandsCount,
-);
+export const selectResistorDecode =
+  createFeatureSelector<Readonly<Resistor>>('resistorDecode');
 
 export const selectCharacteristics =
   createFeatureSelector<Readonly<Characteristics>>('characteristics');

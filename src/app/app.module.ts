@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { resistorReducer } from './resistor/state/resistor.reducer';
 import { characteristicsReducer } from './resistor/state/resistor.reducer';
+import { resistorReducerDecode } from './resistor/state/resistor.reducer';
 import { TranslocoRootModule } from './transloco-root.module';
 import { EffectsModule } from '@ngrx/effects';
 import { ResistorEffects } from './resistor/state/resistor.effects';
@@ -26,6 +27,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     TranslocoRootModule,
     StoreModule.forRoot({
       resistor: resistorReducer,
+      decode: resistorReducerDecode,
       characteristics: characteristicsReducer,
     }),
     EffectsModule.forRoot([ResistorEffects]),
