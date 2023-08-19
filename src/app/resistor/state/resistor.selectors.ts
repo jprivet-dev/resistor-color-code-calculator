@@ -2,12 +2,12 @@ import { createFeatureSelector } from '@ngrx/store';
 import { createSelector } from '@ngrx/store';
 import { Resistor } from '../resistor.model';
 import { Characteristics } from '../resistor.model';
+import { Decode } from '../resistor.model';
 
 export const selectResistor =
   createFeatureSelector<Readonly<Resistor>>('resistor');
 
-export const selectResistorDecode =
-  createFeatureSelector<Readonly<Resistor>>('resistorDecode');
+export const selectDecode = createFeatureSelector<Readonly<Decode>>('decode');
 
 export const selectCharacteristics =
   createFeatureSelector<Readonly<Characteristics>>('characteristics');

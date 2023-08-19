@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { inject } from '@angular/core';
 import { ResistorFacade } from './resistor.facade';
-import { BandName } from './resistor.model';
 
 @Component({
   selector: 'app-characteristics',
@@ -11,7 +10,6 @@ import { BandName } from './resistor.model';
 export class CharacteristicsComponent {
   private facade = inject(ResistorFacade);
 
-  readonly resistor$ = this.facade.resistor$;
   readonly resistance$ = this.facade.resistance$;
   readonly resistanceMin$ = this.facade.resistanceMin$;
   readonly resistanceMax$ = this.facade.resistanceMax$;
@@ -20,8 +18,4 @@ export class CharacteristicsComponent {
   readonly thermalCoefficient$ = this.facade.thermalCoefficient$;
 
   activeTabId = 1;
-
-  setBandsNameListByBandsCount(bandsCount: number): BandName[] {
-    return this.facade.bandsNameListByBandsCount(bandsCount);
-  }
 }

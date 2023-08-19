@@ -24,10 +24,17 @@ export const resistorApiActions = createActionGroup({
   },
 });
 
+export const decodeActions = createActionGroup({
+  source: 'Decode',
+  events: {
+    'Decode Resistor': props<{ resistor: Readonly<Resistor> }>(),
+  },
+});
+
 export const characteristicsActions = createActionGroup({
   source: 'Characteristics',
   events: {
-    'Update Characteristics': props<{
+    'Calculate Characteristics': props<{
       characteristics: Readonly<Characteristics>;
     }>(),
   },

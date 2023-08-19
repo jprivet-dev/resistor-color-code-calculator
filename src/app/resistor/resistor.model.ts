@@ -6,36 +6,6 @@ export type BandName =
   | 'tolerance'
   | 'thermalCoefficient';
 
-export interface ActivatedBands {
-  bandsCount: number;
-  bandsNames: BandName[];
-}
-
-const defaultActivatedBands: BandName[] = ['digit1', 'digit2', 'multiplier'];
-
-export const activatedBandsConfig: ActivatedBands[] = [
-  { bandsCount: 3, bandsNames: defaultActivatedBands },
-  {
-    bandsCount: 4,
-    bandsNames: ['digit1', 'digit2', 'multiplier', 'tolerance'],
-  },
-  {
-    bandsCount: 5,
-    bandsNames: ['digit1', 'digit2', 'digit3', 'multiplier', 'tolerance'],
-  },
-  {
-    bandsCount: 6,
-    bandsNames: [
-      'digit1',
-      'digit2',
-      'digit3',
-      'multiplier',
-      'tolerance',
-      'thermalCoefficient',
-    ],
-  },
-];
-
 export interface Resistor {
   digit1: { color: BandColor };
   digit2: { color: BandColor };
@@ -47,17 +17,21 @@ export interface Resistor {
 }
 
 export interface Decode {
-  digit1: { color: BandColor; value: number };
-  digit2: { color: BandColor; value: number };
-  digit3: { color: BandColor; value: number; active: boolean };
-  multiplier: { color: BandColor; value: number };
+  digit1: { color: BandColor; value: number | null };
+  digit2: { color: BandColor; value: number | null };
+  digit3: { color: BandColor; value: number | null; active: boolean };
+  multiplier: { color: BandColor; value: number | null };
   tolerance: {
     color: BandColor;
-    value: number;
+    value: number | null;
     active: boolean;
     lastColorWithoutNone: BandColor;
   };
-  thermalCoefficient: { color: BandColor; value: number; active: boolean };
+  thermalCoefficient: {
+    color: BandColor;
+    value: number | null;
+    active: boolean;
+  };
   bandsCount: number;
 }
 
@@ -69,17 +43,6 @@ export interface Characteristics {
   toleranceOhm: number;
   thermalCoefficient: number;
 }
-
-export const getBandsNameListByBandsCount = (
-  bandsCount: number,
-): BandName[] => {
-  const activatedBands = activatedBandsConfig.find(
-    (activatedBandsName) => activatedBandsName.bandsCount === bandsCount,
-  );
-  return activatedBands !== undefined
-    ? activatedBands.bandsNames
-    : defaultActivatedBands;
-};
 
 export interface BandColorsValues {
   none: number | null;

@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { inject } from '@angular/core';
 import { ResistorFacade } from './resistor.facade';
-import { BandName } from './resistor.model';
 import { BandColor } from './resistor.model';
 
 @Component({
@@ -16,7 +15,7 @@ export class ResistorComponent implements OnInit {
   readonly bandsCounts = this.facade.bandsCounts;
   readonly bandsColors = this.facade.bandsColors;
   readonly resistorConfig = this.facade.resistorConfig;
-  readonly resistor$ = this.facade.resistor$;
+  readonly decode$ = this.facade.decode$;
 
   readonly resistance$ = this.facade.resistance$;
   readonly tolerance$ = this.facade.tolerance$;
@@ -30,31 +29,27 @@ export class ResistorComponent implements OnInit {
     this.facade.setBandsCount(bandsCount);
   }
 
-  setBandsNameListByBandsCount(bandsCount: number): BandName[] {
-    return this.facade.bandsNameListByBandsCount(bandsCount);
-  }
-
-  setBandDigit1(color: BandColor): void {
+  updateDigit1(color: BandColor): void {
     this.facade.setBandDigit1(color);
   }
 
-  setBandDigit2(color: BandColor): void {
+  updateDigit2(color: BandColor): void {
     this.facade.setBandDigit2(color);
   }
 
-  setBandDigit3(color: BandColor): void {
+  updateDigit3(color: BandColor): void {
     this.facade.setBandDigit3(color);
   }
 
-  setBandMultiplier(color: BandColor): void {
+  updateMultiplier(color: BandColor): void {
     this.facade.setBandMultiplier(color);
   }
 
-  setBandTolerance(color: BandColor): void {
+  updateTolerance(color: BandColor): void {
     this.facade.setBandTolerance(color);
   }
 
-  setBandThermalCoefficient(color: BandColor): void {
+  updateThermalCoefficient(color: BandColor): void {
     this.facade.setBandThermalCoefficient(color);
   }
 }

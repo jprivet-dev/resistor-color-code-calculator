@@ -2,6 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { resistorApiActions } from './resistor.actions';
 import { characteristicsActions } from './resistor.actions';
+import { decodeActions } from './resistor.actions';
 import { ResistorService } from '../resistor.service';
 import { exhaustMap, map } from 'rxjs/operators';
 import { catchError } from 'rxjs/operators';
@@ -31,13 +32,25 @@ export class ResistorEffects {
     );
   });
 
-  updateCharacteristics$ = createEffect(() => {
+  decodeResistor$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(resistorApiActions.retrieveResistorSuccess),
+      exhaustMap(() =>
+        this.store.select(selectResistor).pipe(
+          map((resistor) => decodeActions.decodeResistor({ resistor })),
+          catchError(() => EMPTY),
+        ),
+      ),
+    );
+  });
+
+  calculateCharacteristics$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(resistorApiActions.retrieveResistorSuccess),
       exhaustMap(() =>
         this.store.select(selectResistor).pipe(
           map((resistor) =>
-            characteristicsActions.updateCharacteristics({
+            characteristicsActions.calculateCharacteristics({
               characteristics:
                 this.characteristicsService.calculateAll(resistor),
             }),

@@ -4,6 +4,8 @@ import { Characteristics } from '../resistor.model';
 import { Decode } from '../resistor.model';
 import { resistorActions, resistorApiActions } from './resistor.actions';
 import { characteristicsActions } from './resistor.actions';
+import { decodeActions } from './resistor.actions';
+import { decodeResistor } from '../resistor.utils';
 
 export const resistorInitialState: Readonly<Resistor> = {
   digit1: { color: 'white' },
@@ -51,7 +53,7 @@ export const resistorReducer = createReducer(
   })),
 );
 
-export const resistorDecodeInitialState: Readonly<Decode> = {
+export const decodeInitialState: Readonly<Decode> = {
   digit1: { color: 'white', value: 0 },
   digit2: { color: 'white', value: 0 },
   digit3: { color: 'white', value: 0, active: false },
@@ -66,7 +68,12 @@ export const resistorDecodeInitialState: Readonly<Decode> = {
   bandsCount: 0,
 };
 
-export const resistorReducerDecode = createReducer(resistorDecodeInitialState);
+export const resistorReducerDecode = createReducer(
+  decodeInitialState,
+  on(decodeActions.decodeResistor, (state, props) =>
+    decodeResistor(state, props.resistor),
+  ),
+);
 
 export const characteristicsInitialState: Readonly<Characteristics> = {
   resistance: 0,
@@ -80,7 +87,7 @@ export const characteristicsInitialState: Readonly<Characteristics> = {
 export const characteristicsReducer = createReducer(
   characteristicsInitialState,
   on(
-    characteristicsActions.updateCharacteristics,
+    characteristicsActions.calculateCharacteristics,
     (state, { characteristics }) => ({
       ...state,
       ...characteristics,
