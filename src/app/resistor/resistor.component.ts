@@ -3,6 +3,7 @@ import { OnInit } from '@angular/core';
 import { inject } from '@angular/core';
 import { ResistorFacade } from './resistor.facade';
 import { BandColor } from './resistor.model';
+import { Decode } from './resistor.model';
 
 @Component({
   selector: 'app-resistor',
@@ -51,5 +52,12 @@ export class ResistorComponent implements OnInit {
 
   updateThermalCoefficient(color: BandColor): void {
     this.facade.setBandThermalCoefficient(color);
+  }
+
+  toleranceColorIsDisabled(decode: Decode, color: BandColor): string | null {
+    if (decode.tolerance.forceToleranceToTwentyPercent) {
+      return color === 'none' ? null : '';
+    }
+    return color === 'none' ? '' : null;
   }
 }

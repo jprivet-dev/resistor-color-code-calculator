@@ -159,6 +159,7 @@
                         <div *ngIf="resistorConfig.tolerance[color]" class="d-grid">
                             <button (click)="updateTolerance(color)"
                                     [class.active]="decode.tolerance.color === color"
+                                    [attr.disabled]="toleranceColorIsDisabled(decode, color)"
                                     class="btn btn-color text-start rounded-pill" type="button">
                                 <span [appResistorColor]="color" class="circle-color"></span>
                                 {{ resistorConfig.tolerance[color] | format: 'tolerance' }}

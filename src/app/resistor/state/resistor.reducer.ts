@@ -61,8 +61,8 @@ export const decodeInitialState: Readonly<Decode> = {
   tolerance: {
     color: 'white',
     value: 0,
-    lastColorWithoutNone: 'white',
     active: false,
+    forceToleranceToTwentyPercent: false,
   },
   thermalCoefficient: { color: 'white', value: 0, active: false },
   bandsCount: 0,

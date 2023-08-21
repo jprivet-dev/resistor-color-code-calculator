@@ -25,7 +25,7 @@ export interface Decode {
     color: BandColor;
     value: number | null;
     active: boolean;
-    lastColorWithoutNone: BandColor;
+    forceToleranceToTwentyPercent: boolean;
   };
   thermalCoefficient: {
     color: BandColor;

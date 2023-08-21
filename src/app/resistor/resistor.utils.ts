@@ -5,6 +5,7 @@ import { resistorConfig } from './resistor.model';
 import { BandColor } from './resistor.model';
 
 export function decodeResistor(decode: Decode, resistor: Resistor): Decode {
+  const forceToleranceToTwentyPercent = resistor.bandsCount === 3;
   return {
     digit1: {
       color: color(resistor, 'digit1'),
@@ -24,10 +25,14 @@ export function decodeResistor(decode: Decode, resistor: Resistor): Decode {
       value: value(resistor, 'multiplier'),
     },
     tolerance: {
-      color: color(resistor, 'tolerance'),
-      value: value(resistor, 'tolerance'),
-      lastColorWithoutNone: resistor.tolerance.color,
+      color: forceToleranceToTwentyPercent
+        ? 'none'
+        : color(resistor, 'tolerance'),
+      value: forceToleranceToTwentyPercent
+        ? resistorConfig.tolerance.none
+        : value(resistor, 'tolerance'),
       active: resistor.bandsCount >= 4,
+      forceToleranceToTwentyPercent,
     },
     thermalCoefficient: {
       color: color(resistor, 'thermalCoefficient'),

@@ -23,6 +23,7 @@
 
 .btn-color {
   &:disabled {
+    --bs-btn-disabled-opacity: 0.2;
     border-color: transparent;
   }
   &.active,
@@ -35,6 +36,7 @@
   position: relative;
   width: 340px;
   height: 100px;
+  transition: width 0.2s;
 
   .leads {
     position: absolute;
