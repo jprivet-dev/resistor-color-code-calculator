@@ -1,1 +1,69 @@
-<p>about works!</p>
+<div class="container-sm pt-5" *transloco="let t">
+  <h1 class="mb-4">{{ t('about') | titlecase }}</h1>
+  <div class="fs-4" *ngIf="langLabel$ | async as langLabel">
+    <div *ngIf="langLabel === 'en'">
+      <p>
+        Hi, I'm Jean-Philippe, Symfony & Angular developer.
+      </p>
+      <p>
+        <strong>Resistor Color Code Calculator</strong>
+        is a personal case study based on an application that calculates the characteristics of different resistors.
+      </p>
+      <p>
+        This application is developed with
+        <a href="https://angular.io/" target="_blank">Angular</a>,
+        <a href="https://ng-bootstrap.github.io/" target="_blank">NgBootstrap</a> and
+        <a href="https://getbootstrap.com/" target="_blank">Bootstrap 5</a>, and allows me to study
+        <a href="https://ngrx.io/" target="_blank">NgRx</a> and
+        <a href="https://redux.js.org/" target="_blank">Redux</a>.
+        It also lets me try out <a href="" target="_blank">Transloco</a>,
+        an Angular library dedicated to content translation.
+      </p>
+      <p>
+        The application has no commercial purpose and collects no traffic data. It is an open source project available
+        on <a href="https://github.com/jprivet-dev/resistor-color-code-calculator" target="_blank">GitHub</a>.
+      </p>
+      <p class="text-center mt-5">
+        Feel free to make comments/suggestions to me in the <br>
+        <a href="https://github.com/jprivet-dev/resistor-color-code-calculator/issues"
+           target="_blank">
+          Git issues section
+        </a>.
+      </p>
+    </div>
+
+    <div *ngIf="langLabel === 'fr'">
+      <p>
+        Salut ! Je suis Jean-Philippe, développeur Symfony & Angular.
+      </p>
+      <p>
+        <strong>Resistor Color Code Calculator</strong>
+        est une étude de cas personnelle, autour d'une application permettant de calculer les caractéristiques de
+        différentes résistances.
+      </p>
+      <p>
+        Cette application est développée avec
+        <a href="https://angular.io/" target="_blank">Angular</a>,
+        <a href="https://ng-bootstrap.github.io/" target="_blank">NgBootstrap</a>
+        et <a href="https://getbootstrap.com/" target="_blank">Bootstrap 5</a>,
+        et me permet d'étudier <a href="https://ngrx.io/" target="_blank">NgRx</a> et
+        <a href="https://redux.js.org/" target="_blank">Redux</a>.
+        Elle me permet aussi d'essayer <a href="" target="_blank">Transloco</a>,
+        une librairie Angular dédier à la traduction de contenus.
+      </p>
+      <p>
+        L'application n'a aucune vocation commerciale et ne recueille aucune donnée sur son trafic.
+        C'est un projet open source disponible sur
+        <a href="https://github.com/jprivet-dev/resistor-color-code-calculator" target="_blank">GitHub</a>.
+      </p>
+      <p class="text-center mt-5">
+        N'hésitez pas à me faire part de vos commentaires/suggestions dans la section <br>
+        <a href="https://github.com/jprivet-dev/resistor-color-code-calculator/issues"
+           target="_blank">
+          des questions Git
+        </a>.
+      </p>
+    </div>
+  </div>
+
+</div>
