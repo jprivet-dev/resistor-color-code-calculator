@@ -1,7 +1,7 @@
 <ng-container *transloco="let t">
     <ng-container *ngIf="(decode$ | async) as decode">
         <div class="row">
-            <div class="col">
+            <div class="col col-7">
                 <div class="d-flex justify-content-center pt-4 pb-3">
                     <div>
                         <ng-container *ngFor="let count of bandsCounts">
@@ -52,7 +52,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
+            <div class="col col-5">
                 <div class="d-flex h-100 justify-content-center align-items-center">
                     <div class="characteristics py-3 px-4 border rounded-3 bg-body-tertiary">
                         <h1>
@@ -69,7 +69,7 @@
             </div>
         </div>
         <div class="d-flex justify-content-center py-3">
-            <table class="table table-sm">
+            <table class="table table-sm table-striped">
                 <thead>
                 <tr>
                     <th scope="col">
@@ -115,7 +115,7 @@
                         <div *ngIf="resistorConfig.digit1[color]" class="d-grid">
                             <button (click)="updateDigit1(color)"
                                     [class.active]="decode.digit1.color === color"
-                                    class="btn btn-color text-start rounded-pill" type="button">
+                                    class="btn btn-color text-start text-nowrap rounded-pill" type="button">
                                 <span [appResistorColor]="color" class="circle-color"></span>
                                 {{ resistorConfig.digit1[color] }}
                             </button>
@@ -126,7 +126,7 @@
                         <div *ngIf="resistorConfig.digit2[color]" class="d-grid">
                             <button (click)="updateDigit2(color)"
                                     [class.active]="decode.digit2.color === color"
-                                    class="btn btn-color text-start rounded-pill" type="button">
+                                    class="btn btn-color text-start text-nowrap rounded-pill" type="button">
                                 <span [appResistorColor]="color" class="circle-color"></span>
                                 {{ resistorConfig.digit2[color] }}
                             </button>
@@ -137,7 +137,7 @@
                         <div *ngIf="resistorConfig.digit3[color]" class="d-grid">
                             <button (click)="updateDigit3(color)"
                                     [class.active]="decode.digit3.color === color"
-                                    class="btn btn-color text-start rounded-pill" type="button">
+                                    class="btn btn-color text-start text-nowrap rounded-pill" type="button">
                                 <span [appResistorColor]="color" class="circle-color"></span>
                                 {{ resistorConfig.digit3[color] }}
                             </button>
@@ -148,7 +148,7 @@
                         <div *ngIf="resistorConfig.multiplier[color]" class="d-grid">
                             <button (click)="updateMultiplier(color)"
                                     [class.active]="decode.multiplier.color === color"
-                                    class="btn btn-color text-start rounded-pill" type="button">
+                                    class="btn btn-color text-start text-nowrap rounded-pill" type="button">
                                 <span [appResistorColor]="color" class="circle-color"></span>
                                 {{ resistorConfig.multiplier[color] | format: 'multiplier' }}
                             </button>
@@ -160,7 +160,7 @@
                             <button (click)="updateTolerance(color)"
                                     [class.active]="decode.tolerance.color === color"
                                     [attr.disabled]="toleranceColorIsDisabled(decode, color)"
-                                    class="btn btn-color text-start rounded-pill" type="button">
+                                    class="btn btn-color text-start text-nowrap rounded-pill" type="button">
                                 <span [appResistorColor]="color" class="circle-color"></span>
                                 {{ resistorConfig.tolerance[color] | format: 'tolerance' }}
                             </button>
@@ -171,7 +171,7 @@
                         <div *ngIf="resistorConfig.thermalCoefficient[color]" class="d-grid">
                             <button (click)="updateThermalCoefficient(color)"
                                     [class.active]="decode.thermalCoefficient.color === color"
-                                    class="btn btn-color text-start rounded-pill" type="button">
+                                    class="btn btn-color text-start text-nowrap rounded-pill" type="button">
                                 <span [appResistorColor]="color" class="circle-color"></span>
                                 {{ resistorConfig.thermalCoefficient[color] | format: 'thermalCoefficient' }}
                             </button>
