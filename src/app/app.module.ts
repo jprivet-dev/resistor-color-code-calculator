@@ -14,6 +14,7 @@ import { TranslocoRootModule } from './transloco-root.module';
 import { EffectsModule } from '@ngrx/effects';
 import { ResistorEffects } from './resistor/state/resistor.effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { ResistorFeatures } from './resistor/state/resistor.selectors';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,9 +27,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     HttpClientModule,
     TranslocoRootModule,
     StoreModule.forRoot({
-      resistor: resistorReducer,
-      decode: resistorReducerDecode,
-      characteristics: characteristicsReducer,
+      [ResistorFeatures.Resistor]: resistorReducer,
+      [ResistorFeatures.Decode]: resistorReducerDecode,
+      [ResistorFeatures.Characteristics]: characteristicsReducer,
     }),
     EffectsModule.forRoot([ResistorEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),

@@ -4,13 +4,23 @@ import { Resistor } from '../resistor.model';
 import { Characteristics } from '../resistor.model';
 import { Decode } from '../resistor.model';
 
-export const selectResistor =
-  createFeatureSelector<Readonly<Resistor>>('resistor');
+export enum ResistorFeatures {
+  Resistor = 'Resistor',
+  Decode = 'Decode',
+  Characteristics = 'Characteristics',
+}
 
-export const selectDecode = createFeatureSelector<Readonly<Decode>>('decode');
+export const selectResistor = createFeatureSelector<Readonly<Resistor>>(
+  ResistorFeatures.Resistor,
+);
 
-export const selectCharacteristics =
-  createFeatureSelector<Readonly<Characteristics>>('characteristics');
+export const selectDecode = createFeatureSelector<Readonly<Decode>>(
+  ResistorFeatures.Decode,
+);
+
+export const selectCharacteristics = createFeatureSelector<
+  Readonly<Characteristics>
+>(ResistorFeatures.Characteristics);
 
 export const selectResistance = createSelector(
   selectCharacteristics,

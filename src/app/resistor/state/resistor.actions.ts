@@ -2,6 +2,7 @@ import { createActionGroup, props, emptyProps } from '@ngrx/store';
 import { Resistor } from '../resistor.model';
 import { BandColor } from '../resistor.model';
 import { Characteristics } from '../resistor.model';
+import { Decode } from '../resistor.model';
 
 export const resistorActions = createActionGroup({
   source: 'Resistor',

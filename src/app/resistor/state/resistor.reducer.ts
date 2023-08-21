@@ -70,8 +70,8 @@ export const decodeInitialState: Readonly<Decode> = {
 
 export const resistorReducerDecode = createReducer(
   decodeInitialState,
-  on(decodeActions.decodeResistor, (state, props) =>
-    decodeResistor(state, props.resistor),
+  on(decodeActions.decodeResistor, (state, { resistor }) =>
+    decodeResistor(state, resistor),
   ),
 );
 

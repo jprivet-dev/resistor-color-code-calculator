@@ -10,6 +10,8 @@ import { ResistorFacade } from './resistor.facade';
 export class CharacteristicsComponent {
   private facade = inject(ResistorFacade);
 
+  readonly decode$ = this.facade.decode$;
+
   readonly resistance$ = this.facade.resistance$;
   readonly resistanceMin$ = this.facade.resistanceMin$;
   readonly resistanceMax$ = this.facade.resistanceMax$;
