@@ -23,28 +23,28 @@
                         <div class="body rounded-3 d-flex align-self-stretch">
                             <div [appResistorColor]="decode.digit1.color"
                                  ngbTooltip="{{ t('digit1') | titlecase }}" placement="bottom"
-                                 class="band band-digit1 border-0"
+                                 class="band band-digit1 active border-0"
                             ></div>
                             <div [appResistorColor]="decode.digit2.color"
                                  ngbTooltip="{{ t('digit2') | titlecase }}" placement="bottom"
-                                 class="band digit2 border-0"
+                                 class="band band-digit2 active border-0"
                             ></div>
                             <div [appResistorColor]="decode.digit3.color"
-                                 *ngIf="decode.digit3.active"
+                                 [class.active]="decode.digit3.active"
                                  ngbTooltip="{{ t('digit3') | titlecase }}" placement="bottom"
                                  class="band band-digit3 border-0"
                             ></div>
                             <div [appResistorColor]="decode.multiplier.color"
                                  ngbTooltip="{{ t('multiplier') | titlecase }}" placement="bottom"
-                                 class="band band-multiplier border-0"
+                                 class="band band-multiplier active border-0"
                             ></div>
                             <div [appResistorColor]="decode.tolerance.color"
-                                 *ngIf="decode.tolerance.active"
+                                 [class.active]="decode.tolerance.active"
                                  ngbTooltip="{{ t('tolerance') | titlecase }}" placement="bottom"
                                  class="band band-tolerance border-0"
                             ></div>
                             <div [appResistorColor]="decode.thermalCoefficient.color"
-                                 *ngIf="decode.thermalCoefficient.active"
+                                 [class.active]="decode.thermalCoefficient.active"
                                  ngbTooltip="{{ t('thermalCoefficient') | titlecase }}" placement="bottom"
                                  class="band band-thermalCoefficient border-0"
                             ></div>
