@@ -135,6 +135,29 @@ $transition-delay: 0.3s;
   }
 }
 
+.table-colors {
+  $full-width: 100%;
+
+  &.bands-3,
+  &.bands-4 {
+    th, td {
+      width: $full-width/5;
+    }
+  }
+
+  &.bands-5 {
+    th, td {
+      width: $full-width/6;
+    }
+  }
+
+  &.bands-6 {
+    th, td {
+      width: $full-width/7;
+    }
+  }
+}
+
 .characteristics {
   text-align: center;
   min-width: 80%;
