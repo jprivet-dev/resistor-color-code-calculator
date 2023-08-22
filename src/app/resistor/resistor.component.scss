@@ -147,21 +147,28 @@ $transition-delay: 0.3s;
 
 .table-colors {
   $full-width: 100%;
+  $column-min-width: 140px;
+  min-width: 700px;
 
   &.bands-3,
   &.bands-4 {
+    min-width: $column-min-width * 5;
+
     th, td {
       width: $full-width/5;
     }
   }
 
   &.bands-5 {
+    min-width: $column-min-width * 6;
     th, td {
       width: $full-width/6;
     }
   }
 
   &.bands-6 {
+    min-width: $column-min-width * 7;
+
     th, td {
       width: $full-width/7;
     }
