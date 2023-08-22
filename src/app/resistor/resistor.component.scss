@@ -35,13 +35,23 @@ $transition-delay: 0.3s;
   }
 }
 
+@media (max-width: 992px) {
+  .bands-count-radios {
+    label {
+      --bs-btn-padding-y: 0.25rem;
+      --bs-btn-padding-x: 0.5rem;
+      --bs-btn-font-size: 0.875rem;
+      --bs-btn-border-radius: var(--bs-border-radius-sm);
+    }
+  }
+}
+
 .resistor-object {
   $width: 320px;
   $heigth: 80px;
   $bandWidth: 20px;
   $leadsHeigth: 10px;
   $widthBands6: $width + 2*$bandWidth;
-
 
   position: relative;
   width: $width;
