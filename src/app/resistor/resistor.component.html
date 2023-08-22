@@ -1,7 +1,7 @@
 <ng-container *transloco="let t">
   <ng-container *ngIf="(decode$ | async) as decode">
     <div class="row">
-      <div class="col-lg-7">
+      <div class="col-md-7">
         <div class="d-flex justify-content-center pt-4 pb-3 bands-count-radios">
           <div>
             <ng-container *ngFor="let count of bandsCounts">
@@ -52,17 +52,17 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-5">
-        <div class="d-flex h-100 justify-content-center align-items-center">
-          <div class="characteristics py-3 px-4 border rounded-3 bg-body-tertiary">
+      <div class="col-md-5">
+        <div class="d-flex h-100 justify-content-center align-items-center my-1">
+          <div class="characteristics py-2 px-4 border rounded-2 bg-body-tertiary">
             <h1>
               {{ resistance$ | async | format: 'resistance' }}
             </h1>
             <h2 class="text-secondary">
               {{ tolerance$ | async | format: 'tolerance' }}
-            </h2>
-            <h2 *ngIf="decode.thermalCoefficient.active" class="text-secondary">
-              {{ thermalCoefficient$ | async | format: 'thermalCoefficient' }}
+              <ng-container *ngIf="decode.thermalCoefficient.active">
+                - {{ thermalCoefficient$ | async | format: 'thermalCoefficient' }}
+              </ng-container>
             </h2>
           </div>
         </div>

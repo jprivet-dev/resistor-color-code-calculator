@@ -47,16 +47,17 @@ $transition-delay: 0.3s;
 }
 
 .resistor-object {
-  $width: 320px;
-  $heigth: 80px;
-  $bandWidth: 20px;
+  $width: 300px;
+  $heigth: 70px;
+  $bandWidth: 18px;
   $leadsHeigth: 10px;
   $widthBands6: $width + 2*$bandWidth;
 
   position: relative;
   width: $width;
   height: $heigth;
-  transition: width $transition-delay;
+  transform: scale(1);
+  transition: width $transition-delay, transform $transition-delay;
 
   .leads {
     position: absolute;
@@ -145,6 +146,18 @@ $transition-delay: 0.3s;
   }
 }
 
+@media (max-width: 992px) {
+  .resistor-object {
+    transform: scale(0.8);
+  }
+}
+
+@media (max-width: 576px) {
+  .resistor-object {
+    transform: scale(0.65);
+  }
+}
+
 .table-colors {
   $full-width: 100%;
   $column-min-width: 140px;
@@ -161,6 +174,7 @@ $transition-delay: 0.3s;
 
   &.bands-5 {
     min-width: $column-min-width * 6;
+
     th, td {
       width: $full-width/6;
     }
@@ -180,10 +194,10 @@ $transition-delay: 0.3s;
   min-width: 80%;
 
   h1 {
-    font-size: 3rem;
+    font-size: calc(1.325rem + 2vw);
   }
 
   h2 {
-    font-size: 1.6rem;
+    font-size: calc(1.325rem + 0.4vw);
   }
 }
