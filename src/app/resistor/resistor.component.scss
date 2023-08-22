@@ -163,6 +163,10 @@ $transition-delay: 0.3s;
   $column-min-width: 140px;
   min-width: 700px;
 
+  thead th {
+    height: 65px;
+  }
+
   &.bands-3,
   &.bands-4 {
     min-width: $column-min-width * 5;
@@ -192,6 +196,7 @@ $transition-delay: 0.3s;
 .characteristics {
   text-align: center;
   min-width: 80%;
+  background-color: rgba(0, 0, 0, 0.05);
 
   h1 {
     font-size: calc(1.325rem + 2vw);
