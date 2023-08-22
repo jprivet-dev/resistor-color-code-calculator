@@ -1,20 +1,23 @@
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule, isDevMode } from '@angular/core';
+import { isDevMode, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CoreModule } from '@core/core.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { SharedModule } from '@shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { resistorReducer } from './resistor/state/resistor.reducer';
-import { characteristicsReducer } from './resistor/state/resistor.reducer';
-import { resistorReducerDecode } from './resistor/state/resistor.reducer';
-import { TranslocoRootModule } from './transloco-root.module';
-import { EffectsModule } from '@ngrx/effects';
+import { FooterComponent } from './footer/footer.component';
 import { ResistorEffects } from './resistor/state/resistor.effects';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import {
+  characteristicsReducer,
+  resistorReducer,
+  resistorReducerDecode,
+} from './resistor/state/resistor.reducer';
 import { ResistorFeatures } from './resistor/state/resistor.selectors';
+import { TranslocoRootModule } from './transloco-root.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,6 +36,7 @@ import { ResistorFeatures } from './resistor/state/resistor.selectors';
     }),
     EffectsModule.forRoot([ResistorEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    FooterComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

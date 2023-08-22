@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { NgbNavModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
+import { TranslocoModule } from '@ngneat/transloco';
 import { FormatPipe } from './format.pipe';
-import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [FormatPipe],
   imports: [CommonModule],
-  exports: [FormatPipe, NgbNavModule, NgbTooltipModule],
+  exports: [FormatPipe, TranslocoModule, NgbNavModule, NgbTooltipModule],
 })
 export class SharedModule {}

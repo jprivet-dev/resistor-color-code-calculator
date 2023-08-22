@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { LangService } from '@core/lang/lang.service';
-import { TranslocoModule } from '@ngneat/transloco';
+import { SharedModule } from '@shared/shared.module';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule, TranslocoModule],
+  imports: [CommonModule, SharedModule],
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss'],
 })
