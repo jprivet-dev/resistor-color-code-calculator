@@ -1,5 +1,12 @@
+.navbar-brand {
+  background: linear-gradient(-30deg, #ff3bdd, #0ac6ff, #00ef00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 @media (max-width: 992px) {
   .navbar-brand {
     font-size: 1rem;
   }
 }
+

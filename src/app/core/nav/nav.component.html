@@ -4,7 +4,8 @@
 
     <button
       (click)="isMenuCollapsed = !isMenuCollapsed"
-      class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navigation" aria-controls="main-navigation" aria-expanded="false" aria-label="Toggle navigation"
+      class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navigation"
+      aria-controls="main-navigation" aria-expanded="false" aria-label="Toggle navigation"
     >
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -12,19 +13,22 @@
     <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse" id="main-navigation">
       <ul class="navbar-nav me-md-auto">
         <li class="nav-item">
-          <a routerLink="/resistor" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">
+          <a routerLink="/resistor" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+             class="nav-link">
+            <i class="bi bi-r-square mx-1"></i>
             {{ t("resistor") | titlecase }}
           </a>
         </li>
         <li class="nav-item">
-          <a routerLink="/about" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link" >
+          <a routerLink="/about" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">
+            <i class="bi bi-info-circle mx-1"></i>
             {{ t("about") | titlecase }}
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="https://github.com/jprivet-dev/resistor-color-code-calculator" target="_blank">
+            <i class="bi bi-github mx-1"></i>
             {{ t("github") | titlecase }}
-            <i class="bi bi-box-arrow-up-right"></i>
           </a>
         </li>
       </ul>
@@ -35,11 +39,14 @@
                   *ngIf="langLabel$ | async as lang"
                   title="{{ t('language') | titlecase }}"
                   class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-globe2 mx-1"></i>
             {{ findLangLabel(lang) }}
           </button>
           <ul ngbDropdownMenu class="dropdown-menu dropdown-menu-end">
             <li *ngFor="let conf of langConfig">
-              <button ngbDropdownItem (click)="setLang(conf.lang)" class="dropdown-item">{{ conf.label }}</button>
+              <button ngbDropdownItem (click)="setLang(conf.lang)" class="dropdown-item">
+                {{ conf.label }}
+              </button>
             </li>
           </ul>
         </li>
@@ -53,7 +60,7 @@
           <ul ngbDropdownMenu class="dropdown-menu dropdown-menu-end">
             <li *ngFor="let theme of themeConfig">
               <button ngbDropdownItem (click)="setTheme(theme.name)" class="dropdown-item">
-                <i class="bi {{ theme.icon }}"></i>
+                <i class="bi {{ theme.icon }} mx-1"></i>
                 {{ t(theme.key) | titlecase }}
               </button>
             </li>
