@@ -1,3 +1,15 @@
+:host {
+  // TODO: hack because the host disrupts the flex behaviour of .offcanvas-header and .offcanvas-header
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+}
+
+.series-E12 {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
 .btn-choose-resistor {
   position: relative;
   padding: 0;

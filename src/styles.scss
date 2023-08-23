@@ -85,5 +85,11 @@ $resistor-colors-border: (
   }
 }
 
+@media (max-width: 992px) {
+  .offcanvas {
+    --bs-offcanvas-height: 40vh;
+  }
+}
+
 
 

@@ -16,6 +16,28 @@
               </thead>
               <tbody>
               <tr>
+                <th scope="row">{{ t('colors') | titlecase }}</th>
+                <td>
+                  <ng-container *ngIf="(decode$ | async) as decode">
+                    <span [appResistorColor]="decode.digit1.color"
+                          class="circle-color"></span>
+                    <span [appResistorColor]="decode.digit2.color"
+                          class="circle-color"></span>
+                    <span [appResistorColor]="decode.digit3.color"
+                          *ngIf="decode.digit3.active"
+                          class="circle-color"></span>
+                    <span [appResistorColor]="decode.multiplier.color"
+                          class="circle-color"></span>
+                    <span [appResistorColor]="decode.tolerance.color"
+                          *ngIf="decode.tolerance.active"
+                          class="circle-color"></span>
+                    <span [appResistorColor]="decode.thermalCoefficient.color"
+                          *ngIf="decode.thermalCoefficient.active"
+                          class="circle-color"></span>
+                  </ng-container>
+                </td>
+              </tr>
+              <tr>
                 <th scope="row">{{ t('resistance') | titlecase }}</th>
                 <td>{{ resistance$ | async | format: 'resistance' }}</td>
               </tr>
