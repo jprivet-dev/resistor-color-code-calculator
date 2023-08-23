@@ -1,25 +1,17 @@
-import { Component, inject, TemplateRef } from '@angular/core';
-import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
+import { Component, inject } from '@angular/core';
+import { NgbActiveOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 import { ResistorFacade } from './resistor.facade';
 import { SeriesE12Item } from './resistor.model';
 import { generateSeriesE12 } from './resistor.utils';
 
 @Component({
-  selector: 'app-resistor-offcanvas',
-  templateUrl: './resistor-offcanvas.component.html',
-  styleUrls: ['./resistor-offcanvas.component.scss'],
+  selector: 'app-resistor-offcanvas-content',
+  templateUrl: './resistor-offcanvas-content.component.html',
+  styleUrls: ['./resistor-offcanvas-content.component.scss'],
 })
-export class ResistorOffcanvasComponent {
-  private offcanvasService = inject(NgbOffcanvas);
+export class ResistorOffcanvasContentComponent {
   private resistorFacade = inject(ResistorFacade);
-
-  openBottom(content: TemplateRef<any>) {
-    this.offcanvasService.open(content, {
-      position: 'bottom',
-      scroll: true,
-      backdrop: false,
-    });
-  }
+  activeOffcanvas = inject(NgbActiveOffcanvas);
 
   generateSeriesE12(): SeriesE12Item[] {
     return generateSeriesE12();

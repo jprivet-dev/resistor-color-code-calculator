@@ -1,6 +1,8 @@
 import { inject, Injectable } from '@angular/core';
+import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 import { Store } from '@ngrx/store';
 import { CharacteristicsService } from './characteristics.service';
+import { ResistorOffcanvasContentComponent } from './resistor-offcanvas-content.component';
 import { BandColor, Resistor } from './resistor.model';
 import { ResistorService } from './resistor.service';
 import {
@@ -41,6 +43,8 @@ export class ResistorFacade {
   readonly tolerance$ = this.store.select(selectTolerance);
   readonly toleranceOhm$ = this.store.select(selectToleranceOhm);
   readonly thermalCoefficient$ = this.store.select(selectThermalCoefficient);
+
+  private offcanvasService = inject(NgbOffcanvas);
 
   constructor() {
     this.resistor$.subscribe((resistor) => {
@@ -90,5 +94,14 @@ export class ResistorFacade {
 
   setBandThermalCoefficient(color: BandColor): void {
     this.store.dispatch(resistorActions.updateThermalCoefficient({ color }));
+  }
+
+  openOffcanvas() {
+    this.offcanvasService.open(ResistorOffcanvasContentComponent, {
+      position: 'bottom',
+      scroll: true,
+      backdrop: false,
+      panelClass: 'bg-body-tertiary',
+    });
   }
 }

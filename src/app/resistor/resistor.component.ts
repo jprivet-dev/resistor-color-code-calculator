@@ -1,9 +1,6 @@
-import { Component } from '@angular/core';
-import { OnInit } from '@angular/core';
-import { inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ResistorFacade } from './resistor.facade';
-import { BandColor } from './resistor.model';
-import { Decode } from './resistor.model';
+import { BandColor, Decode } from './resistor.model';
 
 @Component({
   selector: 'app-resistor',
@@ -59,5 +56,9 @@ export class ResistorComponent implements OnInit {
       return color === 'none' ? null : '';
     }
     return color === 'none' ? '' : null;
+  }
+
+  openOffcanvas(): void {
+    this.facade.openOffcanvas();
   }
 }
