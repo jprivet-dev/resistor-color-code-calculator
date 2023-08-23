@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Resistor } from './resistor.model';
-import { bandsColors } from './resistor.model';
-import { resistorConfig } from './resistor.model';
+import { bandsColors, Resistor, resistorConfig } from './resistor.model';
 
 @Injectable({
   providedIn: 'root',
@@ -15,10 +13,10 @@ export class ResistorService {
   retrieveResistor(): Observable<Resistor> {
     return of({
       digit1: { color: 'brown' },
-      digit2: { color: 'green' },
+      digit2: { color: 'black' },
       digit3: { color: 'red' },
-      multiplier: { color: 'black' },
-      tolerance: { color: 'violet' },
+      multiplier: { color: 'orange' },
+      tolerance: { color: 'gold' },
       thermalCoefficient: { color: 'red' },
       bandsCount: 4,
     });
