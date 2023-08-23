@@ -55,7 +55,7 @@
                   *ngIf="themeName$ | async as themeName"
                   class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
                   title="{{ t('theme') | titlecase }}">
-            <i class="bi {{ findTheme(themeName)?.icon }}"></i>
+            <i class="bi {{ findTheme(themeName)?.icon }} mx-1"></i>
           </button>
           <ul ngbDropdownMenu class="dropdown-menu dropdown-menu-end">
             <li *ngFor="let theme of themeConfig">
