@@ -37,6 +37,8 @@
   "resistanceMax": "resistance max",
   "resistanceMin": "resistance min",
   "resistor": "resistor",
+  "selectResistorInSeriesE12": "Select a resistor in the E12 series (5%)",
+  "seriesE12": "E12 series (5%)",
   "theme": "theme",
   "thermalCoefficient": "thermal coefficient",
   "tolerance": "tolerance",
