@@ -87,7 +87,7 @@ export const resistorConfig: {
 } = {
   digit1: {
     none: null,
-    black: 0,
+    black: null,
     brown: 1,
     red: 2,
     orange: 3,
@@ -117,7 +117,7 @@ export const resistorConfig: {
   },
   digit3: {
     none: null,
-    black: 0,
+    black: null,
     brown: 1,
     red: 2,
     orange: 3,
@@ -176,3 +176,18 @@ export const resistorConfig: {
     silver: null,
   },
 };
+
+export interface SeriesE12Subset {
+  value: number;
+  digit1Color: BandColor;
+  digit2Color: BandColor;
+}
+
+export interface SeriesE12Item {
+  value: number;
+  digit1Color: BandColor;
+  digit2Color: BandColor;
+  multiplierColor: BandColor;
+  toleranceColor: BandColor;
+  bandsCount: number;
+}

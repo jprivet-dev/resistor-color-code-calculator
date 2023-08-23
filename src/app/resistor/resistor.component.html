@@ -113,7 +113,7 @@
             </th>
             <!-- digit1 -->
             <td>
-              <div *ngIf="resistorConfig.digit1[color]" class="d-grid">
+              <div *ngIf="resistorConfig.digit1[color] !== null" class="d-grid">
                 <button (click)="updateDigit1(color)"
                         [class.active]="decode.digit1.color === color"
                         class="btn btn-color text-start text-nowrap rounded-pill" type="button">
@@ -124,7 +124,7 @@
             </td>
             <!-- digit2 -->
             <td>
-              <div *ngIf="resistorConfig.digit2[color]" class="d-grid">
+              <div *ngIf="resistorConfig.digit2[color] !== null" class="d-grid">
                 <button (click)="updateDigit2(color)"
                         [class.active]="decode.digit2.color === color"
                         class="btn btn-color text-start text-nowrap rounded-pill" type="button">
@@ -135,7 +135,7 @@
             </td>
             <!-- digit3 -->
             <td *ngIf="decode.digit3.active">
-              <div *ngIf="resistorConfig.digit3[color]" class="d-grid">
+              <div *ngIf="resistorConfig.digit3[color] !== null" class="d-grid">
                 <button (click)="updateDigit3(color)"
                         [class.active]="decode.digit3.color === color"
                         class="btn btn-color text-start text-nowrap rounded-pill" type="button">
@@ -146,7 +146,7 @@
             </td>
             <!-- multiplier -->
             <td>
-              <div *ngIf="resistorConfig.multiplier[color]" class="d-grid">
+              <div *ngIf="resistorConfig.multiplier[color] !== null" class="d-grid">
                 <button (click)="updateMultiplier(color)"
                         [class.active]="decode.multiplier.color === color"
                         class="btn btn-color text-start text-nowrap rounded-pill" type="button">
@@ -157,7 +157,7 @@
             </td>
             <!-- tolerance -->
             <td>
-              <div *ngIf="resistorConfig.tolerance[color]" class="d-grid">
+              <div *ngIf="resistorConfig.tolerance[color] !== null" class="d-grid">
                 <button (click)="updateTolerance(color)"
                         [class.active]="decode.tolerance.color === color"
                         [attr.disabled]="toleranceColorIsDisabled(decode, color)"
@@ -169,7 +169,7 @@
             </td>
             <!-- thermalCoefficient -->
             <td *ngIf="decode.thermalCoefficient.active">
-              <div *ngIf="resistorConfig.thermalCoefficient[color]" class="d-grid">
+              <div *ngIf="resistorConfig.thermalCoefficient[color] !== null" class="d-grid">
                 <button (click)="updateThermalCoefficient(color)"
                         [class.active]="decode.thermalCoefficient.color === color"
                         class="btn btn-color text-start text-nowrap rounded-pill" type="button">

@@ -1,12 +1,15 @@
-import { createActionGroup, props, emptyProps } from '@ngrx/store';
-import { Resistor } from '../resistor.model';
-import { BandColor } from '../resistor.model';
-import { Characteristics } from '../resistor.model';
-import { Decode } from '../resistor.model';
+import { createActionGroup, emptyProps, props } from '@ngrx/store';
+import {
+  BandColor,
+  Characteristics,
+  Decode,
+  Resistor,
+} from '../resistor.model';
 
 export const resistorActions = createActionGroup({
   source: 'Resistor',
   events: {
+    'Update Resistor': props<{ resistor: Resistor }>(),
     'Update Digit 1': props<{ color: BandColor }>(),
     'Update Digit 2': props<{ color: BandColor }>(),
     'Update Digit 3': props<{ color: BandColor }>(),

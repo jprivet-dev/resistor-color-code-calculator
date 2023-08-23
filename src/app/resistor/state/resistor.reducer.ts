@@ -1,11 +1,12 @@
 import { createReducer, on } from '@ngrx/store';
-import { Resistor } from '../resistor.model';
-import { Characteristics } from '../resistor.model';
-import { Decode } from '../resistor.model';
-import { resistorActions, resistorApiActions } from './resistor.actions';
-import { characteristicsActions } from './resistor.actions';
-import { decodeActions } from './resistor.actions';
+import { Characteristics, Decode, Resistor } from '../resistor.model';
 import { decodeResistor } from '../resistor.utils';
+import {
+  characteristicsActions,
+  decodeActions,
+  resistorActions,
+  resistorApiActions,
+} from './resistor.actions';
 
 export const resistorInitialState: Readonly<Resistor> = {
   digit1: { color: 'white' },
@@ -23,6 +24,10 @@ export const resistorReducer = createReducer(
     resistorApiActions.retrieveResistorSuccess,
     (state, { resistor }) => resistor,
   ),
+  on(resistorActions.updateResistor, (state, { resistor }) => ({
+    ...state,
+    ...resistor,
+  })),
   on(resistorActions.updateBandsCount, (state, { bandsCount }) => ({
     ...state,
     bandsCount,

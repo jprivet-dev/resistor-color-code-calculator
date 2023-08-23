@@ -5,16 +5,19 @@
   <div class="offcanvas-body bg-secondary-subtle">
     <div class="container-xxl">
       <button *ngFor="let item of generateSeriesE12()"
+              (click)="chooseSeriesE12Item(item)"
               type="button" class="btn btn-outline-light btn-choose-resistor mx-2 my-1">
-        <span class="bands-colors">
-          <span class="color" [appResistorColor]="'brown'"></span>
-          <span class="color" [appResistorColor]="'black'"></span>
-          <span class="color" [appResistorColor]="'orange'"></span>
-          <span class="color" [appResistorColor]="'gold'"></span>
-        </span>
-        <span class="label">
-          {{ item | format: 'resistance' }}
-        </span>
+        <div class="d-flex flex-row">
+          <div class="bands-colors d-flex flex-row rounded-start-2">
+            <div class="color" [appResistorColor]="item.digit1Color"></div>
+            <div class="color" [appResistorColor]="item.digit2Color"></div>
+            <div class="color" [appResistorColor]="item.multiplierColor"></div>
+            <div class="color" [appResistorColor]="item.toleranceColor"></div>
+          </div>
+          <div class="label px-2 py-1">
+            {{ item.value | format: 'resistance' }}
+          </div>
+        </div>
       </button>
     </div>
   </div>
