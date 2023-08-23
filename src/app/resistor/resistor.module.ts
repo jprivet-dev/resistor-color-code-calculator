@@ -7,6 +7,7 @@ import { ResistorColorDirective } from './resistor-color.directive';
 import { ResistorRoutingModule } from './resistor-routing.module';
 import { ResistorComponent } from './resistor.component';
 import { ResistorPageComponent } from './resistor.page';
+import { ResistorOffcanvasComponent } from './resistor-offcanvas.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { ResistorPageComponent } from './resistor.page';
     ResistorComponent,
     CharacteristicsComponent,
     ResistorColorDirective,
+    ResistorOffcanvasComponent,
   ],
   imports: [CommonModule, SharedModule, ResistorRoutingModule],
 })

@@ -1,8 +1,10 @@
-import { Decode } from './resistor.model';
-import { Resistor } from './resistor.model';
-import { BandName } from './resistor.model';
-import { resistorConfig } from './resistor.model';
-import { BandColor } from './resistor.model';
+import {
+  BandColor,
+  BandName,
+  Decode,
+  Resistor,
+  resistorConfig,
+} from './resistor.model';
 
 export function decodeResistor(decode: Decode, resistor: Resistor): Decode {
   const forceToleranceToTwentyPercent = resistor.bandsCount === 3;
@@ -49,4 +51,19 @@ function color(resistor: Resistor, bandName: BandName): BandColor {
 
 function value(resistor: Resistor, bandName: BandName): number | null {
   return resistorConfig[bandName][resistor[bandName].color];
+}
+
+export function generateSeriesE12(): number[] {
+  const seriesE12Subsets = [
+    1.0, 1.2, 1.5, 1.8, 2.2, 2.7, 3.3, 3.9, 4.7, 5.6, 6.8, 8.2,
+  ];
+
+  const series: number[] = [];
+  for (let decade = 0; decade <= 6; decade++) {
+    seriesE12Subsets.forEach((subset) => {
+      series.push(subset * Math.pow(10, decade));
+    });
+  }
+  series.push(Math.pow(10, 7));
+  return series;
 }

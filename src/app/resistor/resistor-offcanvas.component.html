@@ -1,0 +1,21 @@
+<button class="btn btn-lg btn-outline-primary mb-2 me-2" (click)="openBottom(contentOffcanvas)">Bottom position</button>
+
+<ng-template #contentOffcanvas let-offcanvas>
+  <button type="button" class="btn-close" aria-label="Close" (click)="offcanvas.dismiss('Cross click')"></button>
+  <div class="offcanvas-body bg-secondary-subtle">
+    <div class="container-xxl">
+      <button *ngFor="let item of generateSeriesE12()"
+              type="button" class="btn btn-outline-light btn-choose-resistor mx-2 my-1">
+        <span class="bands-colors">
+          <span class="color" [appResistorColor]="'brown'"></span>
+          <span class="color" [appResistorColor]="'black'"></span>
+          <span class="color" [appResistorColor]="'orange'"></span>
+          <span class="color" [appResistorColor]="'gold'"></span>
+        </span>
+        <span class="label">
+          {{ item | format: 'resistance' }}
+        </span>
+      </button>
+    </div>
+  </div>
+</ng-template>
