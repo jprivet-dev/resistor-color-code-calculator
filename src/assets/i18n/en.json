@@ -37,6 +37,7 @@
   "resistanceMax": "resistance max",
   "resistanceMin": "resistance min",
   "resistor": "resistor",
+  "seriesE12": "E12 series (5%)",
   "theme": "theme",
   "thermalCoefficient": "thermal coefficient",
   "tolerance": "tolerance",
