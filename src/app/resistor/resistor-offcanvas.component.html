@@ -1,0 +1,30 @@
+<ng-container *transloco="let t">
+  <div class="offcanvas-header">
+    <h4 class="offcanvas-title">{{ t('seriesE12') }}</h4>
+    <button
+      type="button"
+      class="btn-close text-reset"
+      aria-label="Close"
+      (click)="closeOffcanvas()"
+    ></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="series-E12">
+      <button *ngFor="let item of generateSeriesE12()"
+              (click)="chooseSeriesE12Item(item)"
+              type="button" class="btn btn-outline-secondary btn-choose-resistor mx-2 mb-2">
+        <div class="d-flex flex-column">
+          <div class="label text-light px-2 py-1">
+            {{ item.value | format: 'resistance' }}
+          </div>
+          <div class="bands-colors d-flex rounded-1">
+            <div class="color" [appResistorColor]="item.digit1Color"></div>
+            <div class="color" [appResistorColor]="item.digit2Color"></div>
+            <div class="color" [appResistorColor]="item.multiplierColor"></div>
+            <div class="color" [appResistorColor]="item.toleranceColor"></div>
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+</ng-container>

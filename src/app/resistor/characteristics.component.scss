@@ -1,0 +1,25 @@
+.bands-colors {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+}
+
+.circle-color {
+  $width: 1rem;
+  display: inline-block;
+  width: $width;
+  height: $width;
+  margin: 0.25rem 0.5rem 0 0;
+  vertical-align: top;
+  border-radius: 50%;
+}
+
+.table-characteristics {
+  max-width: 600px;
+
+  td {
+    width: 50%;
+  }
+}

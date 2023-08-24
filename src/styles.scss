@@ -1,0 +1,101 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+$resistor-colors-text: (
+  "black": #FFFFFF,
+  "brown": #FFFFFF,
+  "red": #FFFFFF,
+  "orange": #FFFFFF,
+  "yellow": #000000,
+  "green": #FFFFFF,
+  "blue": #FFFFFF,
+  "violet": #FFFFFF,
+  "grey": #FFFFFF,
+  "white": #000000,
+  "gold": #000000,
+  "silver": #000000,
+  "none": #000000,
+);
+
+$resistor-colors-bg: (
+  "black": #000000,
+  "brown": #8D3219,
+  "red": #E7000E,
+  "orange": #F34F12,
+  "yellow": #FFE941,
+  "green": #29AB51,
+  "blue": #0067b9,
+  "violet": #C557B0,
+  "grey": #8F908F,
+  "white": #FFFFFF,
+  "gold": #D39A13,
+  "silver": #A5A5A5,
+  "none": "none",
+);
+
+$resistor-colors-border: (
+  "black": #000000,
+  "brown": #8D3219,
+  "red": #E7000E,
+  "orange": #F34F12,
+  "yellow": #FFE941,
+  "green": #29AB51,
+  "blue": #0067b9,
+  "violet": #C557B0,
+  "grey": #8F908F,
+  "white": #D7D7D7,
+  "gold": #D39A13,
+  "silver": #A5A5A5,
+  "none": #D7D7D7,
+);
+
+:root {
+  @each $color, $value in $resistor-colors-text {
+    --resistor-#{$color}-text: #{$value};
+  }
+  @each $color, $value in $resistor-colors-border {
+    --resistor-#{$color}-border: #{$value};
+  }
+  @each $color, $value in $resistor-colors-bg {
+    --resistor-#{$color}-bg: #{$value};
+  }
+}
+
+@each $color, $value in $resistor-colors-bg {
+  .resistor-#{$color} {
+    color: var(--resistor-#{$color}-text);
+    border: 1px solid var(--resistor-#{$color}-border);
+    background-color: var(--resistor-#{$color}-bg);
+  }
+}
+
+[data-bs-theme=dark] {
+  .resistor-none {
+    color: #FFFFFF;
+  }
+}
+
+[data-bs-theme=light] {
+  .text-light {
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-dark-rgb), var(--bs-text-opacity)) !important;
+  }
+}
+
+@media (max-width: 575px) {
+  .offcanvas {
+    --bs-offcanvas-height: 40vh;
+  }
+}
+
+@media (min-width: 2500px) {
+  .offcanvas {
+    --bs-offcanvas-height: 25vh;
+  }
+}
+
+
+
