@@ -1,12 +1,36 @@
 .navbar-brand {
-  background: linear-gradient(-30deg, #ff3bdd, #0ac6ff, #00ef00);
+  background: linear-gradient(-45deg, #ff3bdd, #0ac6ff, #00ef00);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-@media (max-width: 576px) {
+.navbar-brand {
+  .long {
+    display: inherit;
+  }
+
+  .short {
+    display: none;
+  }
+}
+
+@media (max-width: 490px) {
   .navbar-brand {
     font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 410px) {
+  .navbar-brand {
+    font-size: var(--bs-navbar-brand-font-size);
+
+    .long {
+      display: none;
+    }
+
+    .short {
+      display: inherit;
+    }
   }
 }
 
