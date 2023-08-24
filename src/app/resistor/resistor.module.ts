@@ -3,11 +3,11 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from '@shared/shared.module';
 import { CharacteristicsComponent } from './characteristics.component';
 import { ResistorColorDirective } from './resistor-color.directive';
+import { ResistorOffcanvasComponent } from './resistor-offcanvas.component';
 
 import { ResistorRoutingModule } from './resistor-routing.module';
 import { ResistorComponent } from './resistor.component';
 import { ResistorPageComponent } from './resistor.page';
-import { ResistorOffcanvasContentComponent } from './resistor-offcanvas-content.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,7 @@ import { ResistorOffcanvasContentComponent } from './resistor-offcanvas-content.
     ResistorComponent,
     CharacteristicsComponent,
     ResistorColorDirective,
-    ResistorOffcanvasContentComponent,
+    ResistorOffcanvasComponent,
   ],
   imports: [CommonModule, SharedModule, ResistorRoutingModule],
 })

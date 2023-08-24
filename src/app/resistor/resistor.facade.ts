@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 import { Store } from '@ngrx/store';
 import { CharacteristicsService } from './characteristics.service';
-import { ResistorOffcanvasContentComponent } from './resistor-offcanvas-content.component';
+import { ResistorOffcanvasComponent } from './resistor-offcanvas.component';
 import { BandColor, Resistor } from './resistor.model';
 import { ResistorService } from './resistor.service';
 import {
@@ -102,7 +102,7 @@ export class ResistorFacade {
       return;
     }
 
-    this.offcanvasService.open(ResistorOffcanvasContentComponent, {
+    this.offcanvasService.open(ResistorOffcanvasComponent, {
       position: 'bottom',
       scroll: true,
       backdrop: false,

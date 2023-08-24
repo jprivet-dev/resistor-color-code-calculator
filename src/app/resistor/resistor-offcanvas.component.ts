@@ -6,10 +6,10 @@ import { generateSeriesE12 } from './resistor.utils';
 
 @Component({
   selector: 'app-resistor-offcanvas-content',
-  templateUrl: './resistor-offcanvas-content.component.html',
-  styleUrls: ['./resistor-offcanvas-content.component.scss'],
+  templateUrl: './resistor-offcanvas.component.html',
+  styleUrls: ['./resistor-offcanvas.component.scss'],
 })
-export class ResistorOffcanvasContentComponent {
+export class ResistorOffcanvasComponent {
   private resistorFacade = inject(ResistorFacade);
   activeOffcanvas = inject(NgbActiveOffcanvas);
 
