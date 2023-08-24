@@ -66,7 +66,7 @@ export class ResistorFacade {
   }
 
   setResistor(resistor: Resistor) {
-    this.store.dispatch(resistorActions.updateResistor({ resistor }));
+    this.store.dispatch(resistorActions.updateResistor4Band({ resistor }));
   }
 
   setBandsCount(bandsCount: number): void {

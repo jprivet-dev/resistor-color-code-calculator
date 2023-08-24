@@ -24,9 +24,13 @@ export const resistorReducer = createReducer(
     resistorApiActions.retrieveResistorSuccess,
     (state, { resistor }) => resistor,
   ),
-  on(resistorActions.updateResistor, (state, { resistor }) => ({
+  on(resistorActions.updateResistor4Band, (state, { resistor }) => ({
     ...state,
-    ...resistor,
+    digit1: { ...state.digit1, ...resistor.digit1 },
+    digit2: { ...state.digit2, ...resistor.digit2 },
+    multiplier: { ...state.multiplier, ...resistor.multiplier },
+    tolerance: { ...state.tolerance, ...resistor.tolerance },
+    bandsCount: resistor.bandsCount,
   })),
   on(resistorActions.updateBandsCount, (state, { bandsCount }) => ({
     ...state,
