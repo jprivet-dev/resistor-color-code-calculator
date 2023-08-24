@@ -1,6 +1,6 @@
 {
   "about": "about",
-  "bands": "{{ bandsCount }} bands",
+  "bands": "{{ bandsCount }} band",
   "characteristics": "characteristics",
   "charts": "charts",
   "color": "color",
@@ -38,8 +38,8 @@
   "resistanceMax": "resistance max",
   "resistanceMin": "resistance min",
   "resistor": "resistor",
-  "selectResistorInSeriesE12": "Select a resistor in the E12 series (5%)",
-  "seriesE12": "E12 series (5%)",
+  "selectResistorInSeriesE12": "Select a resistor in the E12 series (±5%)",
+  "seriesE12": "E12 series (±5%)",
   "theme": "theme",
   "thermalCoefficient": "thermal coefficient",
   "tolerance": "tolerance",
