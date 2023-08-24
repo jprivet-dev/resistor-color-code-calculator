@@ -3,7 +3,8 @@
 # Usage:
 # $ . scripts/release.sh
 
-files="README.adoc"
+# TODO: instead use dynamic value in the footer.component
+files="README.adoc package.json package-lock.json src/app/core/footer/footer.component.html"
 
 type gx &>/dev/null &&
 	git release "${files}" ||
