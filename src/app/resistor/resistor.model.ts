@@ -45,7 +45,6 @@ export interface Characteristics {
 }
 
 export interface BandColorsValues {
-  none: number | null;
   black: number | null;
   brown: number | null;
   red: number | null;
@@ -58,11 +57,11 @@ export interface BandColorsValues {
   white: number | null;
   gold: number | null;
   silver: number | null;
+  none: number | null;
 }
 
 export type BandColor = keyof BandColorsValues;
 export const bandsColors: BandColor[] = [
-  'none',
   'black',
   'brown',
   'red',
@@ -75,6 +74,7 @@ export const bandsColors: BandColor[] = [
   'white',
   'gold',
   'silver',
+  'none',
 ];
 
 export const resistorConfig: {
@@ -86,7 +86,6 @@ export const resistorConfig: {
   thermalCoefficient: BandColorsValues;
 } = {
   digit1: {
-    none: null,
     black: null,
     brown: 1,
     red: 2,
@@ -99,9 +98,9 @@ export const resistorConfig: {
     white: 9,
     gold: null,
     silver: null,
+    none: null,
   },
   digit2: {
-    none: null,
     black: 0,
     brown: 1,
     red: 2,
@@ -114,10 +113,10 @@ export const resistorConfig: {
     white: 9,
     gold: null,
     silver: null,
+    none: null,
   },
   digit3: {
-    none: null,
-    black: null,
+    black: 0,
     brown: 1,
     red: 2,
     orange: 3,
@@ -129,9 +128,9 @@ export const resistorConfig: {
     white: 9,
     gold: null,
     silver: null,
+    none: null,
   },
   multiplier: {
-    none: null,
     black: 1,
     brown: 1e1,
     red: 1e2,
@@ -140,13 +139,13 @@ export const resistorConfig: {
     green: 1e5,
     blue: 1e6,
     violet: 1e7,
-    grey: 1e8,
-    white: 1e9,
-    gold: null,
-    silver: null,
+    grey: null,
+    white: null,
+    gold: 0.1,
+    silver: 0.01,
+    none: null,
   },
   tolerance: {
-    none: 20,
     black: null,
     brown: 1,
     red: 2,
@@ -159,9 +158,9 @@ export const resistorConfig: {
     white: null,
     gold: 5,
     silver: 10,
+    none: 20,
   },
   thermalCoefficient: {
-    none: null,
     black: null,
     brown: 100,
     red: 50,
@@ -174,6 +173,7 @@ export const resistorConfig: {
     white: null,
     gold: null,
     silver: null,
+    none: null,
   },
 };
 

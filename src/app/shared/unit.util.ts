@@ -1,12 +1,12 @@
 import {
+  Unit,
   UnitList,
-  UnitModel,
-  UnitServiceArgumentsModel,
-  UnitServiceResultModel,
+  UnitServiceArguments,
+  UnitServiceResult,
 } from './unit.model';
 
 export abstract class UnitUtil {
-  static unitList: UnitModel[] = UnitList;
+  static unitList: Unit[] = UnitList;
 
   static base10(value: number): number {
     let base10 = 0;
@@ -31,9 +31,9 @@ export abstract class UnitUtil {
       : valueToFixed2;
   }
 
-  static unit(value: number): UnitModel | undefined {
+  static unit(value: number): Unit | undefined {
     const base10 = this.base10(value);
-    return this.unitList.find((mp: UnitModel) => mp.base10 === base10);
+    return this.unitList.find((mp: Unit) => mp.base10 === base10);
   }
 
   static positiveValue(value: number): number {
@@ -44,11 +44,9 @@ export abstract class UnitUtil {
     return value < 0;
   }
 
-  static convert(args: UnitServiceArgumentsModel): UnitServiceResultModel {
+  static convert(args: UnitServiceArguments): UnitServiceResult {
     let valueWithoutUnit = '';
-    const unit: UnitModel | undefined = this.unit(
-      this.positiveValue(args.value),
-    );
+    const unit: Unit | undefined = this.unit(this.positiveValue(args.value));
 
     if (unit) {
       const value = this.positiveValue(args.value) / Math.pow(10, unit.base10);

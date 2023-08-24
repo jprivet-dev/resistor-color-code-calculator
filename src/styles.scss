@@ -91,5 +91,11 @@ $resistor-colors-border: (
   }
 }
 
+@media (min-width: 2500px) {
+  .offcanvas {
+    --bs-offcanvas-height: 25vh;
+  }
+}
+
 
 

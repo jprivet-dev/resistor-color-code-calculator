@@ -1,10 +1,10 @@
-export interface UnitModel {
+export interface Unit {
   base10: number;
   name: string;
   symbol: string;
 }
 
-export const UnitList: UnitModel[] = [
+export const UnitList: Unit[] = [
   { base10: 24, name: 'yotta', symbol: 'Y' },
   { base10: 21, name: 'zetta', symbol: 'Z' },
   { base10: 18, name: 'exa', symbol: 'E' },
@@ -26,13 +26,13 @@ export const UnitList: UnitModel[] = [
   // {base10: -24, name: 'yocto', symbol: 'y'},
 ];
 
-export interface UnitServiceArgumentsModel {
+export interface UnitServiceArguments {
   value: number;
   unit: string;
   fractionDigits: number;
 }
 
-export interface UnitServiceResultModel extends UnitServiceArgumentsModel {
+export interface UnitServiceResult extends UnitServiceArguments {
   valueWithoutUnit: string;
   valueWithUnit: string;
 }

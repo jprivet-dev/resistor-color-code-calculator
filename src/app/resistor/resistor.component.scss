@@ -79,6 +79,7 @@ $transition-delay: 0.3s;
 
     padding: 0 $bandWidth;
     background-color: #DEB96F;
+    transition: background-color $transition-delay;
 
     &:before {
       content: '';
@@ -90,6 +91,13 @@ $transition-delay: 0.3s;
       border-bottom-right-radius: var(--bs-border-radius-lg) !important;
       border-bottom-left-radius: var(--bs-border-radius-lg) !important;
       background-color: rgba(0, 0, 0, 0.07);
+    }
+  }
+
+  &.bands-5,
+  &.bands-6 {
+    .body {
+      background-color: #98D1E7;
     }
   }
 
@@ -160,7 +168,7 @@ $transition-delay: 0.3s;
 
 .table-colors {
   $full-width: 100%;
-  $column-min-width: 140px;
+  $column-min-width: 134px;
   min-width: 700px;
 
   thead th {

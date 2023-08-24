@@ -74,10 +74,10 @@ export function generateSeriesE12(): SeriesE12Item[] {
 
   const series: SeriesE12Item[] = [];
 
-  for (let decade = 1; decade <= 6; decade++) {
+  for (let decade = 0; decade <= 5; decade++) {
     seriesE12Subsets.forEach((subset) => {
       series.push({
-        value: subset.value * Math.pow(10, decade),
+        value: subset.value * Math.pow(10, decade + 1),
         digit1Color: subset.digit1Color,
         digit2Color: subset.digit2Color,
         multiplierColor: bandsColors[decade],
@@ -87,10 +87,10 @@ export function generateSeriesE12(): SeriesE12Item[] {
     });
   }
 
-  const decade = 7;
+  const decade = 6;
   const subset = seriesE12Subsets[0];
   series.push({
-    value: subset.value * Math.pow(10, decade),
+    value: subset.value * Math.pow(10, decade + 1),
     digit1Color: subset.digit1Color,
     digit2Color: subset.digit2Color,
     multiplierColor: bandsColors[decade],

@@ -1,4 +1,4 @@
-import { UnitServiceArgumentsModel } from './unit.model';
+import { UnitServiceArguments } from './unit.model';
 import { UnitUtil } from './unit.util';
 
 describe('UnitUtil', () => {
@@ -223,7 +223,7 @@ describe('UnitUtil', () => {
   convertData.forEach((data) => {
     const expected: string = data.expected.trim();
 
-    const args: UnitServiceArgumentsModel = {
+    const args: UnitServiceArguments = {
       value: data.value,
       fractionDigits: 2,
       unit: '',
@@ -243,7 +243,7 @@ describe('UnitUtil', () => {
 
     const expected: string = '-' + data.expected.trim();
 
-    const args: UnitServiceArgumentsModel = {
+    const args: UnitServiceArguments = {
       value: data.value * -1,
       fractionDigits: 2,
       unit: '',
@@ -259,7 +259,7 @@ describe('UnitUtil', () => {
   convertData.forEach((data) => {
     const expected: string = data.expected + 'Ω';
 
-    const args: UnitServiceArgumentsModel = {
+    const args: UnitServiceArguments = {
       value: data.value,
       fractionDigits: 2,
       unit: 'Ω',
