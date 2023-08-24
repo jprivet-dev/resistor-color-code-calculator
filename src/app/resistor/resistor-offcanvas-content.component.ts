@@ -28,4 +28,10 @@ export class ResistorOffcanvasContentComponent {
       bandsCount: item.bandsCount,
     });
   }
+
+  closeOffcanvas(): void {
+    // TODO: find and other solution to know if the offcanvas is open
+    this.resistorFacade.closeOffcanvas();
+    this.activeOffcanvas.dismiss('Cross click');
+  }
 }

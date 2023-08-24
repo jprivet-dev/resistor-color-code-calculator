@@ -20,19 +20,25 @@
                 <td>
                   <ng-container *ngIf="(decode$ | async) as decode">
                     <span [appResistorColor]="decode.digit1.color"
+                          [title]="t('colorName.' + decode.digit1.color)"
                           class="circle-color"></span>
                     <span [appResistorColor]="decode.digit2.color"
+                          [title]="t('colorName.' + decode.digit2.color)"
                           class="circle-color"></span>
                     <span [appResistorColor]="decode.digit3.color"
                           *ngIf="decode.digit3.active"
+                          [title]="t('colorName.' + decode.digit3.color)"
                           class="circle-color"></span>
                     <span [appResistorColor]="decode.multiplier.color"
+                          [title]="t('colorName.' + decode.multiplier.color)"
                           class="circle-color"></span>
                     <span [appResistorColor]="decode.tolerance.color"
                           *ngIf="decode.tolerance.active"
+                          [title]="t('colorName.' + decode.tolerance.color)"
                           class="circle-color"></span>
                     <span [appResistorColor]="decode.thermalCoefficient.color"
                           *ngIf="decode.thermalCoefficient.active"
+                          [title]="t('colorName.' + decode.thermalCoefficient.color)"
                           class="circle-color"></span>
                   </ng-container>
                 </td>

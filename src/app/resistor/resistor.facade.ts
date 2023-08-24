@@ -45,6 +45,7 @@ export class ResistorFacade {
   readonly thermalCoefficient$ = this.store.select(selectThermalCoefficient);
 
   private offcanvasService = inject(NgbOffcanvas);
+  private offcanvasIsOpen = false;
 
   constructor() {
     this.resistor$.subscribe((resistor) => {
@@ -97,11 +98,21 @@ export class ResistorFacade {
   }
 
   openOffcanvas() {
+    if (this.offcanvasIsOpen) {
+      return;
+    }
+
     this.offcanvasService.open(ResistorOffcanvasContentComponent, {
       position: 'bottom',
       scroll: true,
       backdrop: false,
       panelClass: 'bg-body-tertiary',
     });
+
+    this.offcanvasIsOpen = true;
+  }
+
+  closeOffcanvas(): void {
+    this.offcanvasIsOpen = false;
   }
 }

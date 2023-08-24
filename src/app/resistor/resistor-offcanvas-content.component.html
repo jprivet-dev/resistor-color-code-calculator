@@ -5,23 +5,23 @@
       type="button"
       class="btn-close text-reset"
       aria-label="Close"
-      (click)="activeOffcanvas.dismiss('Cross click')"
+      (click)="closeOffcanvas()"
     ></button>
   </div>
   <div class="offcanvas-body">
     <div class="series-E12">
       <button *ngFor="let item of generateSeriesE12()"
               (click)="chooseSeriesE12Item(item)"
-              type="button" class="btn btn-outline-secondary btn-choose-resistor rounded-pill mx-2 mb-2">
-        <div class="d-flex flex-row">
-          <div class="bands-colors d-flex flex-row rounded-pill">
+              type="button" class="btn btn-outline-secondary btn-choose-resistor mx-2 mb-2">
+        <div class="d-flex flex-column">
+          <div class="label text-light px-2 py-1">
+            {{ item.value | format: 'resistance' }}
+          </div>
+          <div class="bands-colors d-flex rounded-1">
             <div class="color" [appResistorColor]="item.digit1Color"></div>
             <div class="color" [appResistorColor]="item.digit2Color"></div>
             <div class="color" [appResistorColor]="item.multiplierColor"></div>
             <div class="color" [appResistorColor]="item.toleranceColor"></div>
-          </div>
-          <div class="label text-light px-2 py-1">
-            {{ item.value | format: 'resistance' }}
           </div>
         </div>
       </button>
