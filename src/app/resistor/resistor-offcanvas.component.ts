@@ -14,9 +14,13 @@ import {
   styleUrls: ['./resistor-offcanvas.component.scss'],
 })
 export class ResistorOffcanvasComponent {
-  private resistorFacade = inject(ResistorFacade);
+  private facade = inject(ResistorFacade);
   activeOffcanvas = inject(NgbActiveOffcanvas);
-  readonly seriesName$ = this.resistorFacade.seriesName$;
+  readonly seriesName$ = this.facade.seriesName$;
+
+  update($event: any): void {
+    this.facade.openOffcanvas($event.target.value);
+  }
 
   generateSeriesE12(): SeriesE12Item[] {
     return generateSeriesE12();
@@ -31,7 +35,7 @@ export class ResistorOffcanvasComponent {
   }
 
   chooseSeriesE12Item(item: SeriesE12Item): void {
-    this.resistorFacade.updateResistor4Band({
+    this.facade.updateResistor4Band({
       digit1: { color: item.digit1 },
       digit2: { color: item.digit2 },
       digit3: { color: 'white' },
@@ -43,7 +47,7 @@ export class ResistorOffcanvasComponent {
   }
 
   chooseSeriesE24Item(item: SeriesE24Item): void {
-    this.resistorFacade.updateResistor5Band({
+    this.facade.updateResistor5Band({
       digit1: { color: item.digit1 },
       digit2: { color: item.digit2 },
       digit3: { color: item.digit3 },
@@ -56,7 +60,7 @@ export class ResistorOffcanvasComponent {
 
   closeOffcanvas(): void {
     // TODO: find and other solution to know if the offcanvas is open
-    this.resistorFacade.closeOffcanvas();
+    this.facade.closeOffcanvas();
     this.activeOffcanvas.dismiss('Cross click');
   }
 }

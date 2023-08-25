@@ -280,8 +280,9 @@ export function generateSeriesE24(): SeriesE24Item[] {
 
   for (let decade = 0; decade <= 6; decade++) {
     seriesE24Subsets.forEach((subset) => {
+      const value = subset.value * Math.pow(10, decade);
       series.push({
-        value: Math.round(subset.value * Math.pow(10, decade)),
+        value: value < 100 ? value : Math.round(value),
         digit1: subset.digit1,
         digit2: subset.digit2,
         digit3: subset.digit3,
@@ -294,8 +295,9 @@ export function generateSeriesE24(): SeriesE24Item[] {
 
   const decade = 7;
   const subset = seriesE24Subsets[0];
+  const value = subset.value * Math.pow(10, decade);
   series.push({
-    value: Math.round(subset.value * Math.pow(10, decade)),
+    value: value < 100 ? value : Math.round(value),
     digit1: subset.digit1,
     digit2: subset.digit2,
     digit3: subset.digit3,
@@ -308,7 +310,6 @@ export function generateSeriesE24(): SeriesE24Item[] {
 }
 
 export function generateArduinoStarterKit(): SeriesE12Item[] {
-  console.log('generateSeriesE12', generateSeriesE12());
   return generateSeriesE12().filter((item) =>
     [220, 560, 1000, 4700, 10000, 1000000, 10000000].includes(item.value),
   );
