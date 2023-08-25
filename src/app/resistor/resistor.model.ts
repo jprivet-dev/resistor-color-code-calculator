@@ -191,3 +191,13 @@ export interface SeriesE12Item {
   toleranceColor: BandColor;
   bandsCount: number;
 }
+
+export const resistorDefault: Resistor = {
+  digit1: { color: 'brown' },
+  digit2: { color: 'black' },
+  digit3: { color: 'red' },
+  multiplier: { color: 'orange' },
+  tolerance: { color: 'gold' },
+  thermalCoefficient: { color: 'red' },
+  bandsCount: 4,
+};

@@ -49,6 +49,10 @@ export class ResistorFacade {
 
   constructor() {
     this.resistor$.subscribe((resistor) => {
+      // TODO: isn't it better to have an effect or use a meta reducer ?
+      if (resistor.bandsCount > 0) {
+        this.resistorService.saveResistor(resistor);
+      }
       this.store.dispatch(decodeActions.decodeResistor({ resistor }));
     });
 
