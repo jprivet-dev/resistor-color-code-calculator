@@ -1,30 +1,71 @@
 <ng-container *transloco="let t">
-  <div class="offcanvas-header">
-    <h4 class="offcanvas-title">{{ t('seriesE12') }}</h4>
-    <button
-      type="button"
-      class="btn-close text-reset"
-      aria-label="Close"
-      (click)="closeOffcanvas()"
-    ></button>
-  </div>
-  <div class="offcanvas-body">
-    <div class="series-E12">
-      <button *ngFor="let item of generateSeriesE12()"
-              (click)="chooseSeriesE12Item(item)"
-              type="button" class="btn btn-outline-secondary btn-choose-resistor mx-2 mb-2">
-        <div class="d-flex flex-column">
-          <div class="label text-light px-2 py-1">
-            {{ item.value | format: 'resistance' }}
-          </div>
-          <div class="bands-colors d-flex rounded-1">
-            <div class="color" [appResistorColor]="item.digit1Color"></div>
-            <div class="color" [appResistorColor]="item.digit2Color"></div>
-            <div class="color" [appResistorColor]="item.multiplierColor"></div>
-            <div class="color" [appResistorColor]="item.toleranceColor"></div>
-          </div>
-        </div>
-      </button>
+  <ng-container *ngIf="seriesName$ | async as seriesName">
+    <div class="offcanvas-header">
+      <h4 class="offcanvas-title">
+        <ng-container *ngIf="seriesName === 'E12'">{{ t('seriesE12') }}</ng-container>
+        <ng-container *ngIf="seriesName === 'E24'">{{ t('seriesE24') }}</ng-container>
+        <ng-container *ngIf="seriesName === 'ArduinoStarterKit'">{{ t('ArduinoStarterKit') }}</ng-container>
+      </h4>
+      <button
+        type="button"
+        class="btn-close text-reset"
+        aria-label="Close"
+        (click)="closeOffcanvas()"
+      ></button>
     </div>
-  </div>
+    <div class="offcanvas-body">
+      <div *ngIf="seriesName === 'E12'" class="series-E12">
+        <button *ngFor="let item of generateSeriesE12()"
+                (click)="chooseSeriesE12Item(item)"
+                type="button" class="btn btn-outline-secondary btn-choose-resistor mx-2 mb-2">
+          <div class="d-flex flex-column">
+            <div class="label text-light px-2 py-1">
+              {{ item.value | format: 'resistance' }}
+            </div>
+            <div class="bands-colors d-flex rounded-1">
+              <div class="color" [appResistorColor]="item.digit1"></div>
+              <div class="color" [appResistorColor]="item.digit2"></div>
+              <div class="color" [appResistorColor]="item.multiplier"></div>
+              <div class="color" [appResistorColor]="item.tolerance"></div>
+            </div>
+          </div>
+        </button>
+      </div>
+      <div *ngIf="seriesName === 'E24'" class="series-E24">
+        <button *ngFor="let item of generateSeriesE24()"
+                (click)="chooseSeriesE24Item(item)"
+                type="button" class="btn btn-outline-secondary btn-choose-resistor mx-2 mb-2">
+          <div class="d-flex flex-column">
+            <div class="label text-light px-2 py-1">
+              {{ item.value | format: 'resistance' }}
+            </div>
+            <div class="bands-colors d-flex rounded-1">
+              <div class="color" [appResistorColor]="item.digit1"></div>
+              <div class="color" [appResistorColor]="item.digit2"></div>
+              <div class="color" [appResistorColor]="item.digit3"></div>
+              <div class="color" [appResistorColor]="item.multiplier"></div>
+              <div class="color" [appResistorColor]="item.tolerance"></div>
+            </div>
+          </div>
+        </button>
+      </div>
+      <div *ngIf="seriesName === 'ArduinoStarterKit'" class="series-E12">
+        <button *ngFor="let item of generateArduinoStarterKit()"
+                (click)="chooseSeriesE12Item(item)"
+                type="button" class="btn btn-outline-secondary btn-choose-resistor mx-2 mb-2">
+          <div class="d-flex flex-column">
+            <div class="label text-light px-2 py-1">
+              {{ item.value | format: 'resistance' }}
+            </div>
+            <div class="bands-colors d-flex rounded-1">
+              <div class="color" [appResistorColor]="item.digit1"></div>
+              <div class="color" [appResistorColor]="item.digit2"></div>
+              <div class="color" [appResistorColor]="item.multiplier"></div>
+              <div class="color" [appResistorColor]="item.tolerance"></div>
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+  </ng-container>
 </ng-container>

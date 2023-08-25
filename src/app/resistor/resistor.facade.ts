@@ -1,9 +1,10 @@
 import { inject, Injectable } from '@angular/core';
 import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 import { Store } from '@ngrx/store';
+import { BehaviorSubject } from 'rxjs';
 import { CharacteristicsService } from './characteristics.service';
 import { ResistorOffcanvasComponent } from './resistor-offcanvas.component';
-import { BandColor, Resistor } from './resistor.model';
+import { BandColor, Resistor, SeriesName } from './resistor.model';
 import { ResistorService } from './resistor.service';
 import {
   characteristicsActions,
@@ -29,6 +30,9 @@ export class ResistorFacade {
   private store = inject(Store);
   private resistorService = inject(ResistorService);
   private characteristicsService = inject(CharacteristicsService);
+
+  private seriesNameSubject = new BehaviorSubject<SeriesName>('E12');
+  readonly seriesName$ = this.seriesNameSubject.asObservable();
 
   readonly bandsCounts = this.resistorService.bandsCounts;
   readonly bandsColors = this.resistorService.bandsColors;
@@ -69,8 +73,12 @@ export class ResistorFacade {
     this.store.dispatch(resistorApiActions.retrieveResistor());
   }
 
-  setResistor(resistor: Resistor) {
+  updateResistor4Band(resistor: Resistor) {
     this.store.dispatch(resistorActions.updateResistor4Band({ resistor }));
+  }
+
+  updateResistor5Band(resistor: Resistor) {
+    this.store.dispatch(resistorActions.updateResistor5Band({ resistor }));
   }
 
   setBandsCount(bandsCount: number): void {
@@ -101,7 +109,9 @@ export class ResistorFacade {
     this.store.dispatch(resistorActions.updateThermalCoefficient({ color }));
   }
 
-  openOffcanvas() {
+  openOffcanvas(seriesName: SeriesName) {
+    this.seriesNameSubject.next(seriesName);
+
     if (this.offcanvasIsOpen) {
       return;
     }

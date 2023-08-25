@@ -58,7 +58,15 @@ export class ResistorComponent implements OnInit {
     return color === 'none' ? '' : null;
   }
 
-  openOffcanvas(): void {
-    this.facade.openOffcanvas();
+  openOffcanvasArduinoStarterKit(): void {
+    this.facade.openOffcanvas('ArduinoStarterKit');
+  }
+
+  openOffcanvasE12(): void {
+    this.facade.openOffcanvas('E12');
+  }
+
+  openOffcanvasE24(): void {
+    this.facade.openOffcanvas('E24');
   }
 }

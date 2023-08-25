@@ -186,8 +186,17 @@
   </ng-container>
 
   <div class="text-center pt-2 pb-4">
-    <button class="btn btn-outline-primary" (click)="openOffcanvas()">
-      {{ t('selectResistorInSeriesE12') }}
+    <button (click)="openOffcanvasArduinoStarterKit()" [title]="t('selectResistorInArduinoStarterKit')"
+            class="btn btn-outline-primary mx-1" >
+      {{ t('ArduinoStarterKit') }}
+    </button>
+    <button (click)="openOffcanvasE12()" [title]="t('selectResistorInSeriesE12')"
+            class="btn btn-outline-primary mx-1" >
+      {{ t('seriesE12') }}
+    </button>
+    <button (click)="openOffcanvasE24()" [title]="t('selectResistorInSeriesE24')"
+            class="btn btn-outline-primary mx-1" >
+      {{ t('seriesE24') }}
     </button>
   </div>
 </ng-container>
