@@ -2,20 +2,12 @@
   <ng-container *ngIf="(decode$ | async) as decode">
     <div class="row">
       <div class="col-md-7">
-        <div class="d-flex justify-content-center pt-4 pb-3 bands-count-radios">
-          <div>
-            <ng-container *ngFor="let count of bandsCounts">
-              <input (click)="setBandsCount(count)" [checked]="decode.bandsCount === count"
-                     type="radio" class="btn-check" name="bands-count"
-                     id="{{ 'bands-count-radio-' + count }}"
-                     autocomplete="off"
-              >
-              <label class="btn btn-outline-primary rounded-pill mx-1"
-                     for="{{ 'bands-count-radio-' + count }}">
-                {{ t('bands', {bandsCount: count}) }}
-              </label>
-            </ng-container>
-          </div>
+        <div class="d-flex justify-content-center pt-4 pb-3">
+          <app-resistor-nav-bands
+            [decode]="decode"
+            [bandsCounts]="bandsCounts"
+            (bandsCountEvent)="setBandsCount($event)"
+          ></app-resistor-nav-bands>
         </div>
         <div class="d-flex justify-content-center pt-3 pb-4">
           <app-resistor-object

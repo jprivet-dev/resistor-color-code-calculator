@@ -3,10 +3,10 @@ import { Decode } from '../resistor.model';
 
 @Component({
   selector: 'app-resistor-characteristics',
-  templateUrl: './resistor-characteristics.component.html',
-  styleUrls: ['./resistor-characteristics.component.scss'],
+  templateUrl: './resistor-table-characteristics.component.html',
+  styleUrls: ['./resistor-table-characteristics.component.scss'],
 })
-export class ResistorCharacteristicsComponent {
+export class ResistorTableCharacteristicsComponent {
   @Input() decode!: Readonly<Decode> | null;
   @Input() resistance!: number | null;
   @Input() resistanceMax!: number | null;
