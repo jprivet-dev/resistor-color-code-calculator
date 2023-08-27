@@ -12,6 +12,7 @@ import { ResistorRoutingModule } from './resistor-routing.module';
 import { ResistorTabsComponent } from './resistor-tabs.component';
 import { ResistorComponent } from './resistor.component';
 import { ResistorPageComponent } from './resistor.page';
+import { ResistorTableColorsComponent } from './io/resistor-table-colors.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ResistorPageComponent } from './resistor.page';
     ResistorTableCharacteristicsComponent,
     ResistorObjectComponent,
     ResistorNavBandsComponent,
+    ResistorTableColorsComponent,
   ],
   imports: [CommonModule, SharedModule, ResistorRoutingModule],
 })

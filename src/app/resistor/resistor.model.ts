@@ -77,14 +77,16 @@ export const bandsColors: BandColor[] = [
   'none',
 ];
 
-export const resistorConfig: {
+export interface ResistorConfig {
   digit1: BandColorsValues;
   digit2: BandColorsValues;
   digit3: BandColorsValues;
   multiplier: BandColorsValues;
   tolerance: BandColorsValues;
   thermalCoefficient: BandColorsValues;
-} = {
+}
+
+export const resistorConfig: ResistorConfig = {
   digit1: {
     black: null,
     brown: 1,
