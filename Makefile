@@ -1,4 +1,5 @@
 NG_DEPLOY_BASE_HREF = /resistor-color-code-calculator/
+GITHUB_BRANCH=$(shell git rev-parse --abbrev-ref HEAD)
 
 ## PROJECT
 
@@ -8,7 +9,14 @@ start: ## Start the ng development server. The application will automatically re
 
 .PHONY: deploy
 deploy: ## Deploy current branch to GitHub pages (it will be automatically built in production mode).
-	ng deploy --base-href=$(NG_DEPLOY_BASE_HREF)
+	@while [ -z "$$CONTINUE" ]; do read -r -p $ "Deploy current branch \"$(GITHUB_BRANCH)\" on GitHub Pages? [yN] " CONTINUE; done; \
+	if [ "$$CONTINUE" = "y" ]; then \
+		ng deploy --base-href=$(NG_DEPLOY_BASE_HREF); \
+		echo "\033[1;42m! SUCCESS !\033[0m"; \
+		echo "Deployed on https://www.jprivet.dev/resistor-color-code-calculator/"; \
+	else \
+		echo "\033[1;41mCANCELLED\033[0m"; \
+	fi; \
 
 .PHONY: prod
 prod: ## Build the project (production build)
