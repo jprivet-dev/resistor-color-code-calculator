@@ -64,6 +64,7 @@ This application is developed with https://angular.io/[Angular], https://ng-boot
 * https://ng-bootstrap.github.io
 * https://ngrx.io
 * https://ngneat.github.io/transloco
+* https://github.com/angular-schule/angular-cli-ghpages
 
 {back_to_top}
 
