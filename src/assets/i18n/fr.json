@@ -4,6 +4,7 @@
   "arduinoStarterKit": "Arduino Starter Kit",
   "arduinoStarterKitInfo": "Liste des résistances utilisées dans le Arduino Starter Kit.",
   "arduinoStarterKitLink": "https://store.arduino.cc/products/arduino-starter-kit-multi-language",
+  "backToHomePage": "Retour à la page d'accueil",
   "bands": "{{ bandsCount }} bandes",
   "characteristics": "caractéristiques",
   "charts": "graphiques",
@@ -24,6 +25,7 @@
     "yellow": "jaune"
   },
   "colors": "couleurs",
+  "current": "intensité",
   "dark": "sombre",
   "digit1": "1ère bande",
   "digit2": "2ème bande",
@@ -34,11 +36,12 @@
   "light": "clair",
   "moreInfoOn": "Plus d'informations sur",
   "multiplier": "multiplieur",
-  "ohmLaw": "la loi d'Ohm",
+  "notBeFound": "La page que vous recherchez n'existe pas.",
+  "ohmsLaw": "Loi d'Ohm",
+  "ohmsLawAppliedToResistance": "Loi d'Ohm appliquée à la résistance de {{ resistance }}.",
   "powerRating": "charge admissible",
-  "punctuation": {
-    "colon": " : "
-  },
+    "colon": " : ",
+  "ohmsLawLink": "https://fr.wikipedia.org/wiki/Loi_d%27Ohm",
   "resistance": "résistance",
   "resistanceMax": "résistance max",
   "resistanceMin": "résistance min",
@@ -56,7 +59,6 @@
   "tolerance": "tolérance",
   "toleranceOhm": "tolérance (Ohm)",
   "value": "valeur",
-  "wikipedia": "Wikipédia",
-  "notBeFound": "La page que vous recherchez n'existe pas.",
-  "backToHomePage": "Retour à la page d'accueil"
+  "voltage": "tension",
+  "wikipedia": "Wikipédia"
 }

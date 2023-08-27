@@ -76,10 +76,15 @@ $resistor-colors-border: (
   .resistor-none {
     color: #FFFFFF;
   }
+
+  .text-light-theme {
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-white-rgb), var(--bs-text-opacity)) !important;
+  }
 }
 
 [data-bs-theme=light] {
-  .text-light {
+  .text-light-theme {
     --bs-text-opacity: 1;
     color: rgba(var(--bs-dark-rgb), var(--bs-text-opacity)) !important;
   }
@@ -95,6 +100,10 @@ $resistor-colors-border: (
   .offcanvas {
     --bs-offcanvas-height: 25vh;
   }
+}
+
+svg {
+  fill: var(--bs-body-color);
 }
 
 

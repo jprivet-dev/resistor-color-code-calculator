@@ -72,20 +72,16 @@
           </div>
         </ng-template>
       </li>
-      <!--        TODO: to activate later-->
-      <!--        <li [ngbNavItem]="2">-->
-      <!--            <button ngbNavLink>-->
-      <!--                <h4 class="mb-0">{{ t('ohmLaw') | titlecase }} - {{ t('charts') | titlecase }}</h4>-->
-      <!--            </button>-->
-      <!--            <ng-template ngbNavContent>-->
-      <!--                <h1 class="card-title pricing-card-title">-->
-      <!--                    {{ 5 | format: 'tolerance' }}-->
-      <!--                </h1>-->
-      <!--                <ul class="list-unstyled mt-3">-->
-      <!--                    <li>{{ 28 | format: 'toleranceOhm' }}</li>-->
-      <!--                </ul>-->
-      <!--            </ng-template>-->
-      <!--        </li>-->
+      <li [ngbNavItem]="2">
+        <button ngbNavLink>
+          <h4 class="mb-0">{{ t('ohmsLaw') }}</h4>
+        </button>
+        <ng-template ngbNavContent>
+          <app-resistor-ohm-law
+            [resistance]="resistance$ | async"
+          ></app-resistor-ohm-law>
+        </ng-template>
+      </li>
     </ul>
 
     <div [ngbNavOutlet]="nav" class="mt-2"></div>

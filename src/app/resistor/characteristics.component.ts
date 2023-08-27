@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ResistorFacade } from './resistor.facade';
 
 @Component({
