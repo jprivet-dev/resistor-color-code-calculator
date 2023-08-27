@@ -2,11 +2,11 @@ import { Component, inject } from '@angular/core';
 import { ResistorFacade } from './resistor.facade';
 
 @Component({
-  selector: 'app-characteristics',
-  templateUrl: './characteristics.component.html',
-  styleUrls: ['./characteristics.component.scss'],
+  selector: 'app-resistor-tabs',
+  templateUrl: './resistor-tabs.component.html',
+  styleUrls: ['./resistor-tabs.component.scss'],
 })
-export class CharacteristicsComponent {
+export class ResistorTabsComponent {
   private facade = inject(ResistorFacade);
 
   readonly decode$ = this.facade.decode$;

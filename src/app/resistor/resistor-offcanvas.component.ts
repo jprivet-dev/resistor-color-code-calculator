@@ -18,20 +18,12 @@ export class ResistorOffcanvasComponent {
   activeOffcanvas = inject(NgbActiveOffcanvas);
   readonly seriesName$ = this.facade.seriesName$;
 
+  readonly seriesE12Items = generateSeriesE12();
+  readonly seriesE24Items = generateSeriesE24();
+  readonly arduinoStarterKitItems = generateArduinoStarterKit();
+
   update($event: any): void {
     this.facade.openOffcanvas($event.target.value);
-  }
-
-  generateSeriesE12(): SeriesE12Item[] {
-    return generateSeriesE12();
-  }
-
-  generateSeriesE24(): SeriesE24Item[] {
-    return generateSeriesE24();
-  }
-
-  generateArduinoStarterKit(): SeriesE12Item[] {
-    return generateArduinoStarterKit();
   }
 
   chooseSeriesE12Item(item: SeriesE12Item): void {

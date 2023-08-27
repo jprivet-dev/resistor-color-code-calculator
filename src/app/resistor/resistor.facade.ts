@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 import { Store } from '@ngrx/store';
 import { BehaviorSubject } from 'rxjs';
-import { CharacteristicsService } from './characteristics.service';
+import { ResistorCharacteristicsService } from './resistor-characteristics.service';
 import { ResistorOffcanvasComponent } from './resistor-offcanvas.component';
 import { BandColor, Resistor, SeriesName } from './resistor.model';
 import { ResistorService } from './resistor.service';
@@ -29,7 +29,7 @@ import {
 export class ResistorFacade {
   private store = inject(Store);
   private resistorService = inject(ResistorService);
-  private characteristicsService = inject(CharacteristicsService);
+  private characteristicsService = inject(ResistorCharacteristicsService);
 
   private seriesNameSubject = new BehaviorSubject<SeriesName>('E12');
   readonly seriesName$ = this.seriesNameSubject.asObservable();

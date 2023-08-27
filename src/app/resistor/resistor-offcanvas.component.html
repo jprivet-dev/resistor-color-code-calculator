@@ -32,7 +32,7 @@
               <i class="bi bi-box-arrow-up-right ms-1"></i>
             </a>.
           </p>
-          <button *ngFor="let item of generateSeriesE12()"
+          <button *ngFor="let item of seriesE12Items"
                   (click)="chooseSeriesE12Item(item)"
                   type="button" class="btn btn-outline-secondary btn-choose-resistor me-2 mb-2">
             <div class="d-flex flex-column">
@@ -57,7 +57,7 @@
               <i class="bi bi-box-arrow-up-right ms-1"></i>
             </a>.
           </p>
-          <button *ngFor="let item of generateSeriesE24()"
+          <button *ngFor="let item of seriesE24Items"
                   (click)="chooseSeriesE24Item(item)"
                   type="button" class="btn btn-outline-secondary btn-choose-resistor me-2 mb-2">
             <div class="d-flex flex-column">
@@ -83,7 +83,7 @@
               <i class="bi bi-box-arrow-up-right ms-1"></i>
             </a>.
           </p>
-          <button *ngFor="let item of generateArduinoStarterKit()"
+          <button *ngFor="let item of arduinoStarterKitItems"
                   (click)="chooseSeriesE12Item(item)"
                   type="button" class="btn btn-outline-secondary btn-choose-resistor me-2 mb-2">
             <div class="d-flex flex-column">
