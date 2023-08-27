@@ -2,11 +2,6 @@ import { Component, inject } from '@angular/core';
 import { NgbActiveOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 import { ResistorFacade } from './resistor.facade';
 import { SeriesE12Item, SeriesE24Item } from './resistor.model';
-import {
-  generateArduinoStarterKit,
-  generateSeriesE12,
-  generateSeriesE24,
-} from './resistor.utils';
 
 @Component({
   selector: 'app-resistor-offcanvas-content',
@@ -18,11 +13,7 @@ export class ResistorOffcanvasComponent {
   activeOffcanvas = inject(NgbActiveOffcanvas);
   readonly seriesName$ = this.facade.seriesName$;
 
-  readonly seriesE12Items = generateSeriesE12();
-  readonly seriesE24Items = generateSeriesE24();
-  readonly arduinoStarterKitItems = generateArduinoStarterKit();
-
-  update($event: any): void {
+  updateSeries($event: any): void {
     this.facade.openOffcanvas($event.target.value);
   }
 
