@@ -10,6 +10,7 @@ import { ResistorTabsComponent } from './resistor-tabs.component';
 import { ResistorComponent } from './resistor.component';
 import { ResistorPageComponent } from './resistor.page';
 import { ResistorCharacteristicsComponent } from './io/resistor-characteristics.component';
+import { ResistorObjectComponent } from './io/resistor-object.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ResistorCharacteristicsComponent } from './io/resistor-characteristics.
     ResistorOffcanvasComponent,
     ResistorOhmLawComponent,
     ResistorCharacteristicsComponent,
+    ResistorObjectComponent,
   ],
   imports: [CommonModule, SharedModule, ResistorRoutingModule],
 })
