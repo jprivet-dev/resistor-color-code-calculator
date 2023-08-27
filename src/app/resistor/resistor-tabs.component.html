@@ -23,6 +23,10 @@
         <ng-template ngbNavContent>
           <app-resistor-ohm-law
             [resistance]="resistance$ | async"
+            [i]="retrieveI()"
+            (iChange)="saveI($event)"
+            [u]="retrieveU()"
+            (uChange)="saveU($event)"
           ></app-resistor-ohm-law>
         </ng-template>
       </li>

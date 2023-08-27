@@ -19,4 +19,20 @@ export class ResistorTabsComponent {
   readonly thermalCoefficient$ = this.facade.thermalCoefficient$;
 
   activeTabId = 1;
+
+  retrieveI(): number {
+    return this.facade.retrieveI();
+  }
+
+  saveI(i: number) {
+    this.facade.saveI(i);
+  }
+
+  retrieveU(): number {
+    return this.facade.retrieveU();
+  }
+
+  saveU(u: number) {
+    this.facade.saveU(u);
+  }
 }

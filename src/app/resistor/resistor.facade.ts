@@ -129,4 +129,20 @@ export class ResistorFacade {
   closeOffcanvas(): void {
     this.offcanvasIsOpen = false;
   }
+
+  retrieveI(): number {
+    return this.resistorService.retrieveI();
+  }
+
+  saveI(i: number): void {
+    this.resistorService.saveI(i);
+  }
+
+  retrieveU(): number {
+    return this.resistorService.retrieveU();
+  }
+
+  saveU(u: number): void {
+    this.resistorService.saveU(u);
+  }
 }

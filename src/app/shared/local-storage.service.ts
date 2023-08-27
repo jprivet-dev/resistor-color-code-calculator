@@ -29,7 +29,10 @@ export class LocalStorageService {
       return null;
     }
 
-    return ~~value;
+    const int = parseInt(value);
+    const float = parseFloat(value);
+
+    return int === float ? int : float;
   }
 
   /**

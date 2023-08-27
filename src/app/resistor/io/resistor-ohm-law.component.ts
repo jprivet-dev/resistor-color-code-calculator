@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import {
   calculateAmps,
   calculateVolts,
@@ -11,22 +11,30 @@ import {
 })
 export class ResistorOhmLawComponent {
   @Input() resistance!: number | null;
-  i = 0.02;
-  u = 5;
 
-  recalculateU(): void {
-    this.calculateU(this.resistance ?? 0);
+  @Input() i!: number;
+  @Output() iChange = new EventEmitter<number>();
+
+  @Input() u!: number;
+  @Output() uChange = new EventEmitter<number>();
+
+  updateI($event: any): void {
+    if ($event.target.value) {
+      this.iChange.emit($event.target.value);
+    }
   }
 
   calculateU(resistance: number): number {
-    return calculateVolts(this.i, resistance);
+    return calculateVolts(this.i, resistance) ?? 0;
   }
 
-  recalculateI(): void {
-    this.calculateI(this.resistance ?? 0);
+  updateU($event: any): void {
+    if ($event.target.value) {
+      this.uChange.emit($event.target.value);
+    }
   }
 
   calculateI(resistance: number): number {
-    return calculateAmps(this.u, resistance);
+    return calculateAmps(this.u, resistance) ?? 0;
   }
 }
