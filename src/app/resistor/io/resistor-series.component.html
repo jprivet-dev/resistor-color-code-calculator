@@ -11,6 +11,7 @@
       </p>
       <button *ngFor="let item of seriesE12Items"
               (click)="chooseSeriesE12Item(item)"
+              [class.active]="decode.bandsCount === 4 && item.value === resistance"
               type="button" class="btn btn-outline-secondary btn-choose-resistor me-2 mb-2">
         <div class="d-flex flex-column">
           <div class="label text-light-theme px-2 py-1">
@@ -36,6 +37,7 @@
       </p>
       <button *ngFor="let item of seriesE24Items"
               (click)="chooseSeriesE24Item(item)"
+              [class.active]="decode.bandsCount === 5 && item.value === resistance"
               type="button" class="btn btn-outline-secondary btn-choose-resistor me-2 mb-2">
         <div class="d-flex flex-column">
           <div class="label text-light-theme px-2 py-1">
@@ -62,6 +64,7 @@
       </p>
       <button *ngFor="let item of arduinoStarterKitItems"
               (click)="chooseSeriesE12Item(item)"
+              [class.active]="decode.bandsCount === 4 && item.value === resistance"
               type="button" class="btn btn-outline-secondary btn-choose-resistor me-2 mb-2">
         <div class="d-flex flex-column">
           <div class="label text-light-theme px-2 py-1">

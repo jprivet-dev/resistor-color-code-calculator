@@ -1,32 +1,38 @@
 <ng-container *transloco="let t">
   <ng-container *ngIf="seriesName$ | async as seriesName">
-    <div class="offcanvas-header">
-      <div class="title">
-        <select class="form-select form-select-lg" (change)="updateSeries($event)">
-          <option value="E12" [selected]="seriesName === 'E12'">
-            {{ t('seriesE12') }}
-          </option>
-          <option value="E24" [selected]="seriesName === 'E24'">
-            {{ t('seriesE24') }}
-          </option>
-          <option value="ArduinoStarterKit" [selected]="seriesName === 'ArduinoStarterKit'">
-            {{ t('arduinoStarterKit') }}
-          </option>
-        </select>
+    <ng-container *ngIf="resistance$ | async as resistance">
+    <ng-container *ngIf="decode$ | async as decode">
+      <div class="offcanvas-header">
+        <div class="title">
+          <select class="form-select form-select-lg" (change)="updateSeries($event)">
+            <option value="E12" [selected]="seriesName === 'E12'">
+              {{ t('seriesE12') }}
+            </option>
+            <option value="E24" [selected]="seriesName === 'E24'">
+              {{ t('seriesE24') }}
+            </option>
+            <option value="ArduinoStarterKit" [selected]="seriesName === 'ArduinoStarterKit'">
+              {{ t('arduinoStarterKit') }}
+            </option>
+          </select>
+        </div>
+        <button
+          type="button"
+          class="btn-close text-reset"
+          aria-label="Close"
+          (click)="closeOffcanvas()"
+        ></button>
       </div>
-      <button
-        type="button"
-        class="btn-close text-reset"
-        aria-label="Close"
-        (click)="closeOffcanvas()"
-      ></button>
-    </div>
-    <div class="offcanvas-body">
-      <app-resistor-series
-        [seriesName]="seriesName"
-        (seriesE12ItemEvent)="chooseSeriesE12Item($event)"
-        (seriesE24ItemEvent)="chooseSeriesE24Item($event)"
-      ></app-resistor-series>
-    </div>
+      <div class="offcanvas-body">
+        <app-resistor-series
+          [seriesName]="seriesName"
+          [resistance]="resistance"
+          [decode]="decode"
+          (seriesE12ItemEvent)="chooseSeriesE12Item($event)"
+          (seriesE24ItemEvent)="chooseSeriesE24Item($event)"
+        ></app-resistor-series>
+      </div>
+    </ng-container>
+    </ng-container>
   </ng-container>
 </ng-container>

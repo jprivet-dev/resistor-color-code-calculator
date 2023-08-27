@@ -9,8 +9,8 @@
   </p>
   <ng-container *ngIf="resistance">
     <!-- U = R * I -->
-    <div class="row my-4">
-      <div class="col">
+    <div class="row my-5">
+      <div class="col-sm-11 offset-sm-1 col-md offset-md-0 mt-3">
         <div class="input-group input-group-lg">
           <span class="input-group-text">U</span>
           <input type="text" class="form-control" [value]="calculateU(resistance) | format: 'volt'" disabled>
@@ -19,8 +19,8 @@
           {{ t('voltage') | titlecase }}
         </div>
       </div>
-      <div class="col-1">
-        <div class="d-flex justify-content-center pt-2">
+      <div class="col-sm-1 mt-sm-3">
+        <div class="d-flex justify-content-center mt-sm-2">
           <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 448 512">
             <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
             <path
@@ -28,7 +28,7 @@
           </svg>
         </div>
       </div>
-      <div class="col">
+      <div class="col-sm mt-3">
         <div class="input-group input-group-lg">
           <span class="input-group-text">R</span>
           <input type="text" class="form-control"
@@ -39,8 +39,8 @@
           {{ t('resistance') | titlecase }}
         </div>
       </div>
-      <div class="col-1">
-        <div class="d-flex justify-content-center pt-2">
+      <div class="col-sm-1 mt-sm-3">
+        <div class="d-flex justify-content-center mt-sm-2">
           <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 384 512">
             <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
             <path
@@ -48,7 +48,7 @@
           </svg>
         </div>
       </div>
-      <div class="col">
+      <div class="col-sm mt-3">
         <div class="input-group input-group-lg">
           <span class="input-group-text bg-primary border-primary text-light">I</span>
           <input [(ngModel)]="i"
@@ -64,8 +64,8 @@
     </div>
 
     <!-- I = U / R -->
-    <div class="row my-4">
-      <div class="col">
+    <div class="row my-5">
+      <div class="col-sm-11 offset-sm-1 col-md offset-md-0 mt-3">
         <div class="input-group input-group-lg">
           <span class="input-group-text">I</span>
           <input type="text" class="form-control"
@@ -76,8 +76,8 @@
           {{ t('current') | titlecase }}
         </div>
       </div>
-      <div class="col-1">
-        <div class="d-flex justify-content-center pt-2">
+      <div class="col-sm-1 mt-sm-3">
+        <div class="d-flex justify-content-center mt-sm-2">
           <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 448 512">
             <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
             <path
@@ -85,7 +85,7 @@
           </svg>
         </div>
       </div>
-      <div class="col">
+      <div class="col-sm mt-3">
         <div class="input-group input-group-lg">
           <span class="input-group-text bg-primary border-primary text-light">U</span>
           <input [(ngModel)]="u"
@@ -98,8 +98,8 @@
           <span>{{ u | format: 'volt' }}</span>
         </div>
       </div>
-      <div class="col-1">
-        <div class="d-flex justify-content-center pt-2">
+      <div class="col-sm-1 mt-sm-3">
+        <div class="d-flex justify-content-center mt-sm-2">
           <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 448 512">
             <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
             <path
@@ -107,7 +107,7 @@
           </svg>
         </div>
       </div>
-      <div class="col">
+      <div class="col-sm mt-3">
         <div class="input-group input-group-lg">
           <span class="input-group-text">R</span>
           <input type="text" class="form-control"

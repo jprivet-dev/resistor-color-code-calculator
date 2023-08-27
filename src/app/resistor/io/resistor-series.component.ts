@@ -1,5 +1,10 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { SeriesE12Item, SeriesE24Item, SeriesName } from '../resistor.model';
+import {
+  Decode,
+  SeriesE12Item,
+  SeriesE24Item,
+  SeriesName,
+} from '../resistor.model';
 import {
   generateArduinoStarterKit,
   generateSeriesE12,
@@ -13,6 +18,8 @@ import {
 })
 export class ResistorSeriesComponent {
   @Input() seriesName!: SeriesName;
+  @Input() resistance!: number;
+  @Input() decode!: Readonly<Decode>;
   @Output() seriesE12ItemEvent = new EventEmitter<SeriesE12Item>();
   @Output() seriesE24ItemEvent = new EventEmitter<SeriesE24Item>();
 

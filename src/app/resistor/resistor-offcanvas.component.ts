@@ -12,6 +12,8 @@ export class ResistorOffcanvasComponent {
   private facade = inject(ResistorFacade);
   activeOffcanvas = inject(NgbActiveOffcanvas);
   readonly seriesName$ = this.facade.seriesName$;
+  readonly resistance$ = this.facade.resistance$;
+  readonly decode$ = this.facade.decode$;
 
   updateSeries($event: any): void {
     this.facade.openOffcanvas($event.target.value);
