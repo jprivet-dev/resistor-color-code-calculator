@@ -1,6 +1,9 @@
 <ng-container *transloco="let t">
   <p class="lead pt-4">
-    {{ t('ohmsLawAppliedToResistance', {'resistance': resistance | format: 'resistance'}) }}
+    {{ t('ohmsLawAppliedToResistance', {
+      'resistance': resistance | format: 'resistance',
+      'tolerance': tolerance | format: 'tolerance',
+    }) }}
     {{ t('moreInfoOn') }}
     <a href="{{ t('ohmsLawLink') }}" target="_blank">
       {{t('wikipedia')}}
@@ -63,6 +66,35 @@
       </div>
     </div>
 
+    <div class="d-flex justify-content-center">
+      <table class="table table-striped table-ohms-law-summary">
+        <thead>
+        <tr>
+          <th scope="col">U</th>
+          <th scope="col">R</th>
+          <th scope="col">I</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngIf="resistanceMax">
+          <td>{{ calculateU(resistanceMax) | format: 'volt' }}</td>
+          <td>{{ resistanceMax | format: 'resistanceMax' }}</td>
+          <td class="text-primary">{{ i | format: 'ampere' }}</td>
+        </tr>
+        <tr>
+          <td>{{ calculateU(resistance) | format: 'volt' }}</td>
+          <td>{{ resistance | format: 'resistance' }}</td>
+          <td class="text-primary">{{ i | format: 'ampere' }}</td>
+        </tr>
+        <tr *ngIf="resistanceMin">
+          <td>{{ calculateU(resistanceMin) | format: 'volt' }}</td>
+          <td>{{ resistanceMin | format: 'resistanceMin' }}</td>
+          <td class="text-primary">{{ i | format: 'ampere' }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
     <!-- I = U / R -->
     <div class="row my-5">
       <div class="col-sm-11 offset-sm-1 col-md offset-md-0 mt-3">
@@ -119,5 +151,35 @@
         </div>
       </div>
     </div>
+
+    <div class="d-flex justify-content-center">
+      <table class="table table-striped table-ohms-law-summary">
+        <thead>
+        <tr>
+          <th scope="col">I</th>
+          <th scope="col">U</th>
+          <th scope="col">R</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngIf="resistanceMax">
+          <td>{{ calculateI(resistanceMax) | format: 'ampere' }}</td>
+          <td class="text-primary">{{ u | format: 'volt' }}</td>
+          <td>{{ resistanceMax | format: 'resistanceMax' }}</td>
+        </tr>
+        <tr>
+          <td>{{ calculateI(resistance) | format: 'ampere' }}</td>
+          <td class="text-primary">{{ u | format: 'volt' }}</td>
+          <td>{{ resistance | format: 'resistance' }}</td>
+        </tr>
+        <tr *ngIf="resistanceMin">
+          <td>{{ calculateI(resistanceMin) | format: 'ampere' }}</td>
+          <td class="text-primary">{{ u | format: 'volt' }}</td>
+          <td>{{ resistanceMin | format: 'resistanceMin' }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
   </ng-container>
 </ng-container>

@@ -11,6 +11,9 @@ import {
 })
 export class ResistorOhmLawComponent {
   @Input() resistance!: number | null;
+  @Input() resistanceMax!: number | null;
+  @Input() resistanceMin!: number | null;
+  @Input() tolerance!: number | null;
 
   @Input() i!: number;
   @Output() iChange = new EventEmitter<number>();

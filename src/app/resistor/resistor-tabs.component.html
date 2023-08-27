@@ -23,7 +23,9 @@
         <ng-template ngbNavContent>
           <app-resistor-ohm-law
             [resistance]="resistance$ | async"
-            [i]="retrieveI()"
+            [resistanceMax]="resistanceMax$ | async"
+            [resistanceMin]="resistanceMin$ | async"           [i]="retrieveI()"
+            [tolerance]="tolerance$ | async"
             (iChange)="saveI($event)"
             [u]="retrieveU()"
             (uChange)="saveU($event)"

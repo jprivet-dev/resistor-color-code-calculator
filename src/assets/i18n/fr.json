@@ -38,7 +38,7 @@
   "multiplier": "multiplieur",
   "notBeFound": "La page que vous recherchez n'existe pas.",
   "ohmsLaw": "Loi d'Ohm",
-  "ohmsLawAppliedToResistance": "Loi d'Ohm appliquée à la résistance de {{ resistance }}.",
+  "ohmsLawAppliedToResistance": "Loi d'Ohm appliquée à la résistance de {{ resistance }} {{ tolerance }}.",
   "powerRating": "charge admissible",
     "colon": " : ",
   "ohmsLawLink": "https://fr.wikipedia.org/wiki/Loi_d%27Ohm",

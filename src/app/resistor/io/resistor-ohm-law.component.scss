@@ -1,0 +1,11 @@
+.table-ohms-law-summary {
+  max-width: 600px;
+}
+
+@media (min-width: 768px) {
+  .table-ohms-law-summary {
+    td {
+      width: 33.33%;
+    }
+  }
+}

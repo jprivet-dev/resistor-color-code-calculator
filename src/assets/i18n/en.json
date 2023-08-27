@@ -39,7 +39,7 @@
   "multiplier": "multiplier",
   "notBeFound": "The requested page could not be found.",
   "ohmsLaw": "Ohm's Law",
-  "ohmsLawAppliedToResistance": "Ohm's law applied to {{ resistance }} resistor.",
+  "ohmsLawAppliedToResistance": "Ohm's law applied to {{ resistance }} {{ tolerance }} resistor.",
   "ohmsLawLink": "https://en.wikipedia.org/wiki/Ohm%27s_law",
   "powerRating": "power rating",
   "resistance": "resistance",
