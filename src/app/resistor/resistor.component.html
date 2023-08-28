@@ -2,54 +2,17 @@
   <ng-container *ngIf="(decode$ | async) as decode">
     <div class="row">
       <div class="col-md-7">
-        <div class="d-flex justify-content-center pt-4 pb-3 bands-count-radios">
-          <div>
-            <ng-container *ngFor="let count of bandsCounts">
-              <input (click)="setBandsCount(count)" [checked]="decode.bandsCount === count"
-                     type="radio" class="btn-check" name="bands-count"
-                     id="{{ 'bands-count-radio-' + count }}"
-                     autocomplete="off"
-              >
-              <label class="btn btn-outline-primary rounded-pill mx-1"
-                     for="{{ 'bands-count-radio-' + count }}">
-                {{ t('bands', {bandsCount: count}) }}
-              </label>
-            </ng-container>
-          </div>
+        <div class="d-flex justify-content-center pt-4 pb-3">
+          <app-resistor-nav-bands
+            [decode]="decode"
+            [bandsCounts]="bandsCounts"
+            (bandsCountEvent)="setBandsCount($event)"
+          ></app-resistor-nav-bands>
         </div>
         <div class="d-flex justify-content-center pt-3 pb-4">
-          <div class="resistor-object {{ 'bands-' + decode.bandsCount }}">
-            <div class="leads rounded-top-4"></div>
-            <div class="body rounded-3 d-flex align-self-stretch">
-              <div [appResistorColor]="decode.digit1.color"
-                   ngbTooltip="{{ t('digit1') | titlecase }}" placement="bottom"
-                   class="band band-digit1 active border-0"
-              ></div>
-              <div [appResistorColor]="decode.digit2.color"
-                   ngbTooltip="{{ t('digit2') | titlecase }}" placement="bottom"
-                   class="band band-digit2 active border-0"
-              ></div>
-              <div [appResistorColor]="decode.digit3.color"
-                   [class.active]="decode.digit3.active"
-                   ngbTooltip="{{ t('digit3') | titlecase }}" placement="bottom"
-                   class="band band-digit3 border-0"
-              ></div>
-              <div [appResistorColor]="decode.multiplier.color"
-                   ngbTooltip="{{ t('multiplier') | titlecase }}" placement="bottom"
-                   class="band band-multiplier active border-0"
-              ></div>
-              <div [appResistorColor]="decode.tolerance.color"
-                   [class.active]="decode.tolerance.active"
-                   ngbTooltip="{{ t('tolerance') | titlecase }}" placement="bottom"
-                   class="band band-tolerance border-0"
-              ></div>
-              <div [appResistorColor]="decode.thermalCoefficient.color"
-                   [class.active]="decode.thermalCoefficient.active"
-                   ngbTooltip="{{ t('thermalCoefficient') | titlecase }}" placement="bottom"
-                   class="band band-thermalCoefficient border-0"
-              ></div>
-            </div>
-          </div>
+          <app-resistor-object
+            [decode]="decode"
+          ></app-resistor-object>
         </div>
       </div>
       <div class="col-md-5">
@@ -68,127 +31,34 @@
         </div>
       </div>
     </div>
-    <div class="d-flex justify-content-center pb-3">
-      <div class="table-responsive" style="width: 100%">
-        <table class="table table-sm table-striped table-colors {{ 'bands-' + decode.bandsCount }}">
-          <thead>
-          <tr>
-            <th scope="col">
-              {{ t('color') | titlecase }}
-            </th>
-            <th scope="col" class="pb-0">
-              {{ t('digit1') | titlecase }}
-              <div [appResistorColor]="decode.digit1.color" class="p-1 rounded-pill"></div>
-            </th>
-            <th scope="col" class="pb-0">
-              {{ t('digit2') | titlecase }}
-              <div [appResistorColor]="decode.digit2.color" class="p-1 rounded-pill"></div>
-            </th>
-            <th scope="col" class="pb-0" *ngIf="decode.digit3.active">
-              {{ t('digit3') | titlecase }}
-              <div [appResistorColor]="decode.digit3.color" class="p-1 rounded-pill"></div>
-            </th>
-            <th scope="col" class="pb-0">
-              {{ t('multiplier') | titlecase }}
-              <div [appResistorColor]="decode.multiplier.color" class="p-1 rounded-pill"></div>
-            </th>
-            <th scope="col" class="pb-0">
-              {{ t('tolerance') | titlecase }}
-              <div [appResistorColor]="decode.tolerance.color" class="p-1 rounded-pill"></div>
-            </th>
-            <th scope="col" class="pb-0" *ngIf="decode.thermalCoefficient.active">
-              {{ t('thermalCoefficient') | titlecase }}
-              <div [appResistorColor]="decode.thermalCoefficient.color"
-                   class="p-1 rounded-pill"></div>
-            </th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr *ngFor="let color of bandsColors">
-            <!-- colors -->
-            <th scope="row">
-              <div [appResistorColor]="color" class="color-name text-start rounded-pill">
-                {{ t('colorName.' + color) | titlecase }}
-              </div>
-            </th>
-            <!-- digit1 -->
-            <td>
-              <div *ngIf="resistorConfig.digit1[color] !== null" class="d-grid">
-                <button (click)="updateDigit1(color)"
-                        [class.active]="decode.digit1.color === color"
-                        class="btn btn-color text-start text-nowrap rounded-pill" type="button">
-                  <span [appResistorColor]="color" class="circle-color"></span>
-                  {{ resistorConfig.digit1[color] }}
-                </button>
-              </div>
-            </td>
-            <!-- digit2 -->
-            <td>
-              <div *ngIf="resistorConfig.digit2[color] !== null" class="d-grid">
-                <button (click)="updateDigit2(color)"
-                        [class.active]="decode.digit2.color === color"
-                        class="btn btn-color text-start text-nowrap rounded-pill" type="button">
-                  <span [appResistorColor]="color" class="circle-color"></span>
-                  {{ resistorConfig.digit2[color] }}
-                </button>
-              </div>
-            </td>
-            <!-- digit3 -->
-            <td *ngIf="decode.digit3.active">
-              <div *ngIf="resistorConfig.digit3[color] !== null" class="d-grid">
-                <button (click)="updateDigit3(color)"
-                        [class.active]="decode.digit3.color === color"
-                        class="btn btn-color text-start text-nowrap rounded-pill" type="button">
-                  <span [appResistorColor]="color" class="circle-color"></span>
-                  {{ resistorConfig.digit3[color] }}
-                </button>
-              </div>
-            </td>
-            <!-- multiplier -->
-            <td>
-              <div *ngIf="resistorConfig.multiplier[color] !== null" class="d-grid">
-                <button (click)="updateMultiplier(color)"
-                        [class.active]="decode.multiplier.color === color"
-                        class="btn btn-color text-start text-nowrap rounded-pill" type="button">
-                  <span [appResistorColor]="color" class="circle-color"></span>
-                  {{ resistorConfig.multiplier[color] | format: 'multiplier' }}
-                </button>
-              </div>
-            </td>
-            <!-- tolerance -->
-            <td>
-              <div *ngIf="resistorConfig.tolerance[color] !== null" class="d-grid">
-                <button (click)="updateTolerance(color)"
-                        [class.active]="decode.tolerance.color === color"
-                        [attr.disabled]="toleranceColorIsDisabled(decode, color)"
-                        class="btn btn-color text-start text-nowrap rounded-pill" type="button">
-                  <span [appResistorColor]="color" class="circle-color"></span>
-                  {{ resistorConfig.tolerance[color] | format: 'tolerance' }}
-                </button>
-              </div>
-            </td>
-            <!-- thermalCoefficient -->
-            <td *ngIf="decode.thermalCoefficient.active">
-              <div *ngIf="resistorConfig.thermalCoefficient[color] !== null" class="d-grid">
-                <button (click)="updateThermalCoefficient(color)"
-                        [class.active]="decode.thermalCoefficient.color === color"
-                        class="btn btn-color text-start text-nowrap rounded-pill" type="button">
-                  <span [appResistorColor]="color" class="circle-color"></span>
-                  {{ resistorConfig.thermalCoefficient[color] | format: 'thermalCoefficient' }}
-                </button>
-              </div>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-      </div>
+
+    <div class="pb-3">
+      <app-resistor-table-colors
+        [decode]="decode"
+        [bandsColors]="bandsColors"
+        [resistorConfig]="resistorConfig"
+        (digit1Event)="updateDigit1($event)"
+        (digit2Event)="updateDigit2($event)"
+        (digit3Event)="updateDigit3($event)"
+        (multiplierEvent)="updateMultiplier($event)"
+        (toleranceEvent)="updateTolerance($event)"
+        (thermalCoefficientEvent)="updateThermalCoefficient($event)"
+      ></app-resistor-table-colors>
+    </div>
+
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-3">
+      <button (click)="openOffcanvasE12()" [title]="t('selectResistorInSeriesE12') | title"
+              class="btn btn-outline-primary">
+        {{ t('seriesE12') | title }}
+      </button>
+      <button (click)="openOffcanvasE24()" [title]="t('selectResistorInSeriesE24') | title"
+              class="btn btn-outline-primary">
+        {{ t('seriesE24') | title }}
+      </button>
+      <button (click)="openOffcanvasArduinoStarterKit()" [title]="t('selectResistorInArduinoStarterKit') | title"
+              class="btn btn-outline-primary">
+        {{ t('arduinoStarterKit') | title }}
+      </button>
     </div>
   </ng-container>
-
-  <div class="text-center pt-2 pb-4">
-    <button class="btn btn-outline-primary" (click)="openOffcanvas()">
-      {{ t('selectResistorInSeriesE12') }}
-    </button>
-  </div>
 </ng-container>
-

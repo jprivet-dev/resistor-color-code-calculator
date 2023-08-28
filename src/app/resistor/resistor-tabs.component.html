@@ -1,0 +1,39 @@
+<ng-container *transloco="let t">
+    <ul ngbNav #nav="ngbNav" [(activeId)]="activeTabId" class="nav-tabs nav-fill">
+      <li [ngbNavItem]="1">
+        <button ngbNavLink>
+          <h4 class="mb-0">{{ t('characteristics') | title }}</h4>
+        </button>
+        <ng-template ngbNavContent>
+          <app-resistor-characteristics
+            [decode]="decode$ | async"
+            [resistance]="resistance$ | async"
+            [resistanceMax]="resistanceMax$ | async"
+            [resistanceMin]="resistanceMin$ | async"
+            [tolerance]="tolerance$ | async"
+            [toleranceOhm]="toleranceOhm$ | async"
+            [thermalCoefficient]="thermalCoefficient$ | async"
+          ></app-resistor-characteristics>
+        </ng-template>
+      </li>
+      <li [ngbNavItem]="2">
+        <button ngbNavLink>
+          <h4 class="mb-0">{{ t('ohmsLaw') | title }}</h4>
+        </button>
+        <ng-template ngbNavContent>
+          <app-resistor-ohm-law
+            [resistance]="resistance$ | async"
+            [resistanceMax]="resistanceMax$ | async"
+            [resistanceMin]="resistanceMin$ | async"           [i]="retrieveI()"
+            [tolerance]="tolerance$ | async"
+            (iChange)="saveI($event)"
+            [u]="retrieveU()"
+            (uChange)="saveU($event)"
+          ></app-resistor-ohm-law>
+        </ng-template>
+      </li>
+    </ul>
+
+    <div [ngbNavOutlet]="nav" class="mt-2"></div>
+</ng-container>
+

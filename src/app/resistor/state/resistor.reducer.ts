@@ -32,6 +32,15 @@ export const resistorReducer = createReducer(
     tolerance: { ...state.tolerance, ...resistor.tolerance },
     bandsCount: resistor.bandsCount,
   })),
+  on(resistorActions.updateResistor5Band, (state, { resistor }) => ({
+    ...state,
+    digit1: { ...state.digit1, ...resistor.digit1 },
+    digit2: { ...state.digit2, ...resistor.digit2 },
+    digit3: { ...state.digit3, ...resistor.digit3 },
+    multiplier: { ...state.multiplier, ...resistor.multiplier },
+    tolerance: { ...state.tolerance, ...resistor.tolerance },
+    bandsCount: resistor.bandsCount,
+  })),
   on(resistorActions.updateBandsCount, (state, { bandsCount }) => ({
     ...state,
     bandsCount,

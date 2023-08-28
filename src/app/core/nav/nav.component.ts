@@ -1,8 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { langConfig, LangService } from '../lang/lang.service';
-import { ThemeService } from '../theme/theme.service';
-import { ThemeNames } from '../theme/theme.service';
-import { ThemeConfig } from '../theme/theme.service';
+import { LangService } from '../lang/lang.service';
+import { ThemeConfig, ThemeNames, ThemeService } from '../theme/theme.service';
 
 @Component({
   selector: 'app-nav',
@@ -11,8 +9,8 @@ import { ThemeConfig } from '../theme/theme.service';
 })
 export class NavComponent {
   private langService = inject(LangService);
-  readonly langConfig = langConfig;
   readonly langLabel$ = this.langService.langLabel$;
+  readonly langConfig = this.langService.langConfig;
 
   private themeService = inject(ThemeService);
   readonly themeName$ = this.themeService.themeName$;

@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Characteristics } from './resistor.model';
-import { Decode } from './resistor.model';
+import { Characteristics, Decode } from './resistor.model';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CharacteristicsService {
+export class ResistorCharacteristicsService {
   calculateResistance(decode: Readonly<Decode>): number {
     const digit1: number = decode.digit1.value ?? 0;
     const digit2: number = decode.digit2.value ?? 0;

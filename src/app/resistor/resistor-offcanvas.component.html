@@ -1,30 +1,38 @@
 <ng-container *transloco="let t">
-  <div class="offcanvas-header">
-    <h4 class="offcanvas-title">{{ t('seriesE12') }}</h4>
-    <button
-      type="button"
-      class="btn-close text-reset"
-      aria-label="Close"
-      (click)="closeOffcanvas()"
-    ></button>
-  </div>
-  <div class="offcanvas-body">
-    <div class="series-E12">
-      <button *ngFor="let item of generateSeriesE12()"
-              (click)="chooseSeriesE12Item(item)"
-              type="button" class="btn btn-outline-secondary btn-choose-resistor mx-2 mb-2">
-        <div class="d-flex flex-column">
-          <div class="label text-light px-2 py-1">
-            {{ item.value | format: 'resistance' }}
-          </div>
-          <div class="bands-colors d-flex rounded-1">
-            <div class="color" [appResistorColor]="item.digit1Color"></div>
-            <div class="color" [appResistorColor]="item.digit2Color"></div>
-            <div class="color" [appResistorColor]="item.multiplierColor"></div>
-            <div class="color" [appResistorColor]="item.toleranceColor"></div>
-          </div>
+  <ng-container *ngIf="seriesName$ | async as seriesName">
+    <ng-container *ngIf="resistance$ | async as resistance">
+    <ng-container *ngIf="decode$ | async as decode">
+      <div class="offcanvas-header">
+        <div class="title">
+          <select class="form-select form-select-lg" (change)="updateSeries($event)">
+            <option value="E12" [selected]="seriesName === 'E12'">
+              {{ t('seriesE12') | title }}
+            </option>
+            <option value="E24" [selected]="seriesName === 'E24'">
+              {{ t('seriesE24') | title }}
+            </option>
+            <option value="ArduinoStarterKit" [selected]="seriesName === 'ArduinoStarterKit'">
+              {{ t('arduinoStarterKit') | title }}
+            </option>
+          </select>
         </div>
-      </button>
-    </div>
-  </div>
+        <button
+          type="button"
+          class="btn-close text-reset"
+          aria-label="Close"
+          (click)="closeOffcanvas()"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <app-resistor-series
+          [seriesName]="seriesName"
+          [resistance]="resistance"
+          [decode]="decode"
+          (seriesE12ItemEvent)="chooseSeriesE12Item($event)"
+          (seriesE24ItemEvent)="chooseSeriesE24Item($event)"
+        ></app-resistor-series>
+      </div>
+    </ng-container>
+    </ng-container>
+  </ng-container>
 </ng-container>

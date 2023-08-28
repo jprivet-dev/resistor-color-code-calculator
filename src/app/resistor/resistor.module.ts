@@ -1,21 +1,33 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { SharedModule } from '@shared/shared.module';
-import { CharacteristicsComponent } from './characteristics.component';
+import { ResistorNavBandsComponent } from './io/resistor-nav-bands.component';
+import { ResistorObjectComponent } from './io/resistor-object.component';
+import { ResistorOhmLawComponent } from './io/resistor-ohm-law.component';
+import { ResistorTableCharacteristicsComponent } from './io/resistor-table-characteristics.component';
 import { ResistorColorDirective } from './resistor-color.directive';
 import { ResistorOffcanvasComponent } from './resistor-offcanvas.component';
 
 import { ResistorRoutingModule } from './resistor-routing.module';
+import { ResistorTabsComponent } from './resistor-tabs.component';
 import { ResistorComponent } from './resistor.component';
 import { ResistorPageComponent } from './resistor.page';
+import { ResistorTableColorsComponent } from './io/resistor-table-colors.component';
+import { ResistorSeriesComponent } from './io/resistor-series.component';
 
 @NgModule({
   declarations: [
     ResistorPageComponent,
     ResistorComponent,
-    CharacteristicsComponent,
+    ResistorTabsComponent,
     ResistorColorDirective,
     ResistorOffcanvasComponent,
+    ResistorOhmLawComponent,
+    ResistorTableCharacteristicsComponent,
+    ResistorObjectComponent,
+    ResistorNavBandsComponent,
+    ResistorTableColorsComponent,
+    ResistorSeriesComponent,
   ],
   imports: [CommonModule, SharedModule, ResistorRoutingModule],
 })

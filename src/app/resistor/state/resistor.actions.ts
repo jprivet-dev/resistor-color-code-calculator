@@ -10,6 +10,7 @@ export const resistorActions = createActionGroup({
   source: 'Resistor',
   events: {
     'Update Resistor 4 Band': props<{ resistor: Resistor }>(),
+    'Update Resistor 5 Band': props<{ resistor: Resistor }>(),
     'Update Digit 1': props<{ color: BandColor }>(),
     'Update Digit 2': props<{ color: BandColor }>(),
     'Update Digit 3': props<{ color: BandColor }>(),

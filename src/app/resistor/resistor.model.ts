@@ -77,14 +77,16 @@ export const bandsColors: BandColor[] = [
   'none',
 ];
 
-export const resistorConfig: {
+export interface ResistorConfig {
   digit1: BandColorsValues;
   digit2: BandColorsValues;
   digit3: BandColorsValues;
   multiplier: BandColorsValues;
   tolerance: BandColorsValues;
   thermalCoefficient: BandColorsValues;
-} = {
+}
+
+export const resistorConfig: ResistorConfig = {
   digit1: {
     black: null,
     brown: 1,
@@ -177,17 +179,46 @@ export const resistorConfig: {
   },
 };
 
+export type SeriesName = 'E12' | 'E24' | 'ArduinoStarterKit';
+
 export interface SeriesE12Subset {
   value: number;
-  digit1Color: BandColor;
-  digit2Color: BandColor;
+  digit1: BandColor;
+  digit2: BandColor;
 }
 
 export interface SeriesE12Item {
   value: number;
-  digit1Color: BandColor;
-  digit2Color: BandColor;
-  multiplierColor: BandColor;
-  toleranceColor: BandColor;
+  digit1: BandColor;
+  digit2: BandColor;
+  multiplier: BandColor;
+  tolerance: BandColor;
   bandsCount: number;
 }
+
+export interface SeriesE24Subset {
+  value: number;
+  digit1: BandColor;
+  digit2: BandColor;
+  digit3: BandColor;
+}
+
+export interface SeriesE24Item {
+  value: number;
+  digit1: BandColor;
+  digit2: BandColor;
+  digit3: BandColor;
+  multiplier: BandColor;
+  tolerance: BandColor;
+  bandsCount: number;
+}
+
+export const resistorDefault: Resistor = {
+  digit1: { color: 'brown' },
+  digit2: { color: 'black' },
+  digit3: { color: 'red' },
+  multiplier: { color: 'orange' },
+  tolerance: { color: 'gold' },
+  thermalCoefficient: { color: 'red' },
+  bandsCount: 4,
+};

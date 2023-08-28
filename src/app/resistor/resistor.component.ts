@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ResistorFacade } from './resistor.facade';
-import { BandColor, Decode } from './resistor.model';
+import { BandColor } from './resistor.model';
 
 @Component({
   selector: 'app-resistor',
@@ -51,14 +51,15 @@ export class ResistorComponent implements OnInit {
     this.facade.setBandThermalCoefficient(color);
   }
 
-  toleranceColorIsDisabled(decode: Decode, color: BandColor): string | null {
-    if (decode.tolerance.forceToleranceToTwentyPercent) {
-      return color === 'none' ? null : '';
-    }
-    return color === 'none' ? '' : null;
+  openOffcanvasArduinoStarterKit(): void {
+    this.facade.openOffcanvas('ArduinoStarterKit');
   }
 
-  openOffcanvas(): void {
-    this.facade.openOffcanvas();
+  openOffcanvasE12(): void {
+    this.facade.openOffcanvas('E12');
+  }
+
+  openOffcanvasE24(): void {
+    this.facade.openOffcanvas('E24');
   }
 }

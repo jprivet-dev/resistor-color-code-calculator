@@ -64,6 +64,14 @@ export class FormatPipe implements PipeTransform {
         return UnitUtil.convert({ value, fractionDigits: 2, unit: 'W' })
           .valueWithUnit;
         break;
+      case 'volt':
+        return UnitUtil.convert({ value, fractionDigits: 2, unit: 'V' })
+          .valueWithUnit;
+        break;
+      case 'ampere':
+        return UnitUtil.convert({ value, fractionDigits: 2, unit: 'A' })
+          .valueWithUnit;
+        break;
     }
     return value;
   }

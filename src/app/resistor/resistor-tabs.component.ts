@@ -1,13 +1,12 @@
-import { Component } from '@angular/core';
-import { inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ResistorFacade } from './resistor.facade';
 
 @Component({
-  selector: 'app-characteristics',
-  templateUrl: './characteristics.component.html',
-  styleUrls: ['./characteristics.component.scss'],
+  selector: 'app-resistor-tabs',
+  templateUrl: './resistor-tabs.component.html',
+  styleUrls: ['./resistor-tabs.component.scss'],
 })
-export class CharacteristicsComponent {
+export class ResistorTabsComponent {
   private facade = inject(ResistorFacade);
 
   readonly decode$ = this.facade.decode$;
@@ -20,4 +19,20 @@ export class CharacteristicsComponent {
   readonly thermalCoefficient$ = this.facade.thermalCoefficient$;
 
   activeTabId = 1;
+
+  retrieveI(): number {
+    return this.facade.retrieveI();
+  }
+
+  saveI(i: number) {
+    this.facade.saveI(i);
+  }
+
+  retrieveU(): number {
+    return this.facade.retrieveU();
+  }
+
+  saveU(u: number) {
+    this.facade.saveU(u);
+  }
 }

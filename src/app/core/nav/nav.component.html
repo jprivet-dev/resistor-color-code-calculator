@@ -22,19 +22,19 @@
           <a routerLink="/resistor" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
              class="nav-link">
             <i class="bi bi-r-square mx-1"></i>
-            {{ t("resistor") | titlecase }}
+            {{ t("resistor") | title }}
           </a>
         </li>
         <li class="nav-item">
           <a routerLink="/about" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">
             <i class="bi bi-info-circle mx-1"></i>
-            {{ t("about") | titlecase }}
+            {{ t("about") | title }}
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="https://github.com/jprivet-dev/resistor-color-code-calculator" target="_blank">
             <i class="bi bi-github mx-1"></i>
-            {{ t("github") | titlecase }}
+            {{ t("github") | title }}
           </a>
         </li>
       </ul>
@@ -43,7 +43,7 @@
         <li ngbDropdown class="nav-item dropdown">
           <button ngbDropdownToggle
                   *ngIf="langLabel$ | async as lang"
-                  title="{{ t('language') | titlecase }}"
+                  title="{{ t('language') | title }}"
                   class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="bi bi-translate mx-1"></i>
             {{ findLangLabel(lang) }}
@@ -60,14 +60,14 @@
           <button ngbDropdownToggle
                   *ngIf="themeName$ | async as themeName"
                   class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
-                  title="{{ t('theme') | titlecase }}">
+                  title="{{ t('theme') | title }}">
             <i class="bi {{ findTheme(themeName)?.icon }} mx-1"></i>
           </button>
           <ul ngbDropdownMenu class="dropdown-menu dropdown-menu-end">
             <li *ngFor="let theme of themeConfig">
               <button ngbDropdownItem (click)="setTheme(theme.name)" class="dropdown-item">
                 <i class="bi {{ theme.icon }} mx-1"></i>
-                {{ t(theme.key) | titlecase }}
+                {{ t(theme.key) | title }}
               </button>
             </li>
           </ul>

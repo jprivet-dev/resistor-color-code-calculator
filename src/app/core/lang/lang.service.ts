@@ -1,43 +1,44 @@
 import { DOCUMENT } from '@angular/common';
 import { inject, Injectable } from '@angular/core';
 import { TranslocoService } from '@ngneat/transloco';
+import { LocalStorageService } from '@shared/local-storage.service';
 import { BehaviorSubject } from 'rxjs';
 
-export const langConfig: { lang: string; label: string }[] = [
-  { lang: 'en', label: 'English' },
-  { lang: 'fr', label: 'Français' },
-];
+export interface Lang {
+  lang: string;
+  label: string;
+}
 
 @Injectable({
   providedIn: 'root',
 })
 export class LangService {
-  private transloco = inject(TranslocoService);
   private document: Document = inject(DOCUMENT);
+  private translocoService = inject(TranslocoService);
+  private localStorageService = inject(LocalStorageService);
+
   private langLabelSubject = new BehaviorSubject<string>('');
   readonly langLabel$ = this.langLabelSubject.asObservable();
 
+  readonly KEY_LANG = 'lang';
+  readonly langConfig: Lang[] = [
+    { lang: 'en', label: 'English' },
+    { lang: 'fr', label: 'Français' },
+  ];
+
   setLang(lang: string): void {
-    this.setLangInStorage(lang);
+    this.localStorageService.set(this.KEY_LANG, lang);
     this.document.documentElement.lang = lang;
     this.langLabelSubject.next(lang);
-    this.transloco.setActiveLang(lang);
+    this.translocoService.setActiveLang(lang);
   }
 
   retrieveLang(): string {
-    const lang = this.getLangFromStorage();
-    return lang === null ? this.transloco.getActiveLang() : lang;
+    const lang = this.localStorageService.get(this.KEY_LANG);
+    return lang ? lang : this.translocoService.getActiveLang();
   }
 
-  setLangInStorage(lang: string): void {
-    localStorage.setItem('lang', lang);
-  }
-
-  findLangConfig(lang: string): { lang: string; label: string } | undefined {
-    return langConfig.find((config) => config.lang === lang);
-  }
-
-  getLangFromStorage(): string | null {
-    return localStorage.getItem('lang');
+  findLangConfig(lang: string): Lang | undefined {
+    return this.langConfig.find((config) => config.lang === lang);
   }
 }
