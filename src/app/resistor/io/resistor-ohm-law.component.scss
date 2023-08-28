@@ -1,5 +1,9 @@
 .table-ohms-law-summary {
   max-width: 576px;
+
+  th, td {
+    white-space: nowrap !important;
+  }
 }
 
 @media (min-width: 576px) {
