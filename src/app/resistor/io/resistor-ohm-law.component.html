@@ -99,6 +99,14 @@
           <td>{{ calculatePower(calculateU(resistanceMin), i) | format: 'power' }}</td>
         </tr>
         </tbody>
+        <tfoot>
+        <tr>
+          <td class="text-secondary">U = R * I</td>
+          <td class="text-secondary">R = U / I</td>
+          <td class="text-secondary">I = U / R</td>
+          <td class="text-secondary">P = U * I</td>
+        </tr>
+        </tfoot>
       </table>
     </div>
 
@@ -182,7 +190,7 @@
         <tr>
           <td>{{ calculateI(resistance) | format: 'ampere' }}</td>
           <td class="text-primary">{{ u | format: 'volt' }}</td>
-          <td>{{ resistance | format: 'resistance' }}</td>
+          <td>{{ resistance | format: 'resistance' }} {{ tolerance | format: 'tolerance' }}</td>
           <td>{{ calculatePower(u, calculateI(resistance)) | format: 'power' }}</td>
         </tr>
         <tr *ngIf="resistanceMin">
@@ -192,6 +200,15 @@
           <td>{{ calculatePower(u, calculateI(resistanceMin)) | format: 'power' }}</td>
         </tr>
         </tbody>
+        <tfoot>
+        <tr>
+          <td class="text-secondary">I = U / R</td>
+          <td class="text-secondary">U = R * I</td>
+          <td class="text-secondary">R = U / I</td>
+          <td class="text-secondary">P = U * I</td>
+        </tr>
+        </tfoot>
+
       </table>
     </div>
 
