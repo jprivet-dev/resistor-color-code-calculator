@@ -1,6 +1,7 @@
 {
   "name": "Resistor Color Code Calculator",
   "short_name": "RCCC",
+  "description": "Application for reading resistor color code values for a 3, 4, 5 or 6 band resistor, applying Ohm's law, calculating power, etc.",
   "icons": [
     {
       "src": "assets/webmanifest/android-chrome-192x192.png",
@@ -13,7 +14,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#ffffff",
+  "theme_color": "#212529",
   "background_color": "#ffffff",
   "display": "standalone"
 }

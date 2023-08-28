@@ -40,9 +40,9 @@ toc::[]
 
 image::docs/img/rccc-github-social-preview.png[]
 
-*Resistor Color Code Calculator* is a personal case study based on an application that calculates the characteristics of various resistors.
+Application for reading resistor color code values for a 3, 4, 5 or 6 band resistor, applying Ohm's law, calculating power, etc.
 
-This application is developed with https://angular.io/[Angular], https://ng-bootstrap.github.io/[NgBootstrap] and https://getbootstrap.com/[Bootstrap 5], and allows me to study https://ngrx.io/[NgRx] and https://redux.js.org/[Redux]. It also lets me try out http://localhost:4200/resistor-color-code-calculator/[Transloco], an Angular library dedicated to content translation.
+This application is a personal case study developed with https://angular.io/[Angular], https://ng-bootstrap.github.io/[NgBootstrap] and https://getbootstrap.com/[Bootstrap 5], and allows me to study https://ngrx.io/[NgRx] and https://redux.js.org/[Redux]. It also lets me try out http://localhost:4200/resistor-color-code-calculator/[Transloco], an Angular library dedicated to content translation.
 
 {back_to_top}
 
@@ -65,6 +65,7 @@ This application is developed with https://angular.io/[Angular], https://ng-boot
 * https://ngrx.io
 * https://ngneat.github.io/transloco
 * https://github.com/angular-schule/angular-cli-ghpages
+* https://favicon.io
 
 {back_to_top}
 
