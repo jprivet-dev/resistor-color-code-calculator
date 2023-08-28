@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import {
   calculateAmps,
+  calculatePower,
   calculateVolts,
 } from '@shared/ohms-law-calculator.util';
 
@@ -39,5 +40,9 @@ export class ResistorOhmLawComponent {
 
   calculateI(resistance: number): number {
     return calculateAmps(this.u, resistance) ?? 0;
+  }
+
+  calculatePower(volts: number, amps: number): number {
+    return calculatePower(volts, amps);
   }
 }

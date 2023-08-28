@@ -73,6 +73,7 @@
           <th scope="col">U</th>
           <th scope="col">R</th>
           <th scope="col">I</th>
+          <th scope="col">P</th>
         </tr>
         </thead>
         <tbody>
@@ -80,16 +81,19 @@
           <td>{{ calculateU(resistanceMax) | format: 'volt' }}</td>
           <td>{{ resistanceMax | format: 'resistanceMax' }}</td>
           <td class="text-primary">{{ i | format: 'ampere' }}</td>
+          <td>{{ calculatePower(calculateU(resistanceMax), i) | format: 'power' }}</td>
         </tr>
         <tr>
           <td>{{ calculateU(resistance) | format: 'volt' }}</td>
-          <td>{{ resistance | format: 'resistance' }}</td>
+          <td>{{ resistance | format: 'resistance' }} {{ tolerance | format: 'tolerance' }}</td>
           <td class="text-primary">{{ i | format: 'ampere' }}</td>
+          <td>{{ calculatePower(calculateU(resistance), i) | format: 'power' }}</td>
         </tr>
         <tr *ngIf="resistanceMin">
           <td>{{ calculateU(resistanceMin) | format: 'volt' }}</td>
           <td>{{ resistanceMin | format: 'resistanceMin' }}</td>
           <td class="text-primary">{{ i | format: 'ampere' }}</td>
+          <td>{{ calculatePower(calculateU(resistanceMin), i) | format: 'power' }}</td>
         </tr>
         </tbody>
       </table>
@@ -159,6 +163,7 @@
           <th scope="col">I</th>
           <th scope="col">U</th>
           <th scope="col">R</th>
+          <th scope="col">P</th>
         </tr>
         </thead>
         <tbody>
@@ -166,16 +171,19 @@
           <td>{{ calculateI(resistanceMax) | format: 'ampere' }}</td>
           <td class="text-primary">{{ u | format: 'volt' }}</td>
           <td>{{ resistanceMax | format: 'resistanceMax' }}</td>
+          <td>{{ calculatePower(u, calculateI(resistanceMax)) | format: 'power' }}</td>
         </tr>
         <tr>
           <td>{{ calculateI(resistance) | format: 'ampere' }}</td>
           <td class="text-primary">{{ u | format: 'volt' }}</td>
           <td>{{ resistance | format: 'resistance' }}</td>
+          <td>{{ calculatePower(u, calculateI(resistance)) | format: 'power' }}</td>
         </tr>
         <tr *ngIf="resistanceMin">
           <td>{{ calculateI(resistanceMin) | format: 'ampere' }}</td>
           <td class="text-primary">{{ u | format: 'volt' }}</td>
           <td>{{ resistanceMin | format: 'resistanceMin' }}</td>
+          <td>{{ calculatePower(u, calculateI(resistanceMin)) | format: 'power' }}</td>
         </tr>
         </tbody>
       </table>
