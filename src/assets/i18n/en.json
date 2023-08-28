@@ -4,7 +4,7 @@
   "arduinoStarterKit": "Arduino Starter Kit",
   "arduinoStarterKitInfo": "List of resistors used in the Arduino Starter Kit.",
   "arduinoStarterKitLink": "https://store.arduino.cc/products/arduino-starter-kit-multi-language",
-  "backToHomePage": "Back to home page",
+  "backToHomePage": "back to home page",
   "bands": "{{ bandsCount }} band",
   "characteristics": "characteristics",
   "charts": "charts",
@@ -26,7 +26,7 @@
     "yellow": "yellow"
   },
   "colors": "colors",
-  "current": "Current",
+  "current": "current",
   "dark": "dark",
   "digit1": "1st band",
   "digit2": "2nd band",
@@ -35,7 +35,7 @@
   "label": "label",
   "language": "language",
   "light": "light",
-  "moreInfoOn": "More information on",
+  "moreInfoOn": "more information on",
   "multiplier": "multiplier",
   "notBeFound": "The requested page could not be found.",
   "ohmsLaw": "Ohm's Law",
@@ -46,9 +46,9 @@
   "resistanceMax": "resistance max",
   "resistanceMin": "resistance min",
   "resistor": "resistor",
-  "selectResistorInArduinoStarterKit": "Select a resistor in the Arduino Starter Kit",
-  "selectResistorInSeriesE12": "Select a resistor in the E12 series (±5%)",
-  "selectResistorInSeriesE24": "Select a resistor in the E24series (±1%)",
+  "selectResistorInArduinoStarterKit": "select a resistor in the Arduino Starter Kit",
+  "selectResistorInSeriesE12": "select a resistor in the E12 series (±5%)",
+  "selectResistorInSeriesE24": "select a resistor in the E24series (±1%)",
   "seriesE12": "E12 series (±5%)",
   "seriesE12Info": "The E12 series is a subset of the E24 series.",
   "seriesE24": "E24 series (±1%)",
@@ -60,5 +60,7 @@
   "toleranceOhm": "tolerance (Ohm)",
   "value": "value",
   "voltage": "Voltage",
-  "wikipedia": "Wikipedia"
+  "wikipedia": "Wikipedia",
+  "calculateVoltage": "calculate voltage (U)",
+  "calculateCurrentIntensity": "calculate current intensity (I)"
 }

@@ -4,30 +4,30 @@
     <thead>
     <tr>
       <th scope="col">
-        {{ t('color') | titlecase }}
+        {{ t('color') | title }}
       </th>
       <th scope="col" class="pb-0">
-        {{ t('digit1') | titlecase }}
+        {{ t('digit1') | title }}
         <div [appResistorColor]="decode.digit1.color" class="p-1 rounded-pill"></div>
       </th>
       <th scope="col" class="pb-0">
-        {{ t('digit2') | titlecase }}
+        {{ t('digit2') | title }}
         <div [appResistorColor]="decode.digit2.color" class="p-1 rounded-pill"></div>
       </th>
       <th scope="col" class="pb-0" *ngIf="decode.digit3.active">
-        {{ t('digit3') | titlecase }}
+        {{ t('digit3') | title }}
         <div [appResistorColor]="decode.digit3.color" class="p-1 rounded-pill"></div>
       </th>
       <th scope="col" class="pb-0">
-        {{ t('multiplier') | titlecase }}
+        {{ t('multiplier') | title }}
         <div [appResistorColor]="decode.multiplier.color" class="p-1 rounded-pill"></div>
       </th>
       <th scope="col" class="pb-0">
-        {{ t('tolerance') | titlecase }}
+        {{ t('tolerance') | title }}
         <div [appResistorColor]="decode.tolerance.color" class="p-1 rounded-pill"></div>
       </th>
       <th scope="col" class="pb-0" *ngIf="decode.thermalCoefficient.active">
-        {{ t('thermalCoefficient') | titlecase }}
+        {{ t('thermalCoefficient') | title }}
         <div [appResistorColor]="decode.thermalCoefficient.color"
              class="p-1 rounded-pill"></div>
       </th>
@@ -38,7 +38,7 @@
       <!-- colors -->
       <th scope="row">
         <div [appResistorColor]="color" class="color-name text-start rounded-pill">
-          {{ t('colorName.' + color) | titlecase }}
+          {{ t('colorName.' + color) | title }}
         </div>
       </th>
       <!-- digit1 -->

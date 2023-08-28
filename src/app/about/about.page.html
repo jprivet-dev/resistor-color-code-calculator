@@ -1,5 +1,5 @@
 <div class="container-sm pt-5" *transloco="let t">
-  <h1 class="mb-4">{{ t('about') | titlecase }}</h1>
+  <h1 class="mb-4">{{ t('about') | title }}</h1>
   <div class="fs-4" *ngIf="langLabel$ | async as langLabel">
     <ng-container *ngIf="langLabel === 'fr'; else langEn">
       <p>

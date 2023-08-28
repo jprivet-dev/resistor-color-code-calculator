@@ -4,59 +4,59 @@
       <table class="table table-striped table-characteristics">
         <thead>
         <tr>
-          <th scope="col">{{ t('label') | titlecase }}</th>
-          <th scope="col">{{ t('value') | titlecase }}</th>
+          <th scope="col">{{ t('label') | title }}</th>
+          <th scope="col">{{ t('value') | title }}</th>
         </tr>
         </thead>
         <tbody>
         <tr>
-          <th scope="row">{{ t('colors') | titlecase }}</th>
+          <th scope="row">{{ t('colors') | title }}</th>
           <td>
             <span [appResistorColor]="decode.digit1.color"
-                  [title]="t('colorName.' + decode.digit1.color)"
+                  [title]="t('colorName.' + decode.digit1.color) | title"
                   class="circle-color"></span>
             <span [appResistorColor]="decode.digit2.color"
-                  [title]="t('colorName.' + decode.digit2.color)"
+                  [title]="t('colorName.' + decode.digit2.color) | title"
                   class="circle-color"></span>
             <span [appResistorColor]="decode.digit3.color"
                   *ngIf="decode.digit3.active"
-                  [title]="t('colorName.' + decode.digit3.color)"
+                  [title]="t('colorName.' + decode.digit3.color) | title"
                   class="circle-color"></span>
             <span [appResistorColor]="decode.multiplier.color"
-                  [title]="t('colorName.' + decode.multiplier.color)"
+                  [title]="t('colorName.' + decode.multiplier.color) | title"
                   class="circle-color"></span>
             <span [appResistorColor]="decode.tolerance.color"
                   *ngIf="decode.tolerance.active"
-                  [title]="t('colorName.' + decode.tolerance.color)"
+                  [title]="t('colorName.' + decode.tolerance.color) | title"
                   class="circle-color"></span>
             <span [appResistorColor]="decode.thermalCoefficient.color"
                   *ngIf="decode.thermalCoefficient.active"
-                  [title]="t('colorName.' + decode.thermalCoefficient.color)"
+                  [title]="t('colorName.' + decode.thermalCoefficient.color) | title"
                   class="circle-color"></span>
           </td>
         </tr>
         <tr>
-          <th scope="row">{{ t('resistance') | titlecase }}</th>
+          <th scope="row">{{ t('resistance') | title }}</th>
           <td>{{ resistance | format: 'resistance' }}</td>
         </tr>
         <tr>
-          <th scope="row">{{ t('resistanceMax') | titlecase }}</th>
+          <th scope="row">{{ t('resistanceMax') | title }}</th>
           <td>{{ resistanceMax | format: 'resistance' }}</td>
         </tr>
         <tr>
-          <th scope="row">{{ t('resistanceMin') | titlecase }}</th>
+          <th scope="row">{{ t('resistanceMin') | title }}</th>
           <td>{{ resistanceMin | format: 'resistance' }}</td>
         </tr>
         <tr>
-          <th scope="row">{{ t('tolerance') | titlecase }}</th>
+          <th scope="row">{{ t('tolerance') | title }}</th>
           <td>{{ tolerance | format: 'tolerance' }}</td>
         </tr>
         <tr>
-          <th scope="row">{{ t('toleranceOhm') | titlecase }}</th>
+          <th scope="row">{{ t('toleranceOhm') | title }}</th>
           <td>{{ toleranceOhm | format: 'toleranceOhm' }}</td>
         </tr>
         <tr *ngIf="decode.thermalCoefficient.active">
-          <th scope="row">{{ t('thermalCoefficient') | titlecase }}</th>
+          <th scope="row">{{ t('thermalCoefficient') | title }}</th>
           <td>{{ thermalCoefficient | format: 'thermalCoefficient' }}</td>
         </tr>
         </tbody>

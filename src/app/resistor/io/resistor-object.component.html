@@ -3,30 +3,30 @@
     <div class="leads rounded-top-4"></div>
     <div class="body rounded-3 d-flex align-self-stretch">
       <div [appResistorColor]="decode.digit1.color"
-           ngbTooltip="{{ t('digit1') | titlecase }}" placement="bottom"
+           ngbTooltip="{{ t('digit1') | title }}" placement="bottom"
            class="band band-digit1 active border-0"
       ></div>
       <div [appResistorColor]="decode.digit2.color"
-           ngbTooltip="{{ t('digit2') | titlecase }}" placement="bottom"
+           ngbTooltip="{{ t('digit2') | title }}" placement="bottom"
            class="band band-digit2 active border-0"
       ></div>
       <div [appResistorColor]="decode.digit3.color"
            [class.active]="decode.digit3.active"
-           ngbTooltip="{{ t('digit3') | titlecase }}" placement="bottom"
+           ngbTooltip="{{ t('digit3') | title }}" placement="bottom"
            class="band band-digit3 border-0"
       ></div>
       <div [appResistorColor]="decode.multiplier.color"
-           ngbTooltip="{{ t('multiplier') | titlecase }}" placement="bottom"
+           ngbTooltip="{{ t('multiplier') | title }}" placement="bottom"
            class="band band-multiplier active border-0"
       ></div>
       <div [appResistorColor]="decode.tolerance.color"
            [class.active]="decode.tolerance.active"
-           ngbTooltip="{{ t('tolerance') | titlecase }}" placement="bottom"
+           ngbTooltip="{{ t('tolerance') | title }}" placement="bottom"
            class="band band-tolerance border-0"
       ></div>
       <div [appResistorColor]="decode.thermalCoefficient.color"
            [class.active]="decode.thermalCoefficient.active"
-           ngbTooltip="{{ t('thermalCoefficient') | titlecase }}" placement="bottom"
+           ngbTooltip="{{ t('thermalCoefficient') | title }}" placement="bottom"
            class="band band-thermalCoefficient border-0"
       ></div>
     </div>

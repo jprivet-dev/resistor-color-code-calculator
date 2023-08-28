@@ -47,17 +47,17 @@
     </div>
 
     <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-3">
-      <button (click)="openOffcanvasE12()" [title]="t('selectResistorInSeriesE12')"
+      <button (click)="openOffcanvasE12()" [title]="t('selectResistorInSeriesE12') | title"
               class="btn btn-outline-primary">
-        {{ t('seriesE12') }}
+        {{ t('seriesE12') | title }}
       </button>
-      <button (click)="openOffcanvasE24()" [title]="t('selectResistorInSeriesE24')"
+      <button (click)="openOffcanvasE24()" [title]="t('selectResistorInSeriesE24') | title"
               class="btn btn-outline-primary">
-        {{ t('seriesE24') }}
+        {{ t('seriesE24') | title }}
       </button>
-      <button (click)="openOffcanvasArduinoStarterKit()" [title]="t('selectResistorInArduinoStarterKit')"
+      <button (click)="openOffcanvasArduinoStarterKit()" [title]="t('selectResistorInArduinoStarterKit') | title"
               class="btn btn-outline-primary">
-        {{ t('arduinoStarterKit') }}
+        {{ t('arduinoStarterKit') | title }}
       </button>
     </div>
   </ng-container>

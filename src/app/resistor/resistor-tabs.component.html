@@ -2,7 +2,7 @@
     <ul ngbNav #nav="ngbNav" [(activeId)]="activeTabId" class="nav-tabs nav-fill">
       <li [ngbNavItem]="1">
         <button ngbNavLink>
-          <h4 class="mb-0">{{ t('characteristics') | titlecase }}</h4>
+          <h4 class="mb-0">{{ t('characteristics') | title }}</h4>
         </button>
         <ng-template ngbNavContent>
           <app-resistor-characteristics
@@ -18,7 +18,7 @@
       </li>
       <li [ngbNavItem]="2">
         <button ngbNavLink>
-          <h4 class="mb-0">{{ t('ohmsLaw') }}</h4>
+          <h4 class="mb-0">{{ t('ohmsLaw') | title }}</h4>
         </button>
         <ng-template ngbNavContent>
           <app-resistor-ohm-law
