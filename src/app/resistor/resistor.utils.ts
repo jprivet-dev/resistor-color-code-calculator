@@ -4,8 +4,8 @@ import {
   Decode,
   Resistor,
   resistorConfig,
-  SeriesE12Item,
-  SeriesE12Subset,
+  SeriesE24Item,
+  SeriesE24Subset,
 } from './resistor.model';
 
 export function decodeResistor(decode: Decode, resistor: Resistor): Decode {
@@ -55,7 +55,7 @@ function value(resistor: Resistor, bandName: BandName): number | null {
   return resistorConfig[bandName][resistor[bandName].color];
 }
 
-export function generateSeriesE12(): SeriesE12Item[] {
+export function generateSeriesE24(): SeriesE24Item[] {
   const multiplierColorByDecade: BandColor[] = [
     'silver',
     'gold',
@@ -69,7 +69,7 @@ export function generateSeriesE12(): SeriesE12Item[] {
     'violet',
   ];
 
-  const seriesE12Subsets: SeriesE12Subset[] = [
+  const seriesE24Subsets: SeriesE24Subset[] = [
     { value: 1.0, digit1: 'brown', digit2: 'black' },
     { value: 1.2, digit1: 'brown', digit2: 'red' },
     { value: 1.5, digit1: 'brown', digit2: 'green' },
@@ -84,10 +84,10 @@ export function generateSeriesE12(): SeriesE12Item[] {
     { value: 8.2, digit1: 'grey', digit2: 'red' },
   ];
 
-  const series: SeriesE12Item[] = [];
+  const series: SeriesE24Item[] = [];
 
   for (let decade = 2; decade <= 7; decade++) {
-    seriesE12Subsets.forEach((subset) => {
+    seriesE24Subsets.forEach((subset) => {
       series.push({
         value: Math.round(subset.value * Math.pow(10, decade - 1)),
         digit1: subset.digit1,
@@ -100,7 +100,7 @@ export function generateSeriesE12(): SeriesE12Item[] {
   }
 
   const decade = 8;
-  const subset = seriesE12Subsets[0];
+  const subset = seriesE24Subsets[0];
   series.push({
     value: Math.round(subset.value * Math.pow(10, decade - 1)),
     digit1: subset.digit1,
@@ -111,10 +111,4 @@ export function generateSeriesE12(): SeriesE12Item[] {
   });
 
   return series;
-}
-
-export function generateArduinoStarterKit(): SeriesE12Item[] {
-  return generateSeriesE12().filter((item) =>
-    [220, 560, 1000, 4700, 10000, 1000000, 10000000].includes(item.value),
-  );
 }

@@ -31,7 +31,7 @@ export class ResistorFacade {
   private resistorService = inject(ResistorService);
   private characteristicsService = inject(ResistorCharacteristicsService);
 
-  private seriesNameSubject = new BehaviorSubject<SeriesName>('E12');
+  private seriesNameSubject = new BehaviorSubject<SeriesName>('E24');
   readonly seriesName$ = this.seriesNameSubject.asObservable();
 
   readonly bandsCounts = this.resistorService.bandsCounts;
