@@ -8,8 +8,8 @@
             <option value="E12" [selected]="seriesName === 'E12'">
               {{ t('seriesE12') | title }}
             </option>
-            <option value="E24" [selected]="seriesName === 'E24'">
-              {{ t('seriesE24') | title }}
+            <option value="E96" [selected]="seriesName === 'E96'">
+              {{ t('seriesE96') | title }}
             </option>
             <option value="ArduinoStarterKit" [selected]="seriesName === 'ArduinoStarterKit'">
               {{ t('arduinoStarterKit') | title }}
@@ -29,7 +29,8 @@
           [resistance]="resistance"
           [decode]="decode"
           (seriesE12ItemEvent)="chooseSeriesE12Item($event)"
-          (seriesE24ItemEvent)="chooseSeriesE24Item($event)"
+          [seriesE96Items]="seriesE96Items"
+          (seriesE96ItemEvent)="chooseSeriesE96Item($event)"
         ></app-resistor-series>
       </div>
     </ng-container>

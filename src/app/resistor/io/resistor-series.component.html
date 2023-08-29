@@ -26,17 +26,17 @@
         </div>
       </button>
     </div>
-    <div *ngIf="seriesName === 'E24'" class="series-E24">
+    <div *ngIf="seriesName === 'E96'" class="series-E96">
       <p>
-        {{ t('seriesE24Info') }}
+        {{ t('seriesE96Info') }}
         {{ t('moreInfoOn') | title }}
         <a href="{{ t('seriesELink') }}" target="_blank">
           {{t('wikipedia')}}
           <i class="bi bi-box-arrow-up-right ms-1"></i>
         </a>.
       </p>
-      <button *ngFor="let item of seriesE24Items"
-              (click)="chooseSeriesE24Item(item)"
+      <button *ngFor="let item of seriesE96Items"
+              (click)="chooseSeriesE96Item(item)"
               [class.active]="decode.bandsCount === 5 && item.value === resistance"
               type="button" class="btn btn-outline-secondary btn-choose-resistor me-2 mb-2">
         <div class="d-flex flex-column">

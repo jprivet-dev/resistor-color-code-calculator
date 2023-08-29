@@ -184,6 +184,11 @@ export interface ValueToColorDigit123 {
   value: number;
 }
 
+export interface ValueToColorMultiplier {
+  color: BandColor;
+  power: number;
+}
+
 export function valueToColorDigit123(value: number): BandColor {
   const valueToColorItems: ValueToColorDigit123[] = [
     { color: 'black', value: 0 },
@@ -206,7 +211,29 @@ export function valueToColorDigit123(value: number): BandColor {
   throw new Error(`Color does not exist for value "${value}".`);
 }
 
-export type SeriesName = 'E12' | 'E24' | 'ArduinoStarterKit';
+export function valueToColorMultiplier(power: number): BandColor {
+  const valueToColorItems: ValueToColorMultiplier[] = [
+    { color: 'black', power: 0 },
+    { color: 'brown', power: 1 },
+    { color: 'red', power: 2 },
+    { color: 'orange', power: 3 },
+    { color: 'yellow', power: 4 },
+    { color: 'green', power: 5 },
+    { color: 'blue', power: 6 },
+    { color: 'violet', power: 7 },
+    { color: 'gold', power: -1 },
+    { color: 'silver', power: -2 },
+  ];
+
+  const valueToColor = valueToColorItems.find((item) => item.power === power);
+  if (valueToColor) {
+    return valueToColor.color;
+  }
+
+  throw new Error(`Color does not exist for value "${power}".`);
+}
+
+export type SeriesName = 'E12' | 'E96' | 'ArduinoStarterKit';
 
 export interface SeriesE12Subset {
   value: number;
@@ -223,14 +250,14 @@ export interface SeriesE12Item {
   bandsCount: number;
 }
 
-export interface SeriesE24Subset {
+export interface SeriesE96Subset {
   value: number;
   digit1: BandColor;
   digit2: BandColor;
   digit3: BandColor;
 }
 
-export interface SeriesE24Item {
+export interface SeriesE96Item {
   value: number;
   digit1: BandColor;
   digit2: BandColor;
