@@ -179,15 +179,69 @@ export const resistorConfig: ResistorConfig = {
   },
 };
 
-export type SeriesName = 'E12' | 'E24' | 'ArduinoStarterKit';
+export interface ValueToColorDigit123 {
+  color: BandColor;
+  value: number;
+}
 
-export interface SeriesE12Subset {
+export interface ValueToColorMultiplier {
+  color: BandColor;
+  power: number;
+}
+
+export function valueToColorDigit123(value: number): BandColor {
+  const valueToColorItems: ValueToColorDigit123[] = [
+    { color: 'black', value: 0 },
+    { color: 'brown', value: 1 },
+    { color: 'red', value: 2 },
+    { color: 'orange', value: 3 },
+    { color: 'yellow', value: 4 },
+    { color: 'green', value: 5 },
+    { color: 'blue', value: 6 },
+    { color: 'violet', value: 7 },
+    { color: 'grey', value: 8 },
+    { color: 'white', value: 9 },
+  ];
+
+  const valueToColor = valueToColorItems.find((item) => item.value === value);
+  if (valueToColor) {
+    return valueToColor.color;
+  }
+
+  throw new Error(`Color does not exist for value "${value}".`);
+}
+
+export function valueToColorMultiplier(power: number): BandColor {
+  const valueToColorItems: ValueToColorMultiplier[] = [
+    { color: 'black', power: 0 },
+    { color: 'brown', power: 1 },
+    { color: 'red', power: 2 },
+    { color: 'orange', power: 3 },
+    { color: 'yellow', power: 4 },
+    { color: 'green', power: 5 },
+    { color: 'blue', power: 6 },
+    { color: 'violet', power: 7 },
+    { color: 'gold', power: -1 },
+    { color: 'silver', power: -2 },
+  ];
+
+  const valueToColor = valueToColorItems.find((item) => item.power === power);
+  if (valueToColor) {
+    return valueToColor.color;
+  }
+
+  throw new Error(`Color does not exist for value "${power}".`);
+}
+
+export type SeriesName = 'E12' | 'E24' | 'E96' | 'ArduinoStarterKit';
+
+export interface SeriesE24Subset {
   value: number;
   digit1: BandColor;
   digit2: BandColor;
 }
 
-export interface SeriesE12Item {
+export interface SeriesE24Item {
   value: number;
   digit1: BandColor;
   digit2: BandColor;
@@ -196,14 +250,14 @@ export interface SeriesE12Item {
   bandsCount: number;
 }
 
-export interface SeriesE24Subset {
+export interface SeriesE96Subset {
   value: number;
   digit1: BandColor;
   digit2: BandColor;
   digit3: BandColor;
 }
 
-export interface SeriesE24Item {
+export interface SeriesE96Item {
   value: number;
   digit1: BandColor;
   digit2: BandColor;
@@ -222,3 +276,9 @@ export const resistorDefault: Resistor = {
   thermalCoefficient: { color: 'red' },
   bandsCount: 4,
 };
+
+export interface ExtractColorDigit123 {
+  digit1: BandColor;
+  digit2: BandColor;
+  digit3: BandColor;
+}

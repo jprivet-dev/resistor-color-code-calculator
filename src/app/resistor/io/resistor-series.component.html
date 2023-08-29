@@ -37,6 +37,32 @@
       </p>
       <button *ngFor="let item of seriesE24Items"
               (click)="chooseSeriesE24Item(item)"
+              [class.active]="decode.bandsCount === 4 && item.value === resistance"
+              type="button" class="btn btn-outline-secondary btn-choose-resistor me-2 mb-2">
+        <div class="d-flex flex-column">
+          <div class="label text-light-theme px-2 py-1">
+            {{ item.value | format: 'resistance' }}
+          </div>
+          <div class="bands-colors d-flex rounded-1">
+            <div class="color" [appResistorColor]="item.digit1"></div>
+            <div class="color" [appResistorColor]="item.digit2"></div>
+            <div class="color" [appResistorColor]="item.multiplier"></div>
+            <div class="color" [appResistorColor]="item.tolerance"></div>
+          </div>
+        </div>
+      </button>
+    </div>
+    <div *ngIf="seriesName === 'E96'" class="series-E96">
+      <p>
+        {{ t('seriesE96Info') }}
+        {{ t('moreInfoOn') | title }}
+        <a href="{{ t('seriesELink') }}" target="_blank">
+          {{t('wikipedia')}}
+          <i class="bi bi-box-arrow-up-right ms-1"></i>
+        </a>.
+      </p>
+      <button *ngFor="let item of seriesE96Items"
+              (click)="chooseSeriesE96Item(item)"
               [class.active]="decode.bandsCount === 5 && item.value === resistance"
               type="button" class="btn btn-outline-secondary btn-choose-resistor me-2 mb-2">
         <div class="d-flex flex-column">
@@ -63,7 +89,7 @@
         </a>.
       </p>
       <button *ngFor="let item of arduinoStarterKitItems"
-              (click)="chooseSeriesE12Item(item)"
+              (click)="chooseSeriesE24Item(item)"
               [class.active]="decode.bandsCount === 4 && item.value === resistance"
               type="button" class="btn btn-outline-secondary btn-choose-resistor me-2 mb-2">
         <div class="d-flex flex-column">

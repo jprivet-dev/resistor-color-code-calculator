@@ -62,4 +62,8 @@ export class ResistorComponent implements OnInit {
   openOffcanvasE24(): void {
     this.facade.openOffcanvas('E24');
   }
+
+  openOffcanvasE96(): void {
+    this.facade.openOffcanvas('E96');
+  }
 }
