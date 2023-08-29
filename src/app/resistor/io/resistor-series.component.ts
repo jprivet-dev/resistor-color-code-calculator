@@ -15,12 +15,18 @@ export class ResistorSeriesComponent {
   @Input() seriesName!: SeriesName;
   @Input() resistance!: number;
   @Input() decode!: Readonly<Decode>;
+  @Output() seriesE12ItemEvent = new EventEmitter<SeriesE24Item>();
   @Output() seriesE24ItemEvent = new EventEmitter<SeriesE24Item>();
   @Output() seriesE96ItemEvent = new EventEmitter<SeriesE96Item>();
 
+  @Input() seriesE12Items!: SeriesE24Item[];
   @Input() seriesE24Items!: SeriesE24Item[];
   @Input() seriesE96Items!: SeriesE96Item[];
   @Input() arduinoStarterKitItems!: SeriesE24Item[];
+
+  chooseSeriesE12Item(item: SeriesE24Item): void {
+    this.seriesE24ItemEvent.emit(item);
+  }
 
   chooseSeriesE24Item(item: SeriesE24Item): void {
     this.seriesE24ItemEvent.emit(item);

@@ -233,7 +233,7 @@ export function valueToColorMultiplier(power: number): BandColor {
   throw new Error(`Color does not exist for value "${power}".`);
 }
 
-export type SeriesName = 'E24' | 'E96' | 'ArduinoStarterKit';
+export type SeriesName = 'E12' | 'E24' | 'E96' | 'ArduinoStarterKit';
 
 export interface SeriesE24Subset {
   value: number;
