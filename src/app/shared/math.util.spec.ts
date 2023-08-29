@@ -1,60 +1,67 @@
 import { parseFloatFixed } from './math.util';
 
 describe('math.util', () => {
-  it('should be use parseFloatFixed', () => {
-    expect(parseFloatFixed(1, 0)).toEqual(1);
-    expect(parseFloatFixed(1.0, 0)).toEqual(1);
-    expect(parseFloatFixed(1.0, 0)).toEqual(1);
+  const parseFloatFixedData: {
+    value: number;
+    digits: number;
+    expected: number;
+  }[] = [
+    { value: 1, digits: 0, expected: 1 },
+    { value: 1.0, digits: 0, expected: 1 },
+    { value: 1.0, digits: 0, expected: 1 },
 
-    expect(parseFloatFixed(1, 2)).toEqual(1);
-    expect(parseFloatFixed(1.0, 2)).toEqual(1);
-    expect(parseFloatFixed(1.0, 2)).toEqual(1);
-    expect(parseFloatFixed(1.1, 2)).toEqual(1.1);
-    expect(parseFloatFixed(1.01, 2)).toEqual(1.01);
-    expect(parseFloatFixed(1.001, 2)).toEqual(1);
+    { value: 1, digits: 2, expected: 1 },
+    { value: 1.0, digits: 2, expected: 1 },
+    { value: 1.1, digits: 2, expected: 1.1 },
+    { value: 1.01, digits: 2, expected: 1.01 },
+    { value: 1.001, digits: 2, expected: 1 },
 
-    expect(parseFloatFixed(1, 3)).toEqual(1);
-    expect(parseFloatFixed(1.001, 3)).toEqual(1.001);
+    { value: 1, digits: 3, expected: 1 },
+    { value: 1.001, digits: 3, expected: 1.001 },
 
-    expect(parseFloatFixed(1, 4)).toEqual(1);
-    expect(parseFloatFixed(1.0001, 4)).toEqual(1.0001);
-    expect(parseFloatFixed(1.00010001, 4)).toEqual(1.0001);
+    { value: 1, digits: 4, expected: 1 },
+    { value: 1.0001, digits: 4, expected: 1.0001 },
+    { value: 1.00010001, digits: 4, expected: 1.0001 },
 
-    expect(parseFloatFixed(1, 5)).toEqual(1);
-    expect(parseFloatFixed(1.00001, 5)).toEqual(1.00001);
-    expect(parseFloatFixed(1.0000100001, 5)).toEqual(1.00001);
+    { value: 1, digits: 5, expected: 1 },
+    { value: 1.00001, digits: 5, expected: 1.00001 },
+    { value: 1.0000100001, digits: 5, expected: 1.00001 },
 
-    expect(parseFloatFixed(1, 10)).toEqual(1);
-    expect(parseFloatFixed(1.0000000001, 10)).toEqual(1.0000000001);
-    expect(parseFloatFixed(1.00000000010000001, 10)).toEqual(1.0000000001);
+    { value: 1, digits: 10, expected: 1 },
+    { value: 1.0000000001, digits: 10, expected: 1.0000000001 },
+    { value: 1.00000000010000001, digits: 10, expected: 1.0000000001 },
 
-    expect(parseFloatFixed(9, 0)).toEqual(9);
-    expect(parseFloatFixed(9.0, 0)).toEqual(9);
-    expect(parseFloatFixed(9.0, 0)).toEqual(9);
+    { value: 9, digits: 0, expected: 9 },
+    { value: 9.0, digits: 0, expected: 9 },
+    { value: 9.0, digits: 0, expected: 9 },
 
-    expect(parseFloatFixed(9, 2)).toEqual(9);
-    expect(parseFloatFixed(9.0, 2)).toEqual(9);
-    expect(parseFloatFixed(9.0, 2)).toEqual(9);
-    expect(parseFloatFixed(9.9, 2)).toEqual(9.9);
-    expect(parseFloatFixed(9.09, 2)).toEqual(9.09);
-    expect(parseFloatFixed(9.009, 2)).toEqual(9.01);
+    { value: 9, digits: 2, expected: 9 },
+    { value: 9.0, digits: 2, expected: 9 },
+    { value: 9.9, digits: 2, expected: 9.9 },
+    { value: 9.09, digits: 2, expected: 9.09 },
+    { value: 9.009, digits: 2, expected: 9.01 },
 
-    expect(parseFloatFixed(9.09, 1)).toEqual(9.1);
-    expect(parseFloatFixed(9.009, 1)).toEqual(9);
+    { value: 9, digits: 3, expected: 9 },
+    { value: 9.009, digits: 3, expected: 9.009 },
 
-    expect(parseFloatFixed(9, 3)).toEqual(9);
-    expect(parseFloatFixed(9.009, 3)).toEqual(9.009);
+    { value: 9, digits: 4, expected: 9 },
+    { value: 9.0009, digits: 4, expected: 9.0009 },
+    { value: 9.00090009, digits: 4, expected: 9.0009 },
 
-    expect(parseFloatFixed(9, 4)).toEqual(9);
-    expect(parseFloatFixed(9.0009, 4)).toEqual(9.0009);
-    expect(parseFloatFixed(9.00090009, 4)).toEqual(9.0009);
+    { value: 9, digits: 5, expected: 9 },
+    { value: 9.00009, digits: 5, expected: 9.00009 },
+    { value: 9.0000900009, digits: 5, expected: 9.00009 },
 
-    expect(parseFloatFixed(9, 5)).toEqual(9);
-    expect(parseFloatFixed(9.00009, 5)).toEqual(9.00009);
-    expect(parseFloatFixed(9.0000900009, 5)).toEqual(9.00009);
+    { value: 9, digits: 10, expected: 9 },
+    { value: 9.0000000009, digits: 10, expected: 9.0000000009 },
+    { value: 9.000000000900009, digits: 10, expected: 9.0000000009 },
+  ];
 
-    expect(parseFloatFixed(9, 10)).toEqual(9);
-    expect(parseFloatFixed(9.0000000009, 10)).toEqual(9.0000000009);
-    expect(parseFloatFixed(9.000000000900009, 10)).toEqual(9.0000000009);
+  describe('should be use parseFloatFixed', () => {
+    parseFloatFixedData.forEach((data) => {
+      it(`Expect ${data.expected} for value: ${data.value} and fractionDigits: ${data.digits}`, () => {
+        expect(parseFloatFixed(data.value, data.digits)).toBe(data.expected);
+      });
+    });
   });
 });

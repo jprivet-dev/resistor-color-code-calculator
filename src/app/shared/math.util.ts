@@ -1,5 +1,5 @@
-export function parseFloatFixed(value: number, fractionDigits: number): number {
-  return parseFloat(value.toFixed(fractionDigits));
+export function parseFloatFixed(value: number, digits: number): number {
+  return parseFloat(value.toFixed(digits));
 }
 
 // Scientific notations
