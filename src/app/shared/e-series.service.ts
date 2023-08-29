@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
+import { valueToColorDigit123 } from '../resistor/resistor.model';
+import { ExtractColorDigit123 } from '../resistor/resistor.model';
 import { ESeries, eSeriesList, ESeriesName } from './e-series.model';
 import { parseFloatFixed } from './math.util';
+import { extractDigits } from './math.util';
 
 @Injectable({
   providedIn: 'root',
@@ -39,5 +42,25 @@ export class ESeriesService {
     } while (value <= end);
 
     return values;
+  }
+
+  extractColorDigit123(value: number): ExtractColorDigit123 {
+    let digits = extractDigits(value);
+
+    if (digits.length === 1) {
+      digits = `${digits}00`;
+    } else if (digits.length === 2) {
+      digits = `${digits}0`;
+    } else if (digits.length > 3) {
+      throw new Error('Cannot be greater than 3 digits.');
+    }
+
+    const parts: string[] = digits.split('');
+
+    return {
+      digit1: valueToColorDigit123(parseInt(parts[0])),
+      digit2: valueToColorDigit123(parseInt(parts[1])),
+      digit3: valueToColorDigit123(parseInt(parts[2])),
+    };
   }
 }

@@ -1,4 +1,4 @@
-import { parseFloatFixed } from './math.util';
+import { extractDigits, parseFloatFixed } from './math.util';
 
 describe('math.util', () => {
   const parseFloatFixedData: {
@@ -61,6 +61,28 @@ describe('math.util', () => {
     parseFloatFixedData.forEach((data) => {
       it(`Expect ${data.expected} for value: ${data.value} and fractionDigits: ${data.digits}`, () => {
         expect(parseFloatFixed(data.value, data.digits)).toBe(data.expected);
+      });
+    });
+  });
+
+  const extractDigitsData: {
+    value: number;
+    expected: string;
+  }[] = [
+    { value: 100, expected: '100' },
+    { value: 1.0, expected: '1' },
+    { value: 10.0, expected: '10' },
+    { value: 111, expected: '111' },
+    { value: 1.11, expected: '111' },
+    { value: 11.1, expected: '111' },
+    { value: 1.23456789, expected: '123456789' },
+    { value: 12345678.9, expected: '123456789' },
+  ];
+
+  describe('should be use extractDigits', () => {
+    extractDigitsData.forEach((data) => {
+      it(`Expect ${data.expected} for value: ${data.value}`, () => {
+        expect(extractDigits(data.value)).toBe(data.expected);
       });
     });
   });

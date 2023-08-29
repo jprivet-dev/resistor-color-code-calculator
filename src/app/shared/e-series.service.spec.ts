@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { ExtractColorDigit123 } from '../resistor/resistor.model';
 
 import { ESeriesService } from './e-series.service';
 import { k, M } from './math.util';
@@ -62,5 +63,43 @@ describe('ESeriesService', () => {
       9.76 * M,
       9.88 * M,
     ]);
+  });
+
+  const extractColorDigit123Data: {
+    value: number;
+    expected: ExtractColorDigit123;
+  }[] = [
+    {
+      value: 100,
+      expected: { digit1: 'brown', digit2: 'black', digit3: 'black' },
+    },
+    {
+      value: 10,
+      expected: { digit1: 'brown', digit2: 'black', digit3: 'black' },
+    },
+    {
+      value: 1,
+      expected: { digit1: 'brown', digit2: 'black', digit3: 'black' },
+    },
+    {
+      value: 123,
+      expected: { digit1: 'brown', digit2: 'red', digit3: 'orange' },
+    },
+    {
+      value: 456,
+      expected: { digit1: 'yellow', digit2: 'green', digit3: 'blue' },
+    },
+    {
+      value: 789,
+      expected: { digit1: 'violet', digit2: 'grey', digit3: 'white' },
+    },
+  ];
+
+  describe('should be extract color of digit 1, 2 and 3 from a value', () => {
+    extractColorDigit123Data.forEach((data) => {
+      fit(`Expect "${data.expected.digit1} ${data.expected.digit2} ${data.expected.digit3}" for value: ${data.value}`, () => {
+        expect(service.extractColorDigit123(data.value)).toEqual(data.expected);
+      });
+    });
   });
 });

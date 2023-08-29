@@ -179,6 +179,33 @@ export const resistorConfig: ResistorConfig = {
   },
 };
 
+export interface ValueToColorDigit123 {
+  color: BandColor;
+  value: number;
+}
+
+export function valueToColorDigit123(value: number): BandColor {
+  const valueToColorItems: ValueToColorDigit123[] = [
+    { color: 'black', value: 0 },
+    { color: 'brown', value: 1 },
+    { color: 'red', value: 2 },
+    { color: 'orange', value: 3 },
+    { color: 'yellow', value: 4 },
+    { color: 'green', value: 5 },
+    { color: 'blue', value: 6 },
+    { color: 'violet', value: 7 },
+    { color: 'grey', value: 8 },
+    { color: 'white', value: 9 },
+  ];
+
+  const valueToColor = valueToColorItems.find((item) => item.value === value);
+  if (valueToColor) {
+    return valueToColor.color;
+  }
+
+  throw new Error(`Color does not exist for value "${value}".`);
+}
+
 export type SeriesName = 'E12' | 'E24' | 'ArduinoStarterKit';
 
 export interface SeriesE12Subset {
@@ -222,3 +249,9 @@ export const resistorDefault: Resistor = {
   thermalCoefficient: { color: 'red' },
   bandsCount: 4,
 };
+
+export interface ExtractColorDigit123 {
+  digit1: BandColor;
+  digit2: BandColor;
+  digit3: BandColor;
+}
